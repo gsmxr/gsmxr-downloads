@@ -1,24 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="googlebot" content="noindex, nofollow, noarchive">
+
   <title>GSMXR Download</title>
 </head>
+
 <body>
+
 <script>
-  const file = decodeURIComponent(window.location.pathname.substring(1));
+(function () {
 
-  if (file && file !== "404.html") {
-    const url =
-      "https://github.com/gsmxr/gsmxr-downloads/releases/download/downloads/"
-      + encodeURIComponent(file);
+  // URL से exact file name निकालना
+  let file = decodeURIComponent(
+    window.location.pathname.replace(/^\/+|\/+$/g, "")
+  );
 
-    window.location.replace(url);
-  } else {
-    window.location.replace("/");
+  // खाली URL या 404.html हो तो homepage पर भेजना
+  if (!file || file.toLowerCase() === "404.html") {
+    window.location.replace("https://download.gsmxr.com/");
+    return;
   }
+
+  // GitHub Release का actual download URL
+  const githubBase =
+    "https://github.com/gsmxr/gsmxr-downloads/releases/download/downloads/";
+
+  const downloadURL =
+    githubBase + encodeURIComponent(file);
+
+  // Actual file GitHub से download होगी
+  window.location.replace(downloadURL);
+
+})();
 </script>
 
 <p>Starting download...</p>
+
 </body>
 </html>
