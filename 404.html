@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>GSMXR Download</title>
+</head>
+<body>
+<script>
+  const file = decodeURIComponent(window.location.pathname.substring(1));
+
+  if (file && file !== "404.html") {
+    const url =
+      "https://github.com/gsmxr/gsmxr-downloads/releases/download/downloads/"
+      + encodeURIComponent(file);
+
+    window.location.replace(url);
+  } else {
+    window.location.replace("/");
+  }
+</script>
+
+<p>Starting download...</p>
+</body>
+</html>
