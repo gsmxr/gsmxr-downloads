@@ -162,7 +162,7 @@
       line-height:1.65;
     }
 
-    /* SECTIONS */
+    /* SECTION */
 
     .section{
       margin-top:14px;
@@ -255,24 +255,54 @@
       font-size:9px;
     }
 
-    /* FILE GRID */
+    /* ==================================================
+       FILE GRID
+
+       6-column internal grid:
+       Normal card = 2 columns = 3 cards per row.
+
+       Last row:
+       1 card  -> 6 columns = full width
+       2 cards -> 3 + 3 = equal half width
+       3 cards -> 2 + 2 + 2
+       ================================================== */
 
     .files{
       display:grid;
-      grid-template-columns:repeat(3,minmax(0,1fr));
+      grid-template-columns:repeat(6,minmax(0,1fr));
       gap:10px;
+      align-items:stretch;
     }
 
     .file{
+      grid-column:span 2;
       min-width:0;
       padding:14px;
       border:1px solid #e6eaf1;
       border-radius:14px;
       background:#fff;
+
+      display:flex;
+      flex-direction:column;
+      height:100%;
+
       transition:
         transform .15s ease,
         border-color .15s ease,
         box-shadow .15s ease;
+    }
+
+    /* LAST ROW = ONLY 1 CARD */
+
+    .file:nth-last-child(1):nth-child(3n + 1){
+      grid-column:1 / -1;
+    }
+
+    /* LAST ROW = 2 CARDS */
+
+    .file:nth-last-child(2):nth-child(3n + 1),
+    .file:nth-last-child(1):nth-child(3n + 2){
+      grid-column:span 3;
     }
 
     .file:hover{
@@ -328,6 +358,8 @@
 
     .category-badge{
       display:inline-block;
+      width:max-content;
+      max-width:100%;
       margin-top:8px;
       color:#1d4ed8;
       background:#eff6ff;
@@ -344,11 +376,17 @@
       line-height:1.55;
     }
 
+    /*
+      Buttons हमेशा card के bottom पर रहें।
+      इससे same row के cards बराबर दिखेंगे।
+    */
+
     .actions{
       display:grid;
       grid-template-columns:1fr 1fr;
       gap:7px;
-      margin-top:11px;
+      margin-top:auto;
+      padding-top:11px;
     }
 
     .btn{
@@ -360,6 +398,7 @@
       border-radius:9px;
       font-size:10px;
       font-weight:750;
+
       transition:
         transform .18s ease,
         background .18s ease,
@@ -404,6 +443,7 @@
       color:#fff;
       background:#16a34a;
       border-color:#16a34a;
+
       box-shadow:
         0 0 0 4px rgba(22,163,74,.12),
         0 6px 16px rgba(22,163,74,.20);
@@ -412,6 +452,7 @@
     }
 
     @keyframes copyPop{
+
       0%{
         transform:scale(.94);
       }
@@ -423,6 +464,7 @@
       100%{
         transform:scale(1);
       }
+
     }
 
     .loading{
@@ -558,12 +600,32 @@
       color:#344054;
     }
 
-    /* TABLET */
+    /* ==================================================
+       TABLET
+       2 cards per row.
+       Last single card fills whole row.
+       ================================================== */
 
     @media(max-width:900px){
 
       .files{
-        grid-template-columns:repeat(2,1fr);
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
+
+      .file,
+      .file:nth-last-child(1):nth-child(3n + 1),
+      .file:nth-last-child(2):nth-child(3n + 1),
+      .file:nth-last-child(1):nth-child(3n + 2){
+        grid-column:auto;
+      }
+
+      /*
+        अगर tablet में आखिरी सिर्फ 1 card बचा है
+        तो पूरी row भर देगा।
+      */
+
+      .file:last-child:nth-child(odd){
+        grid-column:1 / -1;
       }
 
       .websites{
@@ -575,7 +637,10 @@
       }
     }
 
-    /* MOBILE */
+    /* ==================================================
+       MOBILE
+       हमेशा 1 card per row
+       ================================================== */
 
     @media(max-width:600px){
 
@@ -585,6 +650,11 @@
 
       .files{
         grid-template-columns:1fr;
+      }
+
+      .file,
+      .file:last-child:nth-child(odd){
+        grid-column:auto;
       }
 
       header{
@@ -671,6 +741,7 @@
       .actions{
         grid-template-columns:1fr;
       }
+
     }
   </style>
 </head>
@@ -802,9 +873,7 @@
         href="http://tiny.cc/FollowForDelyUpdate"
         target="_blank"
         rel="noopener noreferrer">
-
         WhatsApp Channel
-
       </a>
 
 
@@ -813,9 +882,7 @@
         href="http://tiny.cc/GsmXRNewsUpdate"
         target="_blank"
         rel="noopener noreferrer">
-
         WhatsApp Community
-
       </a>
 
 
@@ -824,9 +891,7 @@
         href="https://t.me/gsmXrNews"
         target="_blank"
         rel="noopener noreferrer">
-
         Telegram Channel
-
       </a>
 
 
@@ -835,9 +900,7 @@
         href="https://youtube.com/@gsmxr"
         target="_blank"
         rel="noopener noreferrer">
-
         YouTube
-
       </a>
 
     </div>
@@ -1096,9 +1159,7 @@ function autoDetectCategory(filename){
     name.includes("realme") ||
     name.includes("rmx")
   ){
-
     return "Realme Tools";
-
   }
 
 
@@ -1111,9 +1172,7 @@ function autoDetectCategory(filename){
     name.includes("miui") ||
     name.includes("hyperos")
   ){
-
     return "Xiaomi Tools";
-
   }
 
 
@@ -1125,9 +1184,7 @@ function autoDetectCategory(filename){
     name.includes("usb-197") ||
     name.includes("usb_197")
   ){
-
     return "USB Tools";
-
   }
 
 
@@ -1148,9 +1205,7 @@ function autoDetectCategory(filename){
     name.includes("vc-redist") ||
     name.includes("redist")
   ){
-
     return "Drivers & Utilities";
-
   }
 
 
@@ -1204,9 +1259,7 @@ function getFileCategory(filename){
 
 
   if(manual){
-
     return manual;
-
   }
 
 
@@ -1559,9 +1612,7 @@ function renderFiles(files){
           <div class="file-top">
 
             <div class="filename">
-
               ${escapeHTML(file.name)}
-
             </div>
 
 
@@ -1585,9 +1636,7 @@ function renderFiles(files){
 
 
           <div class="category-badge">
-
             ${escapeHTML(category)}
-
           </div>
 
 
@@ -1616,9 +1665,7 @@ function renderFiles(files){
             <a
               class="btn download-btn"
               href="${url}">
-
               Download
-
             </a>
 
 
@@ -1629,9 +1676,7 @@ function renderFiles(files){
                 ${JSON.stringify(url)},
                 this
               )'>
-
               Copy Link
-
             </button>
 
           </div>
@@ -1645,7 +1690,7 @@ function renderFiles(files){
 }
 
 
-/* COPY LINK + POP EFFECT */
+/* COPY LINK */
 
 async function copyLink(
   url,
@@ -1660,11 +1705,6 @@ async function copyLink(
         url
       );
 
-
-    /*
-      अगर पहले से animation लगी हो
-      तो reset करके दुबारा चलाएँ
-    */
 
     button.classList.remove(
       "copied"
