@@ -4,13 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Download subdomain search engine me index na ho -->
   <meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
   <meta name="googlebot" content="noindex,nofollow,noarchive,nosnippet">
 
   <title>GSMXR Downloads</title>
 
-  <!-- Favicon -->
   <link rel="icon"
         href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%232563eb'/%3E%3Cstop offset='1' stop-color='%237c3aed'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='24' fill='url(%23g)'/%3E%3Ctext x='50' y='63' font-size='42' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'%3EGX%3C/text%3E%3C/svg%3E">
 
@@ -30,7 +28,6 @@
       --blue: #2563eb;
       --purple: #7c3aed;
       --green: #16a34a;
-      --telegram: #0284c7;
       --red: #dc2626;
       --orange: #ea580c;
       --dark: #111827;
@@ -47,7 +44,7 @@
     }
 
     .wrap {
-      width: min(1080px, calc(100% - 24px));
+      width: min(1120px, calc(100% - 24px));
       margin: auto;
     }
 
@@ -173,7 +170,7 @@
       line-height: 1.65;
     }
 
-    /* MAIN SECTION */
+    /* SECTION */
 
     .section {
       margin-top: 14px;
@@ -218,11 +215,11 @@
       background: #fff;
     }
 
-    /* FILE CARDS */
+    /* FILE GRID - DESKTOP 3 */
 
     .files {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 10px;
     }
 
@@ -238,6 +235,7 @@
     .file:hover {
       border-color: #cfd7e4;
       box-shadow: 0 5px 18px rgba(15,23,42,.05);
+      transform: translateY(-1px);
     }
 
     .file.pinned {
@@ -254,7 +252,7 @@
 
     .filename {
       min-width: 0;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 750;
       line-height: 1.45;
       overflow-wrap: anywhere;
@@ -262,16 +260,16 @@
 
     .badges {
       display: flex;
-      gap: 5px;
+      gap: 4px;
       flex-shrink: 0;
       flex-wrap: wrap;
       justify-content: flex-end;
     }
 
     .badge {
-      padding: 5px 7px;
+      padding: 4px 6px;
       border-radius: 50px;
-      font-size: 9px;
+      font-size: 8px;
       font-weight: 800;
       white-space: nowrap;
     }
@@ -289,8 +287,8 @@
     .meta {
       margin-top: 8px;
       color: #7b8497;
-      font-size: 11px;
-      line-height: 1.5;
+      font-size: 10px;
+      line-height: 1.55;
     }
 
     .actions {
@@ -305,9 +303,9 @@
       cursor: pointer;
       text-decoration: none;
       text-align: center;
-      padding: 9px 10px;
+      padding: 9px 7px;
       border-radius: 9px;
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 750;
       transition: .15s ease;
     }
@@ -398,12 +396,12 @@
       color: #344054;
     }
 
-    /* TABLET */
+    /* TABLET - 2 CARDS */
 
-    @media(max-width:700px) {
+    @media(max-width:900px) {
 
       .files {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
       .support-grid {
@@ -411,25 +409,21 @@
       }
 
       .hero {
-        padding: 27px 19px;
+        padding: 29px 21px;
       }
 
       .hero h1 {
-        font-size: 28px;
-      }
-
-      .section {
-        padding: 16px;
-      }
-
-      .search {
-        width: 100%;
+        font-size: 30px;
       }
     }
 
-    /* MOBILE */
+    /* MOBILE - 1 CARD */
 
-    @media(max-width:480px) {
+    @media(max-width:600px) {
+
+      .files {
+        grid-template-columns: 1fr;
+      }
 
       .wrap {
         width: calc(100% - 16px);
@@ -464,6 +458,7 @@
       }
 
       .hero {
+        padding: 26px 18px;
         border-radius: 18px;
       }
 
@@ -475,6 +470,14 @@
         font-size: 13px;
       }
 
+      .section {
+        padding: 15px;
+      }
+
+      .search {
+        width: 100%;
+      }
+
       .file-top {
         display: block;
       }
@@ -484,12 +487,20 @@
         margin-top: 7px;
       }
 
-      .actions {
-        grid-template-columns: 1fr 1fr;
+      .filename {
+        font-size: 13px;
+      }
+
+      .meta {
+        font-size: 11px;
+      }
+
+      .btn {
+        font-size: 11px;
       }
     }
 
-    @media(max-width:350px) {
+    @media(max-width:360px) {
 
       .support-grid {
         grid-template-columns: 1fr;
@@ -553,8 +564,6 @@
   </section>
 
 
-  <!-- DOWNLOAD FILES -->
-
   <section class="section">
 
     <div class="section-head">
@@ -590,8 +599,6 @@
 
   </section>
 
-
-  <!-- SUPPORT -->
 
   <section class="section">
 
@@ -732,23 +739,15 @@
 
 <script>
 
-/* ==================================================
-   GSMXR DOWNLOAD SYSTEM
-   ================================================== */
-
 const PUBLIC_DOMAIN = "https://d.gsmxr.com/";
 
 let ALL_FILES = [];
 let PINNED_FILES = [];
 
 
-/* YEAR */
-
 document.getElementById("year").textContent =
   new Date().getFullYear();
 
-
-/* FORMAT SIZE */
 
 function formatSize(bytes) {
 
@@ -781,8 +780,6 @@ function formatSize(bytes) {
 }
 
 
-/* ESCAPE TEXT */
-
 function escapeHTML(value) {
 
   return String(value)
@@ -795,8 +792,6 @@ function escapeHTML(value) {
 }
 
 
-/* PIN CHECK */
-
 function isPinned(name) {
 
   return PINNED_FILES.some(
@@ -807,8 +802,6 @@ function isPinned(name) {
 
 }
 
-
-/* PIN POSITION */
 
 function pinPosition(name) {
 
@@ -826,8 +819,6 @@ function pinPosition(name) {
 }
 
 
-/* BRANDED DOWNLOAD LINK */
-
 function publicURL(name) {
 
   return PUBLIC_DOMAIN +
@@ -835,8 +826,6 @@ function publicURL(name) {
 
 }
 
-
-/* SORT FILES */
 
 function sortFiles(files) {
 
@@ -850,10 +839,6 @@ function sortFiles(files) {
         isPinned(b.name);
 
 
-      /* Both pinned:
-         pinned.json ka order follow hoga
-      */
-
       if (aPinned && bPinned) {
 
         return (
@@ -864,8 +849,6 @@ function sortFiles(files) {
       }
 
 
-      /* Pinned हमेशा ऊपर */
-
       if (aPinned && !bPinned) {
         return -1;
       }
@@ -874,8 +857,6 @@ function sortFiles(files) {
         return 1;
       }
 
-
-      /* बाकी newest first */
 
       return (
         new Date(b.updated_at) -
@@ -887,8 +868,6 @@ function sortFiles(files) {
 
 }
 
-
-/* RENDER FILE CARDS */
 
 function renderFiles(files) {
 
@@ -919,8 +898,6 @@ function renderFiles(files) {
   const sorted =
     sortFiles(files);
 
-
-  /* सबसे नई actual file */
 
   const newest =
     [...ALL_FILES]
@@ -1047,8 +1024,6 @@ function renderFiles(files) {
 }
 
 
-/* COPY LINK */
-
 async function copyLink(url,button) {
 
   try {
@@ -1083,8 +1058,6 @@ async function copyLink(url,button) {
 
 }
 
-
-/* LOAD PINNED FILES */
 
 async function loadPinnedFiles() {
 
@@ -1124,8 +1097,6 @@ async function loadPinnedFiles() {
 
 }
 
-
-/* LOAD DOWNLOAD FILES */
 
 async function loadDownloadFiles() {
 
@@ -1181,14 +1152,7 @@ async function loadDownloadFiles() {
 }
 
 
-/* START SYSTEM */
-
 async function init() {
-
-  /*
-    पहले pinned list,
-    फिर file list load होगी.
-  */
 
   await loadPinnedFiles();
 
@@ -1199,8 +1163,6 @@ async function init() {
 
 init();
 
-
-/* SEARCH */
 
 document
   .getElementById("search")
