@@ -1,12 +1,382 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="robots" content="noindex, nofollow, noarchive">
-  <meta name="googlebot" content="noindex, nofollow, noarchive">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Search engines ko index nahi karna -->
+  <meta name="robots" content="noindex, nofollow, noarchive" />
+  <meta name="googlebot" content="noindex, nofollow, noarchive" />
+
   <title>GSMXR Downloads</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(135deg, #0f172a, #111827, #1e293b);
+      color: #ffffff;
+      min-height: 100vh;
+      padding: 25px 14px;
+    }
+
+    .wrapper {
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .top-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.10);
+      color: #dbeafe;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      margin-bottom: 18px;
+      backdrop-filter: blur(6px);
+    }
+
+    .hero {
+      background: linear-gradient(145deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 22px;
+      padding: 34px 24px;
+      box-shadow: 0 15px 45px rgba(0,0,0,0.30);
+      margin-bottom: 20px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      right: -60px;
+      top: -60px;
+      background: radial-gradient(circle, rgba(59,130,246,0.30), transparent 65%);
+      border-radius: 50%;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      left: -70px;
+      bottom: -70px;
+      background: radial-gradient(circle, rgba(16,185,129,0.18), transparent 65%);
+      border-radius: 50%;
+    }
+
+    .brand {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .brand-logo {
+      width: 62px;
+      height: 62px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #22c55e, #2563eb);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 22px;
+      color: #fff;
+      box-shadow: 0 10px 30px rgba(37,99,235,0.35);
+      flex-shrink: 0;
+    }
+
+    .brand-text h1 {
+      font-size: 34px;
+      line-height: 1.15;
+      margin-bottom: 6px;
+      letter-spacing: 0.3px;
+    }
+
+    .brand-text p {
+      color: #cbd5e1;
+      font-size: 15px;
+      line-height: 1.7;
+      max-width: 720px;
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 2;
+      margin-top: 22px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .mini-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 16px;
+    }
+
+    .mini-card h3 {
+      font-size: 15px;
+      margin-bottom: 8px;
+      color: #ffffff;
+    }
+
+    .mini-card p {
+      font-size: 13px;
+      color: #cbd5e1;
+      line-height: 1.6;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 20px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.20);
+    }
+
+    .card h2 {
+      font-size: 22px;
+      margin-bottom: 14px;
+      color: #ffffff;
+    }
+
+    .card p {
+      color: #d1d5db;
+      line-height: 1.8;
+      font-size: 15px;
+      margin-bottom: 14px;
+    }
+
+    .info-list {
+      list-style: none;
+      margin-top: 8px;
+    }
+
+    .info-list li {
+      color: #dbe4ee;
+      margin-bottom: 10px;
+      font-size: 14px;
+      line-height: 1.6;
+      padding-left: 18px;
+      position: relative;
+    }
+
+    .info-list li::before {
+      content: "•";
+      color: #60a5fa;
+      font-size: 18px;
+      position: absolute;
+      left: 0;
+      top: -1px;
+    }
+
+    .button-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      text-align: center;
+      padding: 14px 16px;
+      border-radius: 14px;
+      font-weight: 700;
+      font-size: 14px;
+      transition: 0.25s ease;
+      border: 1px solid transparent;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-dark {
+      background: #111827;
+      color: #fff;
+      border-color: rgba(255,255,255,0.10);
+    }
+
+    .btn-blue {
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      color: #fff;
+    }
+
+    .btn-green {
+      background: linear-gradient(135deg, #16a34a, #15803d);
+      color: #fff;
+    }
+
+    .btn-purple {
+      background: linear-gradient(135deg, #7c3aed, #6d28d9);
+      color: #fff;
+    }
+
+    .btn-red {
+      background: linear-gradient(135deg, #ef4444, #dc2626);
+      color: #fff;
+    }
+
+    .btn-outline {
+      background: rgba(255,255,255,0.05);
+      color: #fff;
+      border-color: rgba(255,255,255,0.12);
+    }
+
+    .download-note {
+      margin-top: 16px;
+      background: rgba(37,99,235,0.12);
+      border: 1px solid rgba(96,165,250,0.25);
+      padding: 16px;
+      border-radius: 16px;
+      font-size: 14px;
+      color: #dbeafe;
+      line-height: 1.7;
+      word-break: break-word;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 24px;
+      color: #94a3b8;
+      font-size: 13px;
+      padding: 10px 0 20px;
+    }
+
+    .footer a {
+      color: #cbd5e1;
+      text-decoration: none;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .content-grid,
+      .button-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .brand-text h1 {
+        font-size: 28px;
+      }
+
+      .hero,
+      .card {
+        padding: 20px 16px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h2>GSMXR Downloads</h2>
+
+  <div class="wrapper">
+
+    <div class="top-badge">Official GSMXR Download Server</div>
+
+    <section class="hero">
+      <div class="brand">
+        <div class="brand-logo">GX</div>
+        <div class="brand-text">
+          <h1>GSMXR Downloads</h1>
+          <p>
+            Fast and simple branded download access for GSMXR tools, files and packages.
+            Use the exact file name in the download URL to access your uploaded files instantly.
+          </p>
+        </div>
+      </div>
+
+      <div class="hero-grid">
+        <div class="mini-card">
+          <h3>Fast Access</h3>
+          <p>Quick branded links for ZIP, RAR, EXE and other uploaded files.</p>
+        </div>
+        <div class="mini-card">
+          <h3>GitHub Powered</h3>
+          <p>Files download from GitHub release assets while your hosting stays light.</p>
+        </div>
+        <div class="mini-card">
+          <h3>SEO Safe</h3>
+          <p>This download subdomain is configured for noindex and not meant for ranking.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="content-grid">
+
+      <section class="card">
+        <h2>How It Works</h2>
+        <p>
+          This server is used for direct file delivery. You can upload files inside your GitHub release,
+          and then access them using the same exact filename in the branded URL.
+        </p>
+
+        <ul class="info-list">
+          <li>Upload file in GitHub Release asset section.</li>
+          <li>Use the same exact uploaded filename in the URL.</li>
+          <li>Example: <strong>https://d.gsmxr.com/FileName.zip</strong></li>
+          <li>Supported naming style: ZIP, RAR, EXE and similar file extensions.</li>
+          <li>Main website posts can keep changing the download button anytime.</li>
+        </ul>
+
+        <div class="download-note">
+          Example:<br>
+          If uploaded file name is <strong>RMX_OTP_AUTH_TOOL5.zip</strong><br>
+          then download link will be:<br>
+          <strong>https://d.gsmxr.com/RMX_OTP_AUTH_TOOL5.zip</strong>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Quick Links & Support</h2>
+
+        <div class="button-grid">
+          <a class="btn btn-blue" href="https://gsmxr.com" target="_blank">Visit GSMXR.com</a>
+          <a class="btn btn-dark" href="https://gsmxr.in" target="_blank">Tools & Services</a>
+
+          <a class="btn btn-green" href="https://wa.me/919289915006" target="_blank">WhatsApp Support</a>
+          <a class="btn btn-purple" href="https://t.me/gsmXrNews" target="_blank">Telegram Channel</a>
+
+          <a class="btn btn-red" href="https://youtube.com/@gsmxr" target="_blank">YouTube</a>
+          <a class="btn btn-outline" href="mailto:support@gsmxr.com">Email Support</a>
+        </div>
+
+        <div class="download-note" style="margin-top:18px;">
+          <strong>Support Note:</strong><br>
+          For tool-related issues, latest links, or services, contact GSMXR support using the buttons above.
+        </div>
+      </section>
+
+    </div>
+
+    <div class="footer">
+      © 2026 GSMXR Downloads · Powered for branded file delivery ·
+      <a href="https://gsmxr.com" target="_blank">gsmxr.com</a>
+    </div>
+
+  </div>
+
 </body>
 </html>
