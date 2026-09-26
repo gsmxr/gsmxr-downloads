@@ -9,6 +9,9 @@
 
   <title>GSMXR Downloads</title>
 
+  <link rel="icon"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%232563eb'/%3E%3Cstop offset='1' stop-color='%237c3aed'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='24' fill='url(%23g)'/%3E%3Ctext x='50' y='63' font-size='42' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'%3EGX%3C/text%3E%3C/svg%3E">
+
   <style>
     *{
       margin:0;
@@ -26,7 +29,10 @@
 
     body{
       font-family:"Segoe UI",Arial,sans-serif;
-      background:#f5f7fb;
+      background:
+        radial-gradient(circle at 8% 5%,rgba(37,99,235,.07),transparent 25%),
+        radial-gradient(circle at 92% 10%,rgba(124,58,237,.06),transparent 25%),
+        var(--bg);
       color:var(--text);
       min-height:100vh;
     }
@@ -35,6 +41,8 @@
       width:min(1120px,calc(100% - 24px));
       margin:auto;
     }
+
+    /* HEADER */
 
     header{
       padding:14px 0;
@@ -49,6 +57,7 @@
       border:1px solid var(--border);
       border-radius:16px;
       padding:12px 15px;
+      box-shadow:0 4px 18px rgba(15,23,42,.04);
     }
 
     .brand{
@@ -68,6 +77,7 @@
       color:#fff;
       font-weight:900;
       background:linear-gradient(135deg,#2563eb,#7c3aed);
+      box-shadow:0 7px 18px rgba(37,99,235,.18);
     }
 
     .brand-title{
@@ -82,6 +92,7 @@
     }
 
     .online{
+      white-space:nowrap;
       color:#15803d;
       background:#ecfdf3;
       border:1px solid #bbf7d0;
@@ -91,11 +102,52 @@
       font-weight:800;
     }
 
+    /* HERO */
+
     .hero{
+      position:relative;
+      overflow:hidden;
       color:#fff;
       padding:34px 28px;
       border-radius:22px;
       background:linear-gradient(135deg,#172554,#1d4ed8 55%,#6d28d9);
+      box-shadow:0 12px 35px rgba(37,99,235,.14);
+    }
+
+    .hero:after{
+      content:"";
+      position:absolute;
+      width:260px;
+      height:260px;
+      border-radius:50%;
+      right:-110px;
+      top:-140px;
+      background:rgba(255,255,255,.08);
+    }
+
+    .hero-inner{
+      position:relative;
+      z-index:2;
+    }
+
+    .hero-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:7px;
+      padding:7px 11px;
+      border:1px solid rgba(255,255,255,.19);
+      border-radius:50px;
+      background:rgba(255,255,255,.10);
+      font-size:11px;
+      font-weight:700;
+      margin-bottom:13px;
+    }
+
+    .dot{
+      width:7px;
+      height:7px;
+      border-radius:50%;
+      background:#4ade80;
     }
 
     .hero h1{
@@ -110,12 +162,15 @@
       line-height:1.65;
     }
 
+    /* SECTIONS */
+
     .section{
       margin-top:14px;
       padding:22px;
       background:#fff;
       border:1px solid var(--border);
       border-radius:19px;
+      box-shadow:0 4px 18px rgba(15,23,42,.025);
     }
 
     .section-head{
@@ -137,6 +192,8 @@
       margin-top:4px;
     }
 
+    /* SEARCH */
+
     .search{
       width:min(320px,100%);
       padding:11px 13px;
@@ -145,6 +202,11 @@
       background:#f8fafc;
       outline:none;
       font-size:13px;
+    }
+
+    .search:focus{
+      border-color:#9db9ff;
+      background:#fff;
     }
 
     /* CATEGORY */
@@ -172,12 +234,19 @@
       font-weight:700;
       cursor:pointer;
       white-space:nowrap;
+      transition:.15s ease;
+    }
+
+    .category-btn:hover{
+      border-color:#aac0ef;
+      transform:translateY(-1px);
     }
 
     .category-btn.active{
       color:#fff;
       background:#2563eb;
       border-color:#2563eb;
+      box-shadow:0 4px 12px rgba(37,99,235,.18);
     }
 
     .cat-count{
@@ -200,11 +269,21 @@
       border:1px solid #e6eaf1;
       border-radius:14px;
       background:#fff;
+      transition:
+        transform .15s ease,
+        border-color .15s ease,
+        box-shadow .15s ease;
+    }
+
+    .file:hover{
+      border-color:#cfd7e4;
+      box-shadow:0 5px 18px rgba(15,23,42,.05);
+      transform:translateY(-1px);
     }
 
     .file.pinned{
       border-color:#efc96b;
-      background:#fffdf8;
+      background:linear-gradient(135deg,#fffdf5,#fff);
     }
 
     .file-top{
@@ -262,6 +341,7 @@
       margin-top:7px;
       color:#7b8497;
       font-size:10px;
+      line-height:1.55;
     }
 
     .actions{
@@ -280,12 +360,30 @@
       border-radius:9px;
       font-size:10px;
       font-weight:750;
+      transition:
+        transform .18s ease,
+        background .18s ease,
+        color .18s ease,
+        border-color .18s ease,
+        box-shadow .18s ease;
     }
 
     .download-btn{
       color:#fff;
       background:#2563eb;
+      box-shadow:0 3px 8px rgba(37,99,235,.13);
     }
+
+    .download-btn:hover{
+      background:#1d4ed8;
+      transform:translateY(-1px);
+    }
+
+    .download-btn:active{
+      transform:scale(.95);
+    }
+
+    /* COPY BUTTON */
 
     .copy-btn{
       color:#334155;
@@ -293,11 +391,46 @@
       border:1px solid #e2e8f0;
     }
 
+    .copy-btn:hover{
+      background:#e9eef5;
+      border-color:#d5dde8;
+    }
+
+    .copy-btn:active{
+      transform:scale(.94);
+    }
+
+    .copy-btn.copied{
+      color:#fff;
+      background:#16a34a;
+      border-color:#16a34a;
+      box-shadow:
+        0 0 0 4px rgba(22,163,74,.12),
+        0 6px 16px rgba(22,163,74,.20);
+
+      animation:copyPop .35s ease;
+    }
+
+    @keyframes copyPop{
+      0%{
+        transform:scale(.94);
+      }
+
+      55%{
+        transform:scale(1.07);
+      }
+
+      100%{
+        transform:scale(1);
+      }
+    }
+
     .loading{
       grid-column:1/-1;
       text-align:center;
       color:#667085;
       padding:28px;
+      font-size:13px;
     }
 
     /* COMMUNITY */
@@ -316,12 +449,29 @@
       padding:13px 8px;
       font-size:12px;
       font-weight:700;
+      transition:.15s ease;
     }
 
-    .wa{background:#16a34a;}
-    .wa2{background:#059669;}
-    .telegram{background:#0284c7;}
-    .youtube{background:#dc2626;}
+    .community-btn:hover{
+      transform:translateY(-2px);
+      filter:brightness(1.04);
+    }
+
+    .wa{
+      background:#16a34a;
+    }
+
+    .wa2{
+      background:#059669;
+    }
+
+    .telegram{
+      background:#0284c7;
+    }
+
+    .youtube{
+      background:#dc2626;
+    }
 
     /* WEBSITES */
 
@@ -335,8 +485,16 @@
       text-decoration:none;
       color:#172033;
       border:1px solid #e4e9f2;
+      background:#fff;
       border-radius:15px;
       padding:17px;
+      transition:.18s ease;
+    }
+
+    .website-card:hover{
+      transform:translateY(-2px);
+      border-color:#cdd6e5;
+      box-shadow:0 7px 22px rgba(15,23,42,.07);
     }
 
     .site-icon{
@@ -370,10 +528,23 @@
       font-weight:700;
     }
 
-    .site-gsmxr{background:#111827;}
-    .site-tools{background:#7c3aed;}
-    .site-xiaomi{background:#ea580c;}
-    .site-soft{background:#0369a1;}
+    .site-gsmxr{
+      background:#111827;
+    }
+
+    .site-tools{
+      background:#7c3aed;
+    }
+
+    .site-xiaomi{
+      background:#ea580c;
+    }
+
+    .site-soft{
+      background:#0369a1;
+    }
+
+    /* FOOTER */
 
     footer{
       text-align:center;
@@ -383,7 +554,14 @@
       line-height:1.7;
     }
 
+    footer strong{
+      color:#344054;
+    }
+
+    /* TABLET */
+
     @media(max-width:900px){
+
       .files{
         grid-template-columns:repeat(2,1fr);
       }
@@ -397,7 +575,10 @@
       }
     }
 
+    /* MOBILE */
+
     @media(max-width:600px){
+
       .wrap{
         width:calc(100% - 16px);
       }
@@ -406,16 +587,29 @@
         grid-template-columns:1fr;
       }
 
+      header{
+        padding:9px 0;
+      }
+
+      .nav{
+        padding:10px 11px;
+      }
+
       .brand-sub{
         display:none;
       }
 
       .hero{
         padding:26px 18px;
+        border-radius:18px;
       }
 
       .hero h1{
         font-size:27px;
+      }
+
+      .hero p{
+        font-size:13px;
       }
 
       .section{
@@ -432,9 +626,49 @@
 
       .badges{
         margin-top:6px;
+        justify-content:flex-start;
+      }
+
+      .filename{
+        font-size:13px;
+      }
+
+      .meta{
+        font-size:11px;
+      }
+
+      .btn{
+        font-size:11px;
       }
 
       .websites{
+        grid-template-columns:1fr;
+      }
+
+      .website-card{
+        display:grid;
+        grid-template-columns:42px 1fr;
+        column-gap:11px;
+        align-items:center;
+      }
+
+      .site-icon{
+        grid-row:1/4;
+        margin:0;
+      }
+
+      .site-link{
+        margin-top:3px;
+      }
+    }
+
+    @media(max-width:360px){
+
+      .community-grid{
+        grid-template-columns:1fr;
+      }
+
+      .actions{
         grid-template-columns:1fr;
       }
     }
@@ -445,32 +679,52 @@
 
 <header>
   <div class="wrap">
+
     <div class="nav">
 
       <div class="brand">
+
         <div class="logo">GX</div>
 
         <div>
           <div class="brand-title">GSMXR Downloads</div>
           <div class="brand-sub">Official GSMXR Download Server</div>
         </div>
+
       </div>
 
-      <div class="online">● ONLINE</div>
+      <div class="online">
+        ● ONLINE
+      </div>
 
     </div>
+
   </div>
 </header>
 
 
 <main class="wrap">
 
-  <section class="hero">
-    <h1>GSMXR Downloads</h1>
+  <!-- HERO -->
 
-    <p>
-      Tools, software and utility files with simple GSMXR branded download links.
-    </p>
+  <section class="hero">
+
+    <div class="hero-inner">
+
+      <div class="hero-badge">
+        <span class="dot"></span>
+        Official Download Server
+      </div>
+
+      <h1>GSMXR Downloads</h1>
+
+      <p>
+        Tools, software and utility files with simple GSMXR branded
+        download links.
+      </p>
+
+    </div>
+
   </section>
 
 
@@ -481,11 +735,15 @@
     <div class="section-head">
 
       <div>
+
         <h2>Available Downloads</h2>
 
-        <div id="fileCount" class="section-sub">
+        <div
+          id="fileCount"
+          class="section-sub">
           Loading files...
         </div>
+
       </div>
 
       <input
@@ -493,15 +751,21 @@
         class="search"
         type="search"
         placeholder="Search tool or file..."
+        autocomplete="off"
       >
 
     </div>
 
 
-    <div id="categories" class="category-wrap"></div>
+    <div
+      id="categories"
+      class="category-wrap">
+    </div>
 
 
-    <div id="files" class="files">
+    <div
+      id="files"
+      class="files">
 
       <div class="loading">
         Loading files...
@@ -512,47 +776,68 @@
   </section>
 
 
-  <!-- COMMUNITY -->
+  <!-- SUPPORT -->
 
   <section class="section">
 
     <div class="section-head">
+
       <div>
+
         <h2>Support & Community</h2>
+
         <div class="section-sub">
           GSMXR updates and community.
         </div>
+
       </div>
+
     </div>
+
 
     <div class="community-grid">
 
       <a
         class="community-btn wa"
         href="http://tiny.cc/FollowForDelyUpdate"
-        target="_blank">
+        target="_blank"
+        rel="noopener noreferrer">
+
         WhatsApp Channel
+
       </a>
+
 
       <a
         class="community-btn wa2"
         href="http://tiny.cc/GsmXRNewsUpdate"
-        target="_blank">
+        target="_blank"
+        rel="noopener noreferrer">
+
         WhatsApp Community
+
       </a>
+
 
       <a
         class="community-btn telegram"
         href="https://t.me/gsmXrNews"
-        target="_blank">
+        target="_blank"
+        rel="noopener noreferrer">
+
         Telegram Channel
+
       </a>
+
 
       <a
         class="community-btn youtube"
         href="https://youtube.com/@gsmxr"
-        target="_blank">
+        target="_blank"
+        rel="noopener noreferrer">
+
         YouTube
+
       </a>
 
     </div>
@@ -565,12 +850,17 @@
   <section class="section">
 
     <div class="section-head">
+
       <div>
+
         <h2>Our Websites</h2>
+
         <div class="section-sub">
           Tools, services, firmware and resources.
         </div>
+
       </div>
+
     </div>
 
 
@@ -579,9 +869,12 @@
       <a
         class="website-card"
         href="https://gsmxr.com"
-        target="_blank">
+        target="_blank"
+        rel="noopener noreferrer">
 
-        <div class="site-icon site-gsmxr">GX</div>
+        <div class="site-icon site-gsmxr">
+          GX
+        </div>
 
         <div class="site-title">
           GSMXR.com
@@ -601,9 +894,12 @@
       <a
         class="website-card"
         href="https://gsmxr.in"
-        target="_blank">
+        target="_blank"
+        rel="noopener noreferrer">
 
-        <div class="site-icon site-tools">₹</div>
+        <div class="site-icon site-tools">
+          ₹
+        </div>
 
         <div class="site-title">
           GSMXR Tools & Services
@@ -623,9 +919,12 @@
       <a
         class="website-card"
         href="https://xiaomi.gsmxr.com"
-        target="_blank">
+        target="_blank"
+        rel="noopener noreferrer">
 
-        <div class="site-icon site-xiaomi">Mi</div>
+        <div class="site-icon site-xiaomi">
+          Mi
+        </div>
 
         <div class="site-title">
           Xiaomi Firmware
@@ -645,9 +944,12 @@
       <a
         class="website-card"
         href="https://softichnic.com"
-        target="_blank">
+        target="_blank"
+        rel="noopener noreferrer">
 
-        <div class="site-icon site-soft">S</div>
+        <div class="site-icon site-soft">
+          S
+        </div>
 
         <div class="site-title">
           Softichnic.com
@@ -671,9 +973,13 @@
 
 
 <footer>
+
   <strong>GSMXR Downloads</strong><br>
+
   Official Download Server · d.gsmxr.com<br>
+
   © <span id="year"></span> GSMXR
+
 </footer>
 
 
@@ -695,45 +1001,57 @@ let CATEGORY_DATA = {};
 let ACTIVE_CATEGORY = "All Files";
 
 
-document.getElementById("year").textContent =
+document
+  .getElementById("year")
+  .textContent =
   new Date().getFullYear();
 
 
 function escapeHTML(value){
+
   return String(value)
     .replace(/&/g,"&amp;")
     .replace(/</g,"&lt;")
     .replace(/>/g,"&gt;")
     .replace(/"/g,"&quot;")
     .replace(/'/g,"&#039;");
+
 }
 
 
 function formatSize(bytes){
 
-  if(!bytes) return "0 KB";
+  if(!bytes){
+    return "0 KB";
+  }
 
-  const units = ["B","KB","MB","GB"];
+  const units =
+    ["B","KB","MB","GB"];
 
-  const i = Math.min(
-    Math.floor(
-      Math.log(bytes) /
-      Math.log(1024)
-    ),
-    units.length - 1
-  );
+  const i =
+    Math.min(
+      Math.floor(
+        Math.log(bytes) /
+        Math.log(1024)
+      ),
+      units.length - 1
+    );
 
   return (
     bytes /
     Math.pow(1024,i)
-  ).toFixed(i === 0 ? 0 : 1)
-  + " " + units[i];
+  ).toFixed(
+    i === 0 ? 0 : 1
+  ) + " " + units[i];
+
 }
 
 
 function publicURL(name){
+
   return PUBLIC_DOMAIN +
     encodeURIComponent(name);
+
 }
 
 
@@ -744,6 +1062,7 @@ function isPinned(name){
       item.toLowerCase() ===
       name.toLowerCase()
   );
+
 }
 
 
@@ -759,12 +1078,11 @@ function pinPosition(name){
   return i === -1
     ? 999999
     : i;
+
 }
 
 
-/* ========================================
-   AUTO CATEGORY BY FILENAME
-   ======================================== */
+/* AUTO CATEGORY */
 
 function autoDetectCategory(filename){
 
@@ -778,7 +1096,9 @@ function autoDetectCategory(filename){
     name.includes("realme") ||
     name.includes("rmx")
   ){
+
     return "Realme Tools";
+
   }
 
 
@@ -791,7 +1111,9 @@ function autoDetectCategory(filename){
     name.includes("miui") ||
     name.includes("hyperos")
   ){
+
     return "Xiaomi Tools";
+
   }
 
 
@@ -803,7 +1125,9 @@ function autoDetectCategory(filename){
     name.includes("usb-197") ||
     name.includes("usb_197")
   ){
+
     return "USB Tools";
+
   }
 
 
@@ -811,6 +1135,7 @@ function autoDetectCategory(filename){
 
   if(
     name.includes("driver") ||
+    name.includes("drivers") ||
     name.includes("mtk") ||
     name.includes("mediatek") ||
     name.includes("qcom") ||
@@ -819,20 +1144,22 @@ function autoDetectCategory(filename){
     name.includes("winusb") ||
     name.includes("vcom") ||
     name.includes("cdc") ||
-    name.includes("fastboot-driver")
+    name.includes("vc_redist") ||
+    name.includes("vc-redist") ||
+    name.includes("redist")
   ){
+
     return "Drivers & Utilities";
+
   }
 
 
   return "Other";
+
 }
 
 
-/* ========================================
-   MANUAL CATEGORY OVERRIDE
-   categories.json हमेशा priority लेगा
-   ======================================== */
+/* MANUAL CATEGORY */
 
 function getManualCategory(filename){
 
@@ -842,43 +1169,51 @@ function getManualCategory(filename){
 
   for(
     const [category,files]
-    of Object.entries(CATEGORY_DATA)
+    of Object.entries(
+      CATEGORY_DATA
+    )
   ){
 
     if(
       Array.isArray(files) &&
       files.some(
         file =>
-          file.toLowerCase() === target
+          file.toLowerCase() ===
+          target
       )
     ){
+
       return category;
+
     }
 
   }
 
 
   return null;
+
 }
 
 
 function getFileCategory(filename){
 
-  /* पहले manual category */
-
   const manual =
-    getManualCategory(filename);
+    getManualCategory(
+      filename
+    );
+
 
   if(manual){
+
     return manual;
+
   }
 
-
-  /* नहीं मिली तो filename पढ़कर auto */
 
   return autoDetectCategory(
     filename
   );
+
 }
 
 
@@ -897,16 +1232,19 @@ function sortFiles(files){
 
 
       if(ap && bp){
+
         return (
           pinPosition(a.name) -
           pinPosition(b.name)
         );
+
       }
 
 
       if(ap && !bp){
         return -1;
       }
+
 
       if(!ap && bp){
         return 1;
@@ -920,6 +1258,7 @@ function sortFiles(files){
 
     }
   );
+
 }
 
 
@@ -928,13 +1267,16 @@ function sortFiles(files){
 function buildCategoryButtons(){
 
   const holder =
-    document.getElementById(
-      "categories"
-    );
+    document
+      .getElementById(
+        "categories"
+      );
 
 
   const manualCategories =
-    Object.keys(CATEGORY_DATA);
+    Object.keys(
+      CATEGORY_DATA
+    );
 
 
   const categoryNames =
@@ -997,8 +1339,9 @@ function buildCategoryButtons(){
   const otherCount =
     ALL_FILES.filter(
       file =>
-        getFileCategory(file.name)
-        === "Other"
+        getFileCategory(
+          file.name
+        ) === "Other"
     ).length;
 
 
@@ -1069,7 +1412,9 @@ function applyFilters(){
 
   const query =
     document
-      .getElementById("search")
+      .getElementById(
+        "search"
+      )
       .value
       .trim()
       .toLowerCase();
@@ -1078,7 +1423,7 @@ function applyFilters(){
   const filtered =
     ALL_FILES.filter(file=>{
 
-      const matchesSearch =
+      const searchMatch =
         !query ||
         file.name
           .toLowerCase()
@@ -1091,7 +1436,7 @@ function applyFilters(){
         );
 
 
-      const matchesCategory =
+      const categoryMatch =
         ACTIVE_CATEGORY ===
           "All Files" ||
         category ===
@@ -1099,8 +1444,8 @@ function applyFilters(){
 
 
       return (
-        matchesSearch &&
-        matchesCategory
+        searchMatch &&
+        categoryMatch
       );
 
     });
@@ -1109,6 +1454,7 @@ function applyFilters(){
   renderFiles(
     filtered
   );
+
 }
 
 
@@ -1117,9 +1463,10 @@ function applyFilters(){
 function renderFiles(files){
 
   const box =
-    document.getElementById(
-      "files"
-    );
+    document
+      .getElementById(
+        "files"
+      );
 
 
   document
@@ -1143,11 +1490,14 @@ function renderFiles(files){
       '<div class="loading">No files found.</div>';
 
     return;
+
   }
 
 
   const sorted =
-    sortFiles(files);
+    sortFiles(
+      files
+    );
 
 
   const newest =
@@ -1163,13 +1513,15 @@ function renderFiles(files){
     sorted.map(file=>{
 
       const pinned =
-        isPinned(file.name);
+        isPinned(
+          file.name
+        );
 
 
       const latest =
         newest &&
         newest.name ===
-          file.name;
+        file.name;
 
 
       const category =
@@ -1185,16 +1537,18 @@ function renderFiles(files){
 
 
       const date =
-        new Date(
-          file.updated_at
-        ).toLocaleDateString(
-          "en-IN",
-          {
-            day:"2-digit",
-            month:"short",
-            year:"numeric"
-          }
-        );
+        file.updated_at
+          ? new Date(
+              file.updated_at
+            ).toLocaleDateString(
+              "en-IN",
+              {
+                day:"2-digit",
+                month:"short",
+                year:"numeric"
+              }
+            )
+          : "";
 
 
       return `
@@ -1205,7 +1559,9 @@ function renderFiles(files){
           <div class="file-top">
 
             <div class="filename">
+
               ${escapeHTML(file.name)}
+
             </div>
 
 
@@ -1239,7 +1595,11 @@ function renderFiles(files){
 
             ${formatSize(file.size)}
 
-            • ${date}
+            ${
+              date
+                ? ` • ${date}`
+                : ""
+            }
 
             ${
               typeof file.download_count
@@ -1264,7 +1624,11 @@ function renderFiles(files){
 
             <button
               class="btn copy-btn"
-              onclick='copyLink(${JSON.stringify(url)},this)'>
+              type="button"
+              onclick='copyLink(
+                ${JSON.stringify(url)},
+                this
+              )'>
 
               Copy Link
 
@@ -1281,7 +1645,7 @@ function renderFiles(files){
 }
 
 
-/* COPY */
+/* COPY LINK + POP EFFECT */
 
 async function copyLink(
   url,
@@ -1292,25 +1656,49 @@ async function copyLink(
 
     await navigator
       .clipboard
-      .writeText(url);
+      .writeText(
+        url
+      );
 
 
-    const old =
-      button.textContent;
+    /*
+      अगर पहले से animation लगी हो
+      तो reset करके दुबारा चलाएँ
+    */
+
+    button.classList.remove(
+      "copied"
+    );
 
 
-    button.textContent =
-      "✓ Copied";
+    void button.offsetWidth;
+
+
+    button.classList.add(
+      "copied"
+    );
+
+
+    button.innerHTML =
+      "✓ Link Copied";
 
 
     setTimeout(
       ()=>{
-        button.textContent = old;
+
+        button.classList.remove(
+          "copied"
+        );
+
+
+        button.innerHTML =
+          "Copy Link";
+
       },
-      1300
+      1600
     );
 
-  }catch(e){
+  }catch(error){
 
     prompt(
       "Copy this link:",
@@ -1322,7 +1710,7 @@ async function copyLink(
 }
 
 
-/* LOAD JSON FILES */
+/* LOAD PINNED */
 
 async function loadPinned(){
 
@@ -1330,13 +1718,20 @@ async function loadPinned(){
 
     const response =
       await fetch(
-        "pinned.json"
+        "pinned.json?v=" +
+        Date.now(),
+        {
+          cache:"no-store"
+        }
       );
 
 
     if(!response.ok){
+
       PINNED_FILES = [];
+
       return;
+
     }
 
 
@@ -1345,11 +1740,13 @@ async function loadPinned(){
 
 
     PINNED_FILES =
-      Array.isArray(data.files)
+      Array.isArray(
+        data.files
+      )
         ? data.files
         : [];
 
-  }catch(e){
+  }catch(error){
 
     PINNED_FILES = [];
 
@@ -1358,19 +1755,28 @@ async function loadPinned(){
 }
 
 
+/* LOAD CATEGORIES */
+
 async function loadCategories(){
 
   try{
 
     const response =
       await fetch(
-        "categories.json"
+        "categories.json?v=" +
+        Date.now(),
+        {
+          cache:"no-store"
+        }
       );
 
 
     if(!response.ok){
+
       CATEGORY_DATA = {};
+
       return;
+
     }
 
 
@@ -1384,7 +1790,7 @@ async function loadCategories(){
         ? data
         : {};
 
-  }catch(e){
+  }catch(error){
 
     CATEGORY_DATA = {};
 
@@ -1393,21 +1799,28 @@ async function loadCategories(){
 }
 
 
+/* LOAD FILES */
+
 async function loadFiles(){
 
   try{
 
-const response =
-  await fetch(
-    "files.json?v=" + Date.now(),
-    {
-      cache: "no-store"
-    }
-  );
+    const response =
+      await fetch(
+        "files.json?v=" +
+        Date.now(),
+        {
+          cache:"no-store"
+        }
+      );
 
 
     if(!response.ok){
-      throw new Error();
+
+      throw new Error(
+        "Unable to load files"
+      );
+
     }
 
 
@@ -1416,7 +1829,9 @@ const response =
 
 
     ALL_FILES =
-      Array.isArray(data.files)
+      Array.isArray(
+        data.files
+      )
         ? data.files
         : [];
 
@@ -1425,7 +1840,7 @@ const response =
 
     applyFilters();
 
-  }catch(e){
+  }catch(error){
 
     document
       .getElementById(
@@ -1433,6 +1848,14 @@ const response =
       )
       .innerHTML =
       '<div class="loading">Files temporarily unavailable.</div>';
+
+
+    document
+      .getElementById(
+        "fileCount"
+      )
+      .textContent =
+      "Unable to load files";
 
   }
 
@@ -1456,6 +1879,8 @@ async function init(){
 
 init();
 
+
+/* SEARCH */
 
 document
   .getElementById(
