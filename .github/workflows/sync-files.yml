@@ -1,23 +1,32 @@
 name: Sync Files
 
 on:
+  # GitHub Actions से manually Sync Files चलाने के लिए
   workflow_dispatch:
 
+  # Backup sync - हर 12 घंटे में सिर्फ 1 बार
   schedule:
     - cron: "0 */12 * * *"
 
 permissions:
   contents: write
 
+concurrency:
+  group: gsmxr-files-sync
+  cancel-in-progress: false
+
 jobs:
   sync:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
 
-      - name: Build files.json from release assets
+      # Repository checkout
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      # GitHub Release की पूरी file list एक ही request में लेना
+      - name: Build files.json
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -27,36 +36,40 @@ jobs:
           import urllib.request
           from datetime import datetime, timezone
 
-          url = "https://api.github.com/repos/gsmxr/gsmxr-downloads/releases/tags/downloads"
+          API_URL = "https://api.github.com/repos/gsmxr/gsmxr-downloads/releases/tags/downloads"
 
-          req = urllib.request.Request(
-              url,
+          request = urllib.request.Request(
+              API_URL,
               headers={
                   "Authorization": f"Bearer {os.environ['GH_TOKEN']}",
                   "Accept": "application/vnd.github+json",
-                  "X-GitHub-Api-Version": "2022-11-28"
+                  "X-GitHub-Api-Version": "2022-11-28",
+                  "User-Agent": "GSMXR-File-Sync"
               }
           )
 
-          with urllib.request.urlopen(req) as response:
+          with urllib.request.urlopen(request, timeout=30) as response:
               release = json.load(response)
 
           files = []
 
           for asset in release.get("assets", []):
               files.append({
-                  "name": asset["name"],
-                  "size": asset["size"],
-                  "updated_at": asset["updated_at"]
+                  "name": asset.get("name", ""),
+                  "size": asset.get("size", 0),
+                  "updated_at": asset.get("updated_at", ""),
+                  "download_count": asset.get("download_count", 0)
               })
 
+          # Newest files first
           files.sort(
-              key=lambda x: x["updated_at"],
+              key=lambda item: item.get("updated_at", ""),
               reverse=True
           )
 
           output = {
               "synced_at": datetime.now(timezone.utc).isoformat(),
+              "count": len(files),
               "files": files
           }
 
@@ -68,18 +81,22 @@ jobs:
                   indent=2
               )
               f.write("\n")
+
+          print(f"Synced {len(files)} files.")
           PY
 
+      # files.json में बदलाव हो तभी commit/push होगा
       - name: Save updated file list
         run: |
-          if git diff --quiet -- files.json; then
-            echo "No file changes found."
-            exit 0
-          fi
-
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           git add files.json
-          git commit -m "Sync download files"
+
+          if git diff --cached --quiet; then
+            echo "No file changes found."
+            exit 0
+          fi
+
+          git commit -m "Sync GSMXR download files"
           git push
