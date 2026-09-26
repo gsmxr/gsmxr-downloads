@@ -1,0 +1,85 @@
+name: Sync Files
+
+on:
+  workflow_dispatch:
+
+  schedule:
+    - cron: "0 */12 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build files.json from release assets
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python3 <<'PY'
+          import json
+          import os
+          import urllib.request
+          from datetime import datetime, timezone
+
+          url = "https://api.github.com/repos/gsmxr/gsmxr-downloads/releases/tags/downloads"
+
+          req = urllib.request.Request(
+              url,
+              headers={
+                  "Authorization": f"Bearer {os.environ['GH_TOKEN']}",
+                  "Accept": "application/vnd.github+json",
+                  "X-GitHub-Api-Version": "2022-11-28"
+              }
+          )
+
+          with urllib.request.urlopen(req) as response:
+              release = json.load(response)
+
+          files = []
+
+          for asset in release.get("assets", []):
+              files.append({
+                  "name": asset["name"],
+                  "size": asset["size"],
+                  "updated_at": asset["updated_at"]
+              })
+
+          files.sort(
+              key=lambda x: x["updated_at"],
+              reverse=True
+          )
+
+          output = {
+              "synced_at": datetime.now(timezone.utc).isoformat(),
+              "files": files
+          }
+
+          with open("files.json", "w", encoding="utf-8") as f:
+              json.dump(
+                  output,
+                  f,
+                  ensure_ascii=False,
+                  indent=2
+              )
+              f.write("\n")
+          PY
+
+      - name: Save updated file list
+        run: |
+          if git diff --quiet -- files.json; then
+            echo "No file changes found."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add files.json
+          git commit -m "Sync download files"
+          git push
