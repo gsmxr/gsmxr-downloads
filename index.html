@@ -4,10 +4,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- Download subdomain ko search me index nahi karna -->
   <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
   <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet">
 
   <title>GSMXR Downloads</title>
+
+  <!-- Browser Tab Icon -->
+  <link rel="icon" href="data:image/svg+xml,
+  <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
+    <defs>
+      <linearGradient id='g' x1='0' y1='0' x2='1' y2='1'>
+        <stop offset='0' stop-color='%232563eb'/>
+        <stop offset='1' stop-color='%237c3aed'/>
+      </linearGradient>
+    </defs>
+    <rect width='100' height='100' rx='24' fill='url(%23g)'/>
+    <text x='50' y='62' font-size='42' text-anchor='middle'
+          fill='white' font-family='Arial' font-weight='bold'>GX</text>
+  </svg>">
 
   <style>
     *{
@@ -16,171 +31,251 @@
       box-sizing:border-box;
     }
 
+    :root{
+      --bg:#f5f7fb;
+      --white:#ffffff;
+      --text:#172033;
+      --muted:#667085;
+      --border:#e4e9f2;
+      --blue:#2563eb;
+      --purple:#7c3aed;
+      --green:#16a34a;
+      --telegram:#229ed9;
+      --red:#e11d48;
+      --orange:#f97316;
+      --dark:#111827;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
     body{
       font-family:Segoe UI,Arial,sans-serif;
-      background:#f5f7fb;
-      color:#172033;
+      background:
+        radial-gradient(circle at 8% 5%,rgba(37,99,235,.08),transparent 25%),
+        radial-gradient(circle at 92% 15%,rgba(124,58,237,.08),transparent 25%),
+        var(--bg);
+      color:var(--text);
       min-height:100vh;
     }
 
     .wrap{
-      width:min(1050px,calc(100% - 24px));
+      width:min(1080px,calc(100% - 28px));
       margin:auto;
     }
 
     /* HEADER */
 
     header{
-      padding:18px 0;
+      padding:16px 0;
     }
 
-    .nav{
-      background:#fff;
-      border:1px solid #e5eaf2;
-      border-radius:16px;
-      padding:13px 16px;
+    .navbar{
+      background:rgba(255,255,255,.96);
+      border:1px solid var(--border);
+      border-radius:17px;
+      padding:12px 15px;
       display:flex;
-      align-items:center;
       justify-content:space-between;
-      gap:15px;
-      box-shadow:0 5px 20px rgba(0,0,0,.04);
+      align-items:center;
+      gap:12px;
+      box-shadow:0 5px 20px rgba(15,23,42,.04);
     }
 
     .brand{
       display:flex;
       align-items:center;
       gap:11px;
+      text-decoration:none;
+      color:var(--text);
+      min-width:0;
     }
 
-    .logo{
-      width:44px;
-      height:44px;
+    .brand-logo{
+      width:45px;
+      height:45px;
+      flex:0 0 45px;
       border-radius:13px;
       display:flex;
       align-items:center;
       justify-content:center;
-      font-weight:800;
       color:#fff;
+      font-size:16px;
+      font-weight:900;
       background:linear-gradient(135deg,#2563eb,#7c3aed);
+      box-shadow:0 7px 18px rgba(37,99,235,.22);
     }
 
-    .brand h2{
+    .brand-title{
+      font-weight:800;
       font-size:18px;
+      white-space:nowrap;
     }
 
-    .brand span{
-      display:block;
-      color:#778197;
+    .brand-sub{
+      color:#7b8497;
       font-size:11px;
       margin-top:2px;
     }
 
     .online{
-      font-size:11px;
-      font-weight:700;
+      white-space:nowrap;
       color:#15803d;
       background:#ecfdf3;
       border:1px solid #bbf7d0;
-      padding:7px 11px;
       border-radius:50px;
+      padding:7px 11px;
+      font-size:11px;
+      font-weight:750;
     }
 
     /* HERO */
 
     .hero{
-      margin-top:12px;
-      background:linear-gradient(135deg,#172554,#1d4ed8,#6d28d9);
+      position:relative;
+      overflow:hidden;
+      margin-top:8px;
+      padding:46px 35px;
       color:#fff;
-      border-radius:24px;
-      padding:45px 34px;
-      box-shadow:0 15px 40px rgba(37,99,235,.15);
+      border-radius:25px;
+      background:linear-gradient(135deg,#172554,#1d4ed8 52%,#6d28d9);
+      box-shadow:0 18px 45px rgba(37,99,235,.16);
     }
 
-    .hero small{
-      display:inline-block;
+    .hero::after{
+      content:"";
+      width:260px;
+      height:260px;
+      border-radius:50%;
+      position:absolute;
+      right:-90px;
+      top:-120px;
+      background:rgba(255,255,255,.09);
+    }
+
+    .hero-content{
+      position:relative;
+      z-index:2;
+      max-width:690px;
+    }
+
+    .hero-label{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:7px 12px;
+      margin-bottom:15px;
+      border-radius:50px;
+      font-size:12px;
+      font-weight:700;
       background:rgba(255,255,255,.12);
       border:1px solid rgba(255,255,255,.18);
-      padding:7px 12px;
-      border-radius:50px;
-      margin-bottom:15px;
-      font-weight:600;
+    }
+
+    .green-dot{
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:#4ade80;
     }
 
     .hero h1{
       font-size:40px;
+      line-height:1.12;
       margin-bottom:13px;
     }
 
     .hero p{
-      max-width:650px;
-      color:#dbeafe;
-      line-height:1.7;
       font-size:15px;
+      line-height:1.75;
+      color:#dbeafe;
+      max-width:620px;
     }
 
-    .hero-buttons{
+    .hero-actions{
       display:flex;
       flex-wrap:wrap;
       gap:10px;
       margin-top:22px;
     }
 
-    .hero-buttons a{
-      text-decoration:none;
+    .hero-btn{
+      display:inline-flex;
+      align-items:center;
+      gap:7px;
       padding:12px 17px;
       border-radius:11px;
+      text-decoration:none;
       font-size:13px;
       font-weight:700;
+      transition:.2s ease;
     }
 
-    .main-btn{
-      background:#fff;
+    .hero-btn:hover{
+      transform:translateY(-2px);
+    }
+
+    .hero-main{
       color:#1e40af;
+      background:#fff;
     }
 
-    .outline-btn{
+    .hero-other{
       color:#fff;
-      border:1px solid rgba(255,255,255,.28);
+      border:1px solid rgba(255,255,255,.25);
       background:rgba(255,255,255,.08);
     }
 
-    /* INFO */
+    /* SMALL FEATURES */
 
-    .info{
+    .features{
       display:grid;
       grid-template-columns:repeat(3,1fr);
-      gap:13px;
-      margin-top:16px;
+      gap:12px;
+      margin-top:15px;
     }
 
-    .info-box{
+    .feature{
       background:#fff;
-      border:1px solid #e5eaf2;
+      border:1px solid var(--border);
       border-radius:15px;
-      padding:18px;
+      padding:17px;
     }
 
-    .info-box strong{
-      font-size:14px;
+    .feature-icon{
+      width:37px;
+      height:37px;
+      border-radius:10px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      margin-bottom:10px;
+      background:#eff6ff;
+      color:#2563eb;
+    }
+
+    .feature strong{
       display:block;
+      font-size:14px;
       margin-bottom:5px;
     }
 
-    .info-box p{
-      color:#667085;
+    .feature p{
+      color:var(--muted);
       font-size:12px;
-      line-height:1.6;
+      line-height:1.55;
     }
 
-    /* SUPPORT */
+    /* LINKS */
 
     .section{
-      margin-top:16px;
+      margin-top:15px;
+      padding:24px;
       background:#fff;
-      border:1px solid #e5eaf2;
+      border:1px solid var(--border);
       border-radius:20px;
-      padding:25px;
-      box-shadow:0 5px 20px rgba(0,0,0,.03);
+      box-shadow:0 5px 20px rgba(15,23,42,.03);
     }
 
     .section h2{
@@ -189,9 +284,10 @@
     }
 
     .section-desc{
-      color:#667085;
+      color:var(--muted);
       font-size:13px;
-      margin-bottom:20px;
+      line-height:1.65;
+      margin-bottom:19px;
     }
 
     .links{
@@ -200,117 +296,251 @@
       gap:11px;
     }
 
-    .link{
-      color:#fff;
-      text-decoration:none;
-      padding:14px 14px;
-      border-radius:12px;
-      font-size:13px;
-      font-weight:700;
+    .link-card{
       display:flex;
       align-items:center;
-      gap:9px;
-      transition:.18s;
+      gap:11px;
+      min-height:62px;
+      padding:12px 14px;
+      border-radius:13px;
+      color:#fff;
+      text-decoration:none;
+      font-size:13px;
+      font-weight:700;
+      transition:.18s ease;
+      overflow:hidden;
     }
 
-    .link:hover{
+    .link-card:hover{
       transform:translateY(-2px);
       filter:brightness(1.04);
     }
 
     .icon{
-      width:30px;
-      height:30px;
+      width:35px;
+      height:35px;
+      min-width:35px;
       display:flex;
       align-items:center;
       justify-content:center;
-      border-radius:8px;
-      background:rgba(255,255,255,.17);
-      flex-shrink:0;
+      border-radius:10px;
+      background:rgba(255,255,255,.16);
     }
 
-    .wa{background:#16a34a;}
-    .wa2{background:#059669;}
-    .support{background:#15803d;}
-    .telegram{background:#0284c7;}
+    .icon svg{
+      width:19px;
+      height:19px;
+      fill:currentColor;
+    }
+
+    .whatsapp{background:#16a34a;}
+    .community{background:#059669;}
+    .telegram{background:#229ed9;}
     .youtube{background:#dc2626;}
-    .website{background:#111827;}
+    .gsmxr{background:#111827;}
     .tools{background:#7c3aed;}
     .xiaomi{background:#ea580c;}
-
-    /* NOTICE */
+    .softichnic{background:#0369a1;}
 
     .notice{
       margin-top:16px;
-      background:#eff6ff;
-      border:1px solid #dbeafe;
+      display:flex;
+      gap:11px;
+      align-items:flex-start;
+      padding:15px 16px;
       border-radius:14px;
-      padding:15px 17px;
-      color:#475569;
-      font-size:13px;
-      line-height:1.7;
+      background:#f8fafc;
+      border:1px solid #e8edf4;
+    }
+
+    .notice-icon{
+      width:34px;
+      height:34px;
+      min-width:34px;
+      border-radius:9px;
+      background:#eff6ff;
+      color:#2563eb;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:bold;
     }
 
     .notice strong{
-      color:#1e3a8a;
+      display:block;
+      margin-bottom:3px;
+      font-size:13px;
     }
 
-    /* FOOTER */
+    .notice p{
+      color:#667085;
+      font-size:12px;
+      line-height:1.6;
+    }
 
     footer{
+      padding:24px 10px 28px;
       text-align:center;
-      color:#7b8497;
+      color:#7a8496;
       font-size:12px;
       line-height:1.8;
-      padding:25px 10px 30px;
     }
 
     footer strong{
       color:#344054;
     }
 
-    @media(max-width:800px){
-      .info{
-        grid-template-columns:1fr;
-      }
+    /* TABLET */
+
+    @media(max-width:850px){
 
       .links{
         grid-template-columns:1fr 1fr;
       }
 
       .hero{
-        padding:35px 23px;
+        padding:38px 25px;
       }
 
       .hero h1{
-        font-size:33px;
+        font-size:34px;
       }
     }
 
-    @media(max-width:520px){
+    /* MOBILE */
+
+    @media(max-width:560px){
+
       .wrap{
         width:calc(100% - 16px);
       }
 
-      .brand span{
+      header{
+        padding:9px 0;
+      }
+
+      .navbar{
+        padding:10px 11px;
+        border-radius:14px;
+      }
+
+      .brand-logo{
+        width:40px;
+        height:40px;
+        flex-basis:40px;
+        border-radius:11px;
+      }
+
+      .brand-title{
+        font-size:15px;
+      }
+
+      .brand-sub{
         display:none;
       }
 
+      .online{
+        padding:6px 8px;
+        font-size:9px;
+      }
+
       .hero{
-        padding:30px 18px;
+        margin-top:3px;
+        padding:28px 18px;
         border-radius:19px;
+      }
+
+      .hero-label{
+        font-size:10px;
       }
 
       .hero h1{
         font-size:29px;
       }
 
-      .links{
+      .hero p{
+        font-size:13px;
+        line-height:1.65;
+      }
+
+      .hero-actions{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+      }
+
+      .hero-btn{
+        justify-content:center;
+        text-align:center;
+        padding:11px 8px;
+        font-size:12px;
+      }
+
+      .features{
         grid-template-columns:1fr;
+        gap:8px;
+      }
+
+      .feature{
+        padding:14px;
+        display:grid;
+        grid-template-columns:38px 1fr;
+        column-gap:10px;
+        align-items:center;
+      }
+
+      .feature-icon{
+        margin:0;
+        grid-row:1 / 3;
+      }
+
+      .feature strong{
+        margin:0;
+      }
+
+      .feature p{
+        margin-top:2px;
       }
 
       .section{
-        padding:19px;
+        padding:17px 14px;
+        border-radius:17px;
+      }
+
+      .section h2{
+        font-size:19px;
+      }
+
+      .links{
+        grid-template-columns:1fr 1fr;
+        gap:8px;
+      }
+
+      .link-card{
+        min-height:58px;
+        padding:10px;
+        font-size:11px;
+        gap:7px;
+      }
+
+      .icon{
+        width:31px;
+        height:31px;
+        min-width:31px;
+      }
+
+      .icon svg{
+        width:17px;
+        height:17px;
+      }
+
+      .notice{
+        padding:13px;
+      }
+    }
+
+    @media(max-width:360px){
+      .links{
+        grid-template-columns:1fr;
       }
     }
   </style>
@@ -320,24 +550,22 @@
 
 <header>
   <div class="wrap">
+    <div class="navbar">
 
-    <div class="nav">
-
-      <div class="brand">
-        <div class="logo">GX</div>
+      <a href="/" class="brand">
+        <div class="brand-logo">GX</div>
 
         <div>
-          <h2>GSMXR Downloads</h2>
-          <span>Official GSMXR Download Server</span>
+          <div class="brand-title">GSMXR Downloads</div>
+          <div class="brand-sub">Official GSMXR Download Server</div>
         </div>
-      </div>
+      </a>
 
       <div class="online">
-        ● Online
+        ● ONLINE
       </div>
 
     </div>
-
   </div>
 </header>
 
@@ -346,135 +574,224 @@
 
   <section class="hero">
 
-    <small>Official GSMXR Download Server</small>
+    <div class="hero-content">
 
-    <h1>Fast & Simple Downloads</h1>
+      <div class="hero-label">
+        <span class="green-dot"></span>
+        Official GSMXR Download Server
+      </div>
 
-    <p>
-      Official GSMXR download gateway for tools, software and utility files.
-      Clean links, easy access and simple file delivery.
-    </p>
+      <h1>Fast & Simple Downloads</h1>
 
-    <div class="hero-buttons">
+      <p>
+        GSMXR download gateway for tools, software and utility files.
+        Simple branded links, fast access and official GSMXR support resources.
+      </p>
 
-      <a href="https://gsmxr.com"
-         target="_blank"
-         class="main-btn">
-        GSMXR.com
-      </a>
+      <div class="hero-actions">
 
-      <a href="https://gsmxr.in"
-         target="_blank"
-         class="outline-btn">
-        Tools & Services
-      </a>
+        <a href="https://gsmxr.com"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="hero-btn hero-main">
+          🌐 GSMXR.com
+        </a>
+
+        <a href="https://gsmxr.in"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="hero-btn hero-other">
+          🛠 Tools & Services
+        </a>
+
+      </div>
 
     </div>
 
   </section>
 
 
-  <div class="info">
+  <section class="features">
 
-    <div class="info-box">
-      <strong>⚡ Fast Downloads</strong>
+    <div class="feature">
+      <div class="feature-icon">⚡</div>
+      <strong>Fast Access</strong>
       <p>Quick access to GSMXR tools and files.</p>
     </div>
 
-    <div class="info-box">
-      <strong>✓ Simple Links</strong>
-      <p>Easy-to-use branded download addresses.</p>
+    <div class="feature">
+      <div class="feature-icon">✓</div>
+      <strong>Simple Links</strong>
+      <p>Clean and easy-to-use branded download links.</p>
     </div>
 
-    <div class="info-box">
-      <strong>◆ Official GSMXR</strong>
-      <p>Official support and service links in one place.</p>
+    <div class="feature">
+      <div class="feature-icon">◆</div>
+      <strong>Official Network</strong>
+      <p>Support, tools, firmware and updates in one place.</p>
     </div>
 
-  </div>
+  </section>
 
 
   <section class="section">
 
-    <h2>Support & Community</h2>
+    <h2>GSMXR Network & Support</h2>
 
     <div class="section-desc">
-      Connect with GSMXR for updates, support, tools and services.
+      Official GSMXR websites, community, updates and support links.
     </div>
 
 
     <div class="links">
 
-      <a class="link wa"
+      <!-- WhatsApp Channel -->
+      <a class="link-card whatsapp"
          href="http://tiny.cc/FollowForDelyUpdate"
-         target="_blank">
-        <span class="icon">W</span>
+         target="_blank"
+         rel="noopener noreferrer">
+
+        <span class="icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 2a9.8 9.8 0 0 0-8.4 14.8L2 22l5.4-1.5A10 10 0 1 0 12 2zm0 17.9a8 8 0 0 1-4.1-1.1l-.3-.2-3.2.9.9-3.1-.2-.3a8 8 0 1 1 6.9 3.8z"/>
+          </svg>
+        </span>
+
         WhatsApp Channel
       </a>
 
 
-      <a class="link wa2"
+      <!-- WhatsApp Community -->
+      <a class="link-card community"
          href="http://tiny.cc/GsmXRNewsUpdate"
-         target="_blank">
-        <span class="icon">C</span>
+         target="_blank"
+         rel="noopener noreferrer">
+
+        <span class="icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M16 11c1.7 0 3-1.3 3-3s-1.3-3-3-3-3 1.3-3 3 1.3 3 3 3zm-8 0c1.7 0 3-1.3 3-3S9.7 5 8 5 5 6.3 5 8s1.3 3 3 3zm0 2c-2.3 0-7 1.2-7 3.5V19h14v-2.5C15 14.2 10.3 13 8 13zm8 0c-.3 0-.7 0-1.1.1 1.2.9 2.1 2 2.1 3.4V19h6v-2.5c0-2.3-4.7-3.5-7-3.5z"/>
+          </svg>
+        </span>
+
         WhatsApp Community
       </a>
 
 
-      <a class="link support"
+      <!-- WhatsApp Support -->
+      <a class="link-card whatsapp"
          href="https://wa.me/919289915006"
-         target="_blank">
-        <span class="icon">W</span>
+         target="_blank"
+         rel="noopener noreferrer">
+
+        <span class="icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/>
+          </svg>
+        </span>
+
         WhatsApp Support
       </a>
 
 
-      <a class="link telegram"
+      <!-- Telegram -->
+      <a class="link-card telegram"
          href="https://t.me/gsmXrNews"
-         target="_blank">
-        <span class="icon">T</span>
+         target="_blank"
+         rel="noopener noreferrer">
+
+        <span class="icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M21.8 3.3 18.6 20c-.2 1.2-.9 1.5-1.9.9l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.4-5 9.1-8.2c.4-.4-.1-.6-.6-.2L6.1 13.8 1.3 12.3c-1-.3-1.1-1 .2-1.5L20.3 3.5c.9-.3 1.7.2 1.5-.2z"/>
+          </svg>
+        </span>
+
         Telegram Channel
       </a>
 
 
-      <a class="link youtube"
+      <!-- YouTube -->
+      <a class="link-card youtube"
          href="https://youtube.com/@gsmxr"
-         target="_blank">
-        <span class="icon">▶</span>
+         target="_blank"
+         rel="noopener noreferrer">
+
+        <span class="icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M23 7.2s-.2-1.7-.9-2.4c-.9-.9-1.8-.9-2.3-1C16.6 3.5 12 3.5 12 3.5s-4.6 0-7.8.3c-.5.1-1.4.1-2.3 1C1.2 5.5 1 7.2 1 7.2S.7 9.2.7 11.3v1.9c0 2.1.3 4.1.3 4.1s.2 1.7.9 2.4c.9.9 2.1.9 2.6 1 1.9.2 7.5.3 7.5.3s4.6 0 7.8-.3c.5-.1 1.4-.1 2.3-1 .7-.7.9-2.4.9-2.4s.3-2 .3-4.1v-1.9c0-2.1-.3-4.1-.3-4.1zM9.7 15.7V8.6l6.2 3.6-6.2 3.5z"/>
+          </svg>
+        </span>
+
         YouTube
       </a>
 
 
-      <a class="link website"
+      <!-- GSMXR -->
+      <a class="link-card gsmxr"
          href="https://gsmxr.com"
-         target="_blank">
+         target="_blank"
+         rel="noopener noreferrer">
+
         <span class="icon">G</span>
+
         GSMXR.com
       </a>
 
 
-      <a class="link tools"
+      <!-- GSMXR IN -->
+      <a class="link-card tools"
          href="https://gsmxr.in"
-         target="_blank">
+         target="_blank"
+         rel="noopener noreferrer">
+
         <span class="icon">₹</span>
-        Tools Rent & Activation
+
+        Tools & Services
       </a>
 
 
-      <a class="link xiaomi"
+      <!-- Xiaomi GSMXR -->
+      <a class="link-card xiaomi"
          href="https://xiaomi.gsmxr.com"
-         target="_blank">
+         target="_blank"
+         rel="noopener noreferrer">
+
         <span class="icon">Mi</span>
+
         Xiaomi Firmware
+      </a>
+
+
+      <!-- Softichnic -->
+      <a class="link-card softichnic"
+         href="https://softichnic.com"
+         target="_blank"
+         rel="noopener noreferrer">
+
+        <span class="icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm6.9 6h-3a15 15 0 0 0-1.4-3.3A8.1 8.1 0 0 1 18.9 8zM12 4c.8 1 1.5 2.3 1.9 4h-3.8C10.5 6.3 11.2 5 12 4zM9.5 4.7A15 15 0 0 0 8.1 8h-3a8.1 8.1 0 0 1 4.4-3.3zM4.3 10h3.5a16 16 0 0 0 0 4H4.3a8 8 0 0 1 0-4zm.8 6h3a15 15 0 0 0 1.4 3.3A8.1 8.1 0 0 1 5.1 16zm6.9 4c-.8-1-1.5-2.3-1.9-4h3.8c-.4 1.7-1.1 3-1.9 4zm2.3-6H9.7a14 14 0 0 1 0-4h4.6a14 14 0 0 1 0 4zm.2 5.3a15 15 0 0 0 1.4-3.3h3a8.1 8.1 0 0 1-4.4 3.3zm1.7-5.3a16 16 0 0 0 0-4h3.5a8 8 0 0 1 0 4h-3.5z"/>
+          </svg>
+        </span>
+
+        Softichnic.com
       </a>
 
     </div>
 
 
     <div class="notice">
-      <strong>Need Help?</strong><br>
-      For download support, tool activation, remote services or latest updates,
-      use the official GSMXR support and community links above.
+
+      <div class="notice-icon">i</div>
+
+      <div>
+        <strong>Official GSMXR Network</strong>
+
+        <p>
+          For latest updates, downloads, firmware, tool activation,
+          remote services and support, use the official links above.
+        </p>
+      </div>
+
     </div>
 
   </section>
