@@ -1,382 +1,739 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Search engines ko index nahi karna -->
-  <meta name="robots" content="noindex, nofollow, noarchive" />
-  <meta name="googlebot" content="noindex, nofollow, noarchive" />
+  <!-- Do not index this download subdomain -->
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+  <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet">
 
   <title>GSMXR Downloads</title>
 
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
     }
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: linear-gradient(135deg, #0f172a, #111827, #1e293b);
-      color: #ffffff;
-      min-height: 100vh;
-      padding: 25px 14px;
+    :root{
+      --bg:#f5f7fb;
+      --card:#ffffff;
+      --text:#172033;
+      --muted:#667085;
+      --border:#e4e9f2;
+      --blue:#2563eb;
+      --purple:#7c3aed;
+      --green:#16a34a;
+      --red:#dc2626;
+      --orange:#ea580c;
+      --cyan:#0284c7;
     }
 
-    .wrapper {
-      max-width: 980px;
-      margin: 0 auto;
+    body{
+      font-family:Inter,Segoe UI,Arial,sans-serif;
+      color:var(--text);
+      min-height:100vh;
+      background:
+        radial-gradient(circle at 8% 8%,rgba(37,99,235,.10),transparent 25%),
+        radial-gradient(circle at 93% 18%,rgba(124,58,237,.09),transparent 27%),
+        #f6f8fc;
     }
 
-    .top-badge {
-      display: inline-block;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.10);
-      color: #dbeafe;
-      padding: 8px 14px;
-      border-radius: 999px;
-      font-size: 13px;
-      margin-bottom: 18px;
-      backdrop-filter: blur(6px);
+    .container{
+      width:min(1120px,calc(100% - 28px));
+      margin:auto;
     }
 
-    .hero {
-      background: linear-gradient(145deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03));
-      border: 1px solid rgba(255,255,255,0.10);
-      border-radius: 22px;
-      padding: 34px 24px;
-      box-shadow: 0 15px 45px rgba(0,0,0,0.30);
-      margin-bottom: 20px;
-      overflow: hidden;
-      position: relative;
+    /* HEADER */
+    header{
+      padding:18px 0;
     }
 
-    .hero::before {
-      content: "";
-      position: absolute;
-      width: 220px;
-      height: 220px;
-      right: -60px;
-      top: -60px;
-      background: radial-gradient(circle, rgba(59,130,246,0.30), transparent 65%);
-      border-radius: 50%;
+    .nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:15px;
+      padding:13px 17px;
+      border:1px solid var(--border);
+      border-radius:18px;
+      background:rgba(255,255,255,.94);
+      box-shadow:0 8px 30px rgba(15,23,42,.06);
     }
 
-    .hero::after {
-      content: "";
-      position: absolute;
-      width: 200px;
-      height: 200px;
-      left: -70px;
-      bottom: -70px;
-      background: radial-gradient(circle, rgba(16,185,129,0.18), transparent 65%);
-      border-radius: 50%;
+    .brand{
+      display:flex;
+      gap:11px;
+      align-items:center;
+      text-decoration:none;
+      color:var(--text);
     }
 
-    .brand {
-      position: relative;
-      z-index: 2;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-bottom: 16px;
+    .logo{
+      width:46px;
+      height:46px;
+      border-radius:14px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#fff;
+      font-size:17px;
+      font-weight:900;
+      background:linear-gradient(135deg,#2563eb,#7c3aed);
+      box-shadow:0 8px 20px rgba(37,99,235,.24);
     }
 
-    .brand-logo {
-      width: 62px;
-      height: 62px;
-      border-radius: 18px;
-      background: linear-gradient(135deg, #22c55e, #2563eb);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      font-size: 22px;
-      color: #fff;
-      box-shadow: 0 10px 30px rgba(37,99,235,0.35);
-      flex-shrink: 0;
+    .brand-name{
+      font-size:18px;
+      font-weight:850;
     }
 
-    .brand-text h1 {
-      font-size: 34px;
-      line-height: 1.15;
-      margin-bottom: 6px;
-      letter-spacing: 0.3px;
+    .brand-small{
+      font-size:11px;
+      color:#778197;
+      margin-top:3px;
     }
 
-    .brand-text p {
-      color: #cbd5e1;
-      font-size: 15px;
-      line-height: 1.7;
-      max-width: 720px;
+    .status{
+      color:#15703d;
+      background:#ecfdf3;
+      border:1px solid #bbf7d0;
+      border-radius:999px;
+      padding:8px 12px;
+      font-size:12px;
+      font-weight:750;
     }
 
-    .hero-grid {
-      position: relative;
-      z-index: 2;
-      margin-top: 22px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
+    /* HERO */
+    .hero{
+      margin-top:18px;
+      padding:55px 42px;
+      border-radius:28px;
+      overflow:hidden;
+      position:relative;
+      color:#fff;
+      background:linear-gradient(135deg,#172554 0%,#1d4ed8 52%,#6d28d9 100%);
+      box-shadow:0 22px 55px rgba(37,99,235,.18);
     }
 
-    .mini-card {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 16px;
-      padding: 16px;
+    .hero:before{
+      content:"";
+      position:absolute;
+      width:330px;
+      height:330px;
+      border-radius:50%;
+      background:rgba(255,255,255,.09);
+      right:-110px;
+      top:-150px;
     }
 
-    .mini-card h3 {
-      font-size: 15px;
-      margin-bottom: 8px;
-      color: #ffffff;
+    .hero:after{
+      content:"";
+      position:absolute;
+      width:200px;
+      height:200px;
+      border-radius:50%;
+      background:rgba(255,255,255,.06);
+      left:-70px;
+      bottom:-110px;
     }
 
-    .mini-card p {
-      font-size: 13px;
-      color: #cbd5e1;
-      line-height: 1.6;
+    .hero-content{
+      position:relative;
+      z-index:2;
+      max-width:750px;
     }
 
-    .content-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 20px;
+    .pill{
+      display:inline-flex;
+      gap:9px;
+      align-items:center;
+      padding:8px 13px;
+      margin-bottom:18px;
+      border-radius:999px;
+      background:rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.20);
+      font-size:12px;
+      font-weight:700;
     }
 
-    .card {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.10);
-      border-radius: 20px;
-      padding: 24px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.20);
+    .dot{
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:#4ade80;
+      box-shadow:0 0 0 5px rgba(74,222,128,.15);
     }
 
-    .card h2 {
-      font-size: 22px;
-      margin-bottom: 14px;
-      color: #ffffff;
+    h1{
+      font-size:48px;
+      line-height:1.08;
+      letter-spacing:-1.2px;
+      margin-bottom:16px;
     }
 
-    .card p {
-      color: #d1d5db;
-      line-height: 1.8;
-      font-size: 15px;
-      margin-bottom: 14px;
+    .hero p{
+      color:#dbeafe;
+      font-size:16px;
+      line-height:1.8;
+      max-width:660px;
     }
 
-    .info-list {
-      list-style: none;
-      margin-top: 8px;
+    .hero-buttons{
+      display:flex;
+      flex-wrap:wrap;
+      gap:11px;
+      margin-top:25px;
     }
 
-    .info-list li {
-      color: #dbe4ee;
-      margin-bottom: 10px;
-      font-size: 14px;
-      line-height: 1.6;
-      padding-left: 18px;
-      position: relative;
+    .hero-btn{
+      text-decoration:none;
+      padding:13px 19px;
+      border-radius:13px;
+      font-size:14px;
+      font-weight:750;
+      transition:.2s;
     }
 
-    .info-list li::before {
-      content: "•";
-      color: #60a5fa;
-      font-size: 18px;
-      position: absolute;
-      left: 0;
-      top: -1px;
+    .hero-btn:hover{
+      transform:translateY(-2px);
     }
 
-    .button-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-top: 10px;
+    .hero-primary{
+      background:#fff;
+      color:#1e3a8a;
     }
 
-    .btn {
-      display: inline-block;
-      text-decoration: none;
-      text-align: center;
-      padding: 14px 16px;
-      border-radius: 14px;
-      font-weight: 700;
-      font-size: 14px;
-      transition: 0.25s ease;
-      border: 1px solid transparent;
+    .hero-secondary{
+      color:#fff;
+      border:1px solid rgba(255,255,255,.27);
+      background:rgba(255,255,255,.08);
     }
 
-    .btn:hover {
-      transform: translateY(-2px);
+    /* FEATURE CARDS */
+    .features{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:14px;
+      margin-top:18px;
     }
 
-    .btn-dark {
-      background: #111827;
-      color: #fff;
-      border-color: rgba(255,255,255,0.10);
+    .feature{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:18px;
+      box-shadow:0 8px 25px rgba(15,23,42,.05);
     }
 
-    .btn-blue {
-      background: linear-gradient(135deg, #2563eb, #1d4ed8);
-      color: #fff;
+    .feature-icon{
+      width:39px;
+      height:39px;
+      border-radius:11px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:17px;
+      margin-bottom:11px;
     }
 
-    .btn-green {
-      background: linear-gradient(135deg, #16a34a, #15803d);
-      color: #fff;
+    .i-blue{background:#eff6ff;color:#2563eb;}
+    .i-green{background:#ecfdf3;color:#16a34a;}
+    .i-purple{background:#f5f3ff;color:#7c3aed;}
+    .i-cyan{background:#ecfeff;color:#0284c7;}
+
+    .feature strong{
+      display:block;
+      font-size:15px;
+      margin-bottom:5px;
     }
 
-    .btn-purple {
-      background: linear-gradient(135deg, #7c3aed, #6d28d9);
-      color: #fff;
+    .feature span{
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.55;
     }
 
-    .btn-red {
-      background: linear-gradient(135deg, #ef4444, #dc2626);
-      color: #fff;
+    /* MAIN CONTENT */
+    .content{
+      display:grid;
+      grid-template-columns:1.08fr .92fr;
+      gap:18px;
+      margin-top:18px;
     }
 
-    .btn-outline {
-      background: rgba(255,255,255,0.05);
-      color: #fff;
-      border-color: rgba(255,255,255,0.12);
+    .card{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:22px;
+      padding:25px;
+      box-shadow:0 9px 28px rgba(15,23,42,.05);
     }
 
-    .download-note {
-      margin-top: 16px;
-      background: rgba(37,99,235,0.12);
-      border: 1px solid rgba(96,165,250,0.25);
-      padding: 16px;
-      border-radius: 16px;
-      font-size: 14px;
-      color: #dbeafe;
-      line-height: 1.7;
-      word-break: break-word;
+    .card h2{
+      font-size:21px;
+      margin-bottom:8px;
     }
 
-    .footer {
-      text-align: center;
-      margin-top: 24px;
-      color: #94a3b8;
-      font-size: 13px;
-      padding: 10px 0 20px;
+    .subtitle{
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.7;
+      margin-bottom:20px;
     }
 
-    .footer a {
-      color: #cbd5e1;
-      text-decoration: none;
+    /* DOWNLOAD EXAMPLE */
+    .example{
+      padding:17px;
+      border:1px solid var(--border);
+      background:#f8fafc;
+      border-radius:16px;
     }
 
-    @media (max-width: 900px) {
-      .hero-grid,
-      .content-grid,
-      .button-grid {
-        grid-template-columns: 1fr;
+    .label{
+      font-size:11px;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.6px;
+      color:#64748b;
+      margin-bottom:7px;
+    }
+
+    .code{
+      background:#0f172a;
+      color:#dbeafe;
+      border-radius:10px;
+      padding:13px 14px;
+      font-family:Consolas,monospace;
+      font-size:13px;
+      overflow-wrap:anywhere;
+    }
+
+    .arrow{
+      text-align:center;
+      color:#94a3b8;
+      font-size:20px;
+      padding:7px 0;
+    }
+
+    .tips{
+      margin-top:15px;
+      display:grid;
+      gap:10px;
+    }
+
+    .tip{
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+      padding:12px 14px;
+      background:#f8fafc;
+      border:1px solid #eef2f7;
+      border-radius:13px;
+      color:#475569;
+      font-size:13px;
+      line-height:1.6;
+    }
+
+    .check{
+      color:#16a34a;
+      font-weight:bold;
+    }
+
+    /* SUPPORT */
+    .support-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:11px;
+    }
+
+    .support{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding:14px;
+      text-decoration:none;
+      color:#fff;
+      border-radius:14px;
+      font-size:13px;
+      font-weight:750;
+      transition:.2s;
+    }
+
+    .support:hover{
+      transform:translateY(-2px);
+      filter:brightness(1.04);
+    }
+
+    .icon{
+      width:30px;
+      height:30px;
+      flex-shrink:0;
+      border-radius:9px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:rgba(255,255,255,.18);
+      font-size:13px;
+      font-weight:bold;
+    }
+
+    .whatsapp{background:#16a34a;}
+    .telegram{background:#0284c7;}
+    .youtube{background:#dc2626;}
+    .gsmxr{background:#111827;}
+    .tools{background:#7c3aed;}
+    .xiaomi{background:#ea580c;}
+
+    .contact-box{
+      margin-top:17px;
+      padding:17px;
+      border-radius:16px;
+      background:linear-gradient(135deg,#eff6ff,#f5f3ff);
+      border:1px solid #dbeafe;
+    }
+
+    .contact-box strong{
+      display:block;
+      font-size:14px;
+      margin-bottom:6px;
+    }
+
+    .contact-box p{
+      color:#64748b;
+      font-size:13px;
+      line-height:1.7;
+    }
+
+    /* FOOTER */
+    footer{
+      text-align:center;
+      padding:27px 10px 30px;
+      color:#64748b;
+      font-size:12px;
+      line-height:1.9;
+    }
+
+    footer strong{
+      color:#334155;
+    }
+
+    footer a{
+      color:#2563eb;
+      text-decoration:none;
+    }
+
+    @media(max-width:850px){
+      .features{
+        grid-template-columns:1fr 1fr;
       }
 
-      .brand-text h1 {
-        font-size: 28px;
+      .content{
+        grid-template-columns:1fr;
       }
 
-      .hero,
-      .card {
-        padding: 20px 16px;
+      .hero{
+        padding:40px 25px;
+      }
+
+      h1{
+        font-size:37px;
+      }
+    }
+
+    @media(max-width:520px){
+      .container{
+        width:calc(100% - 18px);
+      }
+
+      .brand-small{
+        display:none;
+      }
+
+      .status{
+        font-size:10px;
+      }
+
+      .hero{
+        padding:31px 19px;
+        border-radius:21px;
+      }
+
+      h1{
+        font-size:31px;
+      }
+
+      .hero p{
+        font-size:14px;
+      }
+
+      .features{
+        grid-template-columns:1fr 1fr;
+        gap:9px;
+      }
+
+      .feature{
+        padding:14px;
+      }
+
+      .support-grid{
+        grid-template-columns:1fr;
+      }
+
+      .card{
+        padding:19px;
       }
     }
   </style>
 </head>
+
 <body>
 
-  <div class="wrapper">
+<header>
+  <div class="container">
 
-    <div class="top-badge">Official GSMXR Download Server</div>
+    <div class="nav">
 
-    <section class="hero">
-      <div class="brand">
-        <div class="brand-logo">GX</div>
-        <div class="brand-text">
-          <h1>GSMXR Downloads</h1>
-          <p>
-            Fast and simple branded download access for GSMXR tools, files and packages.
-            Use the exact file name in the download URL to access your uploaded files instantly.
-          </p>
+      <a href="/" class="brand">
+        <div class="logo">GX</div>
+
+        <div>
+          <div class="brand-name">GSMXR Downloads</div>
+          <div class="brand-small">Official GSMXR Download Server</div>
         </div>
+      </a>
+
+      <div class="status">
+        ● Server Online
       </div>
 
-      <div class="hero-grid">
-        <div class="mini-card">
-          <h3>Fast Access</h3>
-          <p>Quick branded links for ZIP, RAR, EXE and other uploaded files.</p>
-        </div>
-        <div class="mini-card">
-          <h3>GitHub Powered</h3>
-          <p>Files download from GitHub release assets while your hosting stays light.</p>
-        </div>
-        <div class="mini-card">
-          <h3>SEO Safe</h3>
-          <p>This download subdomain is configured for noindex and not meant for ranking.</p>
-        </div>
-      </div>
-    </section>
-
-    <div class="content-grid">
-
-      <section class="card">
-        <h2>How It Works</h2>
-        <p>
-          This server is used for direct file delivery. You can upload files inside your GitHub release,
-          and then access them using the same exact filename in the branded URL.
-        </p>
-
-        <ul class="info-list">
-          <li>Upload file in GitHub Release asset section.</li>
-          <li>Use the same exact uploaded filename in the URL.</li>
-          <li>Example: <strong>https://d.gsmxr.com/FileName.zip</strong></li>
-          <li>Supported naming style: ZIP, RAR, EXE and similar file extensions.</li>
-          <li>Main website posts can keep changing the download button anytime.</li>
-        </ul>
-
-        <div class="download-note">
-          Example:<br>
-          If uploaded file name is <strong>RMX_OTP_AUTH_TOOL5.zip</strong><br>
-          then download link will be:<br>
-          <strong>https://d.gsmxr.com/RMX_OTP_AUTH_TOOL5.zip</strong>
-        </div>
-      </section>
-
-      <section class="card">
-        <h2>Quick Links & Support</h2>
-
-        <div class="button-grid">
-          <a class="btn btn-blue" href="https://gsmxr.com" target="_blank">Visit GSMXR.com</a>
-          <a class="btn btn-dark" href="https://gsmxr.in" target="_blank">Tools & Services</a>
-
-          <a class="btn btn-green" href="https://wa.me/919289915006" target="_blank">WhatsApp Support</a>
-          <a class="btn btn-purple" href="https://t.me/gsmXrNews" target="_blank">Telegram Channel</a>
-
-          <a class="btn btn-red" href="https://youtube.com/@gsmxr" target="_blank">YouTube</a>
-          <a class="btn btn-outline" href="mailto:support@gsmxr.com">Email Support</a>
-        </div>
-
-        <div class="download-note" style="margin-top:18px;">
-          <strong>Support Note:</strong><br>
-          For tool-related issues, latest links, or services, contact GSMXR support using the buttons above.
-        </div>
-      </section>
-
-    </div>
-
-    <div class="footer">
-      © 2026 GSMXR Downloads · Powered for branded file delivery ·
-      <a href="https://gsmxr.com" target="_blank">gsmxr.com</a>
     </div>
 
   </div>
+</header>
+
+
+<main class="container">
+
+  <!-- HERO -->
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <div class="pill">
+        <span class="dot"></span>
+        Official GSMXR Download Server
+      </div>
+
+      <h1>
+        Fast. Simple.<br>
+        Direct Downloads.
+      </h1>
+
+      <p>
+        Official GSMXR file delivery gateway for tools, software,
+        utilities and download packages. Simple branded links,
+        easy file identification and fast access.
+      </p>
+
+      <div class="hero-buttons">
+
+        <a href="https://gsmxr.com"
+           target="_blank"
+           class="hero-btn hero-primary">
+          Visit GSMXR.com
+        </a>
+
+        <a href="https://gsmxr.in"
+           target="_blank"
+           class="hero-btn hero-secondary">
+          Tools & Services
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FEATURES -->
+  <section class="features">
+
+    <div class="feature">
+      <div class="feature-icon i-blue">⚡</div>
+      <strong>Fast Access</strong>
+      <span>Simple and clean GSMXR download links.</span>
+    </div>
+
+    <div class="feature">
+      <div class="feature-icon i-green">✓</div>
+      <strong>Exact Filename</strong>
+      <span>Uploaded file name stays easy to identify.</span>
+    </div>
+
+    <div class="feature">
+      <div class="feature-icon i-purple">⬇</div>
+      <strong>Direct Download</strong>
+      <span>One-click access to your requested file.</span>
+    </div>
+
+    <div class="feature">
+      <div class="feature-icon i-cyan">◆</div>
+      <strong>GSMXR Network</strong>
+      <span>Official GSMXR branded download gateway.</span>
+    </div>
+
+  </section>
+
+
+  <!-- CONTENT -->
+  <section class="content">
+
+    <!-- LEFT -->
+    <div class="card">
+
+      <h2>Easy Download Links</h2>
+
+      <div class="subtitle">
+        Every file keeps its exact name, version and extension so
+        you can easily identify old and new versions.
+      </div>
+
+      <div class="example">
+
+        <div class="label">File Name</div>
+
+        <div class="code">
+          RMX_OTP_AUTH_TOOL5.zip
+        </div>
+
+        <div class="arrow">↓</div>
+
+        <div class="label">Download Link</div>
+
+        <div class="code">
+          https://d.gsmxr.com/RMX_OTP_AUTH_TOOL5.zip
+        </div>
+
+      </div>
+
+
+      <div class="tips">
+
+        <div class="tip">
+          <span class="check">✓</span>
+          ZIP file uploaded as .zip will keep .zip in the link.
+        </div>
+
+        <div class="tip">
+          <span class="check">✓</span>
+          RAR file uploaded as .rar will keep .rar in the link.
+        </div>
+
+        <div class="tip">
+          <span class="check">✓</span>
+          Version numbers stay in the filename for easy identification.
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- RIGHT -->
+    <div class="card">
+
+      <h2>GSMXR Support & Services</h2>
+
+      <div class="subtitle">
+        Official GSMXR websites, support and community links.
+      </div>
+
+
+      <div class="support-grid">
+
+        <a class="support whatsapp"
+           href="https://wa.me/919289915006"
+           target="_blank">
+          <span class="icon">W</span>
+          WhatsApp Support
+        </a>
+
+        <a class="support telegram"
+           href="https://t.me/gsmXrNews"
+           target="_blank">
+          <span class="icon">T</span>
+          Telegram Channel
+        </a>
+
+        <a class="support youtube"
+           href="https://youtube.com/@gsmxr"
+           target="_blank">
+          <span class="icon">▶</span>
+          YouTube
+        </a>
+
+        <a class="support gsmxr"
+           href="https://gsmxr.com"
+           target="_blank">
+          <span class="icon">G</span>
+          GSMXR.com
+        </a>
+
+        <a class="support tools"
+           href="https://gsmxr.in"
+           target="_blank">
+          <span class="icon">₹</span>
+          Tools Rent & Activation
+        </a>
+
+        <a class="support xiaomi"
+           href="https://xiaomi.gsmxr.com"
+           target="_blank">
+          <span class="icon">Mi</span>
+          Xiaomi Firmware
+        </a>
+
+      </div>
+
+
+      <div class="contact-box">
+
+        <strong>Need Help?</strong>
+
+        <p>
+          For download support, tools, activation or other GSMXR
+          services, contact us through the official links above.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <footer>
+
+    <strong>GSMXR Downloads</strong><br>
+
+    Official GSMXR Download Server · d.gsmxr.com<br>
+
+    © <span id="year"></span> GSMXR ·
+    <a href="https://gsmxr.com" target="_blank">gsmxr.com</a>
+
+  </footer>
+
+</main>
+
+
+<script>
+  document.getElementById("year").textContent =
+    new Date().getFullYear();
+</script>
 
 </body>
 </html>
