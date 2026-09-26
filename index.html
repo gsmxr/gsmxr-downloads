@@ -2,329 +2,501 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- Download subdomain search engine me index na ho -->
   <meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
   <meta name="googlebot" content="noindex,nofollow,noarchive,nosnippet">
 
   <title>GSMXR Downloads</title>
 
-  <link rel="icon" href="data:image/svg+xml,
-  <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
-    <defs>
-      <linearGradient id='g' x1='0' y1='0' x2='1' y2='1'>
-        <stop offset='0' stop-color='%232563eb'/>
-        <stop offset='1' stop-color='%237c3aed'/>
-      </linearGradient>
-    </defs>
-    <rect width='100' height='100' rx='24' fill='url(%23g)'/>
-    <text x='50' y='62' font-size='42' text-anchor='middle'
-    fill='white' font-family='Arial' font-weight='bold'>GX</text>
-  </svg>">
+  <!-- Favicon -->
+  <link rel="icon"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%232563eb'/%3E%3Cstop offset='1' stop-color='%237c3aed'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='24' fill='url(%23g)'/%3E%3Ctext x='50' y='63' font-size='42' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'%3EGX%3C/text%3E%3C/svg%3E">
 
   <style>
-    *{
-      box-sizing:border-box;
-      margin:0;
-      padding:0;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    body{
-      font-family:Segoe UI,Arial,sans-serif;
-      background:#f5f7fb;
-      color:#172033;
-      min-height:100vh;
+    :root {
+      --bg: #f5f7fb;
+      --white: #ffffff;
+      --text: #172033;
+      --muted: #667085;
+      --border: #e5eaf2;
+      --blue: #2563eb;
+      --purple: #7c3aed;
+      --green: #16a34a;
+      --telegram: #0284c7;
+      --red: #dc2626;
+      --orange: #ea580c;
+      --dark: #111827;
     }
 
-    .wrap{
-      width:min(1050px,calc(100% - 24px));
-      margin:auto;
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background:
+        radial-gradient(circle at 8% 5%, rgba(37,99,235,.07), transparent 25%),
+        radial-gradient(circle at 92% 10%, rgba(124,58,237,.06), transparent 25%),
+        var(--bg);
+      color: var(--text);
+      min-height: 100vh;
     }
 
-    header{
-      padding:14px 0;
+    .wrap {
+      width: min(1080px, calc(100% - 24px));
+      margin: auto;
     }
 
-    .nav{
-      background:#fff;
-      border:1px solid #e5eaf2;
-      border-radius:16px;
-      padding:12px 15px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      box-shadow:0 4px 18px rgba(0,0,0,.04);
+    /* HEADER */
+
+    header {
+      padding: 14px 0;
     }
 
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:10px;
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 12px 15px;
+      box-shadow: 0 4px 18px rgba(15,23,42,.04);
     }
 
-    .logo{
-      width:43px;
-      height:43px;
-      border-radius:12px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      color:#fff;
-      font-weight:900;
-      background:linear-gradient(135deg,#2563eb,#7c3aed);
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
     }
 
-    .brand strong{
-      display:block;
-      font-size:17px;
+    .logo {
+      width: 44px;
+      height: 44px;
+      min-width: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 13px;
+      color: #fff;
+      font-weight: 900;
+      font-size: 16px;
+      background: linear-gradient(135deg,#2563eb,#7c3aed);
+      box-shadow: 0 7px 18px rgba(37,99,235,.20);
     }
 
-    .brand small{
-      color:#768196;
-      font-size:11px;
+    .brand-title {
+      font-size: 17px;
+      font-weight: 800;
     }
 
-    .online{
-      color:#15803d;
-      background:#ecfdf3;
-      border:1px solid #bbf7d0;
-      padding:7px 10px;
-      border-radius:50px;
-      font-size:10px;
-      font-weight:800;
+    .brand-sub {
+      color: #768196;
+      font-size: 11px;
+      margin-top: 2px;
     }
 
-    .hero{
-      background:linear-gradient(135deg,#172554,#1d4ed8,#6d28d9);
-      color:#fff;
-      padding:35px 28px;
-      border-radius:22px;
-      box-shadow:0 12px 35px rgba(37,99,235,.14);
+    .online {
+      white-space: nowrap;
+      color: #15803d;
+      background: #ecfdf3;
+      border: 1px solid #bbf7d0;
+      border-radius: 50px;
+      padding: 7px 10px;
+      font-size: 10px;
+      font-weight: 800;
     }
 
-    .hero h1{
-      font-size:34px;
-      margin-bottom:9px;
+    /* HERO */
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      color: #fff;
+      padding: 34px 28px;
+      border-radius: 22px;
+      background: linear-gradient(135deg,#172554,#1d4ed8 55%,#6d28d9);
+      box-shadow: 0 12px 35px rgba(37,99,235,.14);
     }
 
-    .hero p{
-      color:#dbeafe;
-      font-size:14px;
-      line-height:1.65;
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      right: -110px;
+      top: -140px;
+      background: rgba(255,255,255,.08);
     }
 
-    .section{
-      margin-top:14px;
-      background:#fff;
-      border:1px solid #e5eaf2;
-      border-radius:19px;
-      padding:22px;
+    .hero-inner {
+      position: relative;
+      z-index: 2;
     }
 
-    .section-head{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      margin-bottom:16px;
-      flex-wrap:wrap;
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 11px;
+      border: 1px solid rgba(255,255,255,.19);
+      border-radius: 50px;
+      background: rgba(255,255,255,.10);
+      font-size: 11px;
+      font-weight: 700;
+      margin-bottom: 13px;
     }
 
-    .section h2{
-      font-size:20px;
+    .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #4ade80;
     }
 
-    .section-sub{
-      color:#667085;
-      font-size:12px;
-      margin-top:4px;
+    .hero h1 {
+      font-size: 34px;
+      margin-bottom: 9px;
     }
 
-    .search{
-      width:min(330px,100%);
-      border:1px solid #dfe5ee;
-      background:#f8fafc;
-      padding:11px 13px;
-      border-radius:11px;
-      outline:none;
-      font-size:13px;
+    .hero p {
+      max-width: 650px;
+      color: #dbeafe;
+      font-size: 14px;
+      line-height: 1.65;
     }
 
-    .files{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:10px;
+    /* MAIN SECTION */
+
+    .section {
+      margin-top: 14px;
+      padding: 22px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 19px;
+      box-shadow: 0 4px 18px rgba(15,23,42,.025);
     }
 
-    .file{
-      border:1px solid #e6eaf1;
-      border-radius:14px;
-      padding:14px;
-      background:#fff;
-      min-width:0;
-      transition:.15s;
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 15px;
     }
 
-    .file:hover{
-      border-color:#cbd5e1;
-      box-shadow:0 5px 18px rgba(15,23,42,.06);
+    .section h2 {
+      font-size: 20px;
     }
 
-    .file.pinned{
-      border:1px solid #f4c96c;
-      background:#fffdf5;
+    .section-sub {
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 4px;
     }
 
-    .file-top{
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:8px;
+    .search {
+      width: min(320px,100%);
+      padding: 11px 13px;
+      border: 1px solid #dfe5ee;
+      border-radius: 11px;
+      background: #f8fafc;
+      outline: none;
+      font-size: 13px;
     }
 
-    .filename{
-      font-weight:750;
-      font-size:13px;
-      overflow-wrap:anywhere;
-      line-height:1.45;
+    .search:focus {
+      border-color: #9db9ff;
+      background: #fff;
     }
 
-    .badges{
-      display:flex;
-      gap:5px;
-      flex-shrink:0;
+    /* FILE CARDS */
+
+    .files {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
     }
 
-    .badge{
-      font-size:9px;
-      font-weight:800;
-      padding:5px 7px;
-      border-radius:50px;
+    .file {
+      min-width: 0;
+      padding: 14px;
+      border: 1px solid #e6eaf1;
+      border-radius: 14px;
+      background: #fff;
+      transition: .15s ease;
     }
 
-    .pin{
-      background:#fff2c7;
-      color:#92400e;
+    .file:hover {
+      border-color: #cfd7e4;
+      box-shadow: 0 5px 18px rgba(15,23,42,.05);
     }
 
-    .new{
-      background:#dcfce7;
-      color:#166534;
+    .file.pinned {
+      border-color: #efc96b;
+      background: linear-gradient(135deg,#fffdf5,#fff);
     }
 
-    .meta{
-      margin-top:8px;
-      color:#7b8497;
-      font-size:11px;
+    .file-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 8px;
     }
 
-    .actions{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:7px;
-      margin-top:12px;
+    .filename {
+      min-width: 0;
+      font-size: 13px;
+      font-weight: 750;
+      line-height: 1.45;
+      overflow-wrap: anywhere;
     }
 
-    .btn{
-      border:0;
-      cursor:pointer;
-      text-decoration:none;
-      text-align:center;
-      padding:9px 10px;
-      border-radius:9px;
-      font-size:11px;
-      font-weight:750;
+    .badges {
+      display: flex;
+      gap: 5px;
+      flex-shrink: 0;
+      flex-wrap: wrap;
+      justify-content: flex-end;
     }
 
-    .download{
-      background:#2563eb;
-      color:#fff;
+    .badge {
+      padding: 5px 7px;
+      border-radius: 50px;
+      font-size: 9px;
+      font-weight: 800;
+      white-space: nowrap;
     }
 
-    .copy{
-      background:#f1f5f9;
-      color:#334155;
-      border:1px solid #e2e8f0;
+    .pin-badge {
+      color: #92400e;
+      background: #fff0ba;
     }
 
-    .loading{
-      text-align:center;
-      color:#667085;
-      padding:30px 10px;
-      grid-column:1/-1;
+    .new-badge {
+      color: #166534;
+      background: #dcfce7;
     }
 
-    .support-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:9px;
+    .meta {
+      margin-top: 8px;
+      color: #7b8497;
+      font-size: 11px;
+      line-height: 1.5;
     }
 
-    .support{
-      text-decoration:none;
-      color:#fff;
-      border-radius:11px;
-      padding:12px;
-      font-size:12px;
-      font-weight:700;
-      text-align:center;
+    .actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 7px;
+      margin-top: 12px;
     }
 
-    .wa{background:#16a34a}
-    .wa2{background:#059669}
-    .tg{background:#0284c7}
-    .yt{background:#dc2626}
-    .web{background:#111827}
-    .tools{background:#7c3aed}
-    .mi{background:#ea580c}
-    .soft{background:#0369a1}
-
-    footer{
-      text-align:center;
-      color:#7b8497;
-      font-size:11px;
-      padding:22px 10px 28px;
-      line-height:1.7;
+    .btn {
+      border: 0;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+      padding: 9px 10px;
+      border-radius: 9px;
+      font-size: 11px;
+      font-weight: 750;
+      transition: .15s ease;
     }
 
-    @media(max-width:700px){
-      .files{
-        grid-template-columns:1fr;
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .download-btn {
+      color: #fff;
+      background: #2563eb;
+    }
+
+    .copy-btn {
+      color: #334155;
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+    }
+
+    .loading {
+      grid-column: 1 / -1;
+      text-align: center;
+      color: #667085;
+      padding: 28px 10px;
+      font-size: 13px;
+    }
+
+    /* SUPPORT */
+
+    .support-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 9px;
+    }
+
+    .support {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 48px;
+      padding: 11px 8px;
+      color: #fff;
+      text-decoration: none;
+      text-align: center;
+      border-radius: 11px;
+      font-size: 12px;
+      font-weight: 700;
+      transition: .15s ease;
+    }
+
+    .support:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.04);
+    }
+
+    .support-icon {
+      width: 26px;
+      height: 26px;
+      min-width: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,.16);
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .wa { background:#16a34a; }
+    .community { background:#059669; }
+    .telegram { background:#0284c7; }
+    .youtube { background:#dc2626; }
+    .gsmxr { background:#111827; }
+    .tools { background:#7c3aed; }
+    .xiaomi { background:#ea580c; }
+    .soft { background:#0369a1; }
+
+    footer {
+      text-align: center;
+      padding: 22px 10px 28px;
+      color: #7b8497;
+      font-size: 11px;
+      line-height: 1.7;
+    }
+
+    footer strong {
+      color: #344054;
+    }
+
+    /* TABLET */
+
+    @media(max-width:700px) {
+
+      .files {
+        grid-template-columns: 1fr;
       }
 
-      .support-grid{
-        grid-template-columns:1fr 1fr;
+      .support-grid {
+        grid-template-columns: 1fr 1fr;
       }
 
-      .hero{
-        padding:28px 19px;
+      .hero {
+        padding: 27px 19px;
       }
 
-      .hero h1{
-        font-size:28px;
+      .hero h1 {
+        font-size: 28px;
       }
 
-      .section{
-        padding:16px;
+      .section {
+        padding: 16px;
       }
 
-      .section-head{
-        align-items:stretch;
-      }
-
-      .search{
-        width:100%;
+      .search {
+        width: 100%;
       }
     }
 
-    @media(max-width:390px){
-      .support-grid{
-        grid-template-columns:1fr;
+    /* MOBILE */
+
+    @media(max-width:480px) {
+
+      .wrap {
+        width: calc(100% - 16px);
       }
 
-      .brand small{
-        display:none;
+      header {
+        padding: 9px 0;
+      }
+
+      .nav {
+        padding: 10px 11px;
+        border-radius: 14px;
+      }
+
+      .logo {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+      }
+
+      .brand-title {
+        font-size: 15px;
+      }
+
+      .brand-sub {
+        display: none;
+      }
+
+      .online {
+        padding: 6px 8px;
+        font-size: 9px;
+      }
+
+      .hero {
+        border-radius: 18px;
+      }
+
+      .hero h1 {
+        font-size: 27px;
+      }
+
+      .hero p {
+        font-size: 13px;
+      }
+
+      .file-top {
+        display: block;
+      }
+
+      .badges {
+        justify-content: flex-start;
+        margin-top: 7px;
+      }
+
+      .actions {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media(max-width:350px) {
+
+      .support-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .actions {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -334,127 +506,211 @@
 
 <header>
   <div class="wrap">
+
     <div class="nav">
 
       <div class="brand">
+
         <div class="logo">GX</div>
+
         <div>
-          <strong>GSMXR Downloads</strong>
-          <small>Official Download Server</small>
+          <div class="brand-title">GSMXR Downloads</div>
+          <div class="brand-sub">Official GSMXR Download Server</div>
         </div>
+
       </div>
 
-      <div class="online">● ONLINE</div>
+      <div class="online">
+        ● ONLINE
+      </div>
 
     </div>
+
   </div>
 </header>
+
 
 <main class="wrap">
 
   <section class="hero">
-    <h1>GSMXR Downloads</h1>
-    <p>
-      Tools, software and utility files with simple GSMXR branded
-      download links. Latest files are automatically shown below.
-    </p>
+
+    <div class="hero-inner">
+
+      <div class="hero-badge">
+        <span class="dot"></span>
+        Official Download Server
+      </div>
+
+      <h1>GSMXR Downloads</h1>
+
+      <p>
+        Tools, software and utility files with simple GSMXR branded
+        download links. Available files are listed below.
+      </p>
+
+    </div>
+
   </section>
 
+
+  <!-- DOWNLOAD FILES -->
 
   <section class="section">
 
     <div class="section-head">
 
       <div>
+
         <h2>Available Downloads</h2>
-        <div class="section-sub">
-          Latest files automatically update here.
+
+        <div class="section-sub" id="fileCount">
+          Loading files...
         </div>
+
       </div>
 
       <input
         id="search"
         class="search"
         type="search"
-        placeholder="Search file or tool..."
+        placeholder="Search tool or file..."
         autocomplete="off"
       >
 
     </div>
 
-    <div id="files" class="files">
-      <div class="loading">Loading files...</div>
+
+    <div class="files" id="files">
+
+      <div class="loading">
+        Loading files...
+      </div>
+
     </div>
 
   </section>
 
 
+  <!-- SUPPORT -->
+
   <section class="section">
 
     <div class="section-head">
+
       <div>
+
         <h2>GSMXR Network & Support</h2>
+
         <div class="section-sub">
           Official websites, support and update channels.
         </div>
+
       </div>
+
     </div>
+
 
     <div class="support-grid">
 
+
       <a class="support wa"
          href="http://tiny.cc/FollowForDelyUpdate"
-         target="_blank">
+         target="_blank"
+         rel="noopener noreferrer">
+
+        <span class="support-icon">W</span>
         WhatsApp Channel
+
       </a>
 
-      <a class="support wa2"
+
+      <a class="support community"
          href="http://tiny.cc/GsmXRNewsUpdate"
-         target="_blank">
+         target="_blank"
+         rel="noopener noreferrer">
+
+        <span class="support-icon">C</span>
         WhatsApp Community
+
       </a>
+
 
       <a class="support wa"
          href="https://wa.me/919289915006"
-         target="_blank">
+         target="_blank"
+         rel="noopener noreferrer">
+
+        <span class="support-icon">W</span>
         WhatsApp Support
+
       </a>
 
-      <a class="support tg"
+
+      <a class="support telegram"
          href="https://t.me/gsmXrNews"
-         target="_blank">
+         target="_blank"
+         rel="noopener noreferrer">
+
+        <span class="support-icon">T</span>
         Telegram Channel
+
       </a>
 
-      <a class="support yt"
+
+      <a class="support youtube"
          href="https://youtube.com/@gsmxr"
-         target="_blank">
+         target="_blank"
+         rel="noopener noreferrer">
+
+        <span class="support-icon">▶</span>
         YouTube
+
       </a>
 
-      <a class="support web"
+
+      <a class="support gsmxr"
          href="https://gsmxr.com"
-         target="_blank">
+         target="_blank"
+         rel="noopener noreferrer">
+
+        <span class="support-icon">G</span>
         GSMXR.com
+
       </a>
+
 
       <a class="support tools"
          href="https://gsmxr.in"
-         target="_blank">
+         target="_blank"
+         rel="noopener noreferrer">
+
+        <span class="support-icon">₹</span>
         Tools & Services
+
       </a>
 
-      <a class="support mi"
+
+      <a class="support xiaomi"
          href="https://xiaomi.gsmxr.com"
-         target="_blank">
+         target="_blank"
+         rel="noopener noreferrer">
+
+        <span class="support-icon">Mi</span>
         Xiaomi Firmware
+
       </a>
+
 
       <a class="support soft"
          href="https://softichnic.com"
-         target="_blank">
+         target="_blank"
+         rel="noopener noreferrer">
+
+        <span class="support-icon">S</span>
         Softichnic.com
+
       </a>
+
 
     </div>
 
@@ -462,84 +718,72 @@
 
 </main>
 
+
 <footer>
+
   <strong>GSMXR Downloads</strong><br>
-  d.gsmxr.com · Official GSMXR Download Server<br>
+
+  Official Download Server · d.gsmxr.com<br>
+
   © <span id="year"></span> GSMXR
+
 </footer>
 
 
 <script>
 
-/* ======================================
-   GSMXR DOWNLOAD SETTINGS
-   ====================================== */
+/* ==================================================
+   GSMXR DOWNLOAD SYSTEM
+   ================================================== */
 
-const API =
-  "https://api.github.com/repos/gsmxr/gsmxr-downloads/releases/tags/downloads";
+const PUBLIC_DOMAIN = "https://d.gsmxr.com/";
 
-const PUBLIC_DOMAIN =
-  "https://d.gsmxr.com/";
-
-/*
-  STICKY / PINNED FILES
-
-  Kisi file ko top par rakhna ho to
-  uska EXACT filename yahan add karein.
-
-  Example:
-
-  const PINNED_FILES = [
-    "RMX_OTP_AUTH_TOOL5.zip",
-    "USB197_FIX_V3.rar"
-  ];
-*/
-
-const PINNED_FILES = [
-  "RMX_OTP_AUTH_TOOL5.zip"
-];
+let ALL_FILES = [];
+let PINNED_FILES = [];
 
 
-/* Browser cache - API load kam rahega */
-const CACHE_KEY = "gsmxr_download_assets_v2";
-const CACHE_TIME = 5 * 60 * 1000;
-
-
-/* ====================================== */
-
-let allFiles = [];
+/* YEAR */
 
 document.getElementById("year").textContent =
   new Date().getFullYear();
 
 
-function formatSize(bytes){
+/* FORMAT SIZE */
 
-  if(!bytes) return "0 KB";
+function formatSize(bytes) {
 
-  const units = ["B","KB","MB","GB"];
+  if (!bytes) {
+    return "0 KB";
+  }
 
-  let i = Math.floor(
-    Math.log(bytes) / Math.log(1024)
+  const units = [
+    "B",
+    "KB",
+    "MB",
+    "GB"
+  ];
+
+  const index = Math.min(
+    Math.floor(
+      Math.log(bytes) /
+      Math.log(1024)
+    ),
+    units.length - 1
   );
 
-  i = Math.min(i, units.length - 1);
-
   return (
-    bytes / Math.pow(1024,i)
-  ).toFixed(i === 0 ? 0 : 1) + " " + units[i];
+    bytes /
+    Math.pow(1024,index)
+  ).toFixed(
+    index === 0 ? 0 : 1
+  ) + " " + units[index];
+
 }
 
 
-function brandedURL(name){
+/* ESCAPE TEXT */
 
-  return PUBLIC_DOMAIN +
-    encodeURIComponent(name)
-      .replace(/%2F/g,"/");
-}
-
-
-function escapeHTML(value){
+function escapeHTML(value) {
 
   return String(value)
     .replace(/&/g,"&amp;")
@@ -547,126 +791,255 @@ function escapeHTML(value){
     .replace(/>/g,"&gt;")
     .replace(/"/g,"&quot;")
     .replace(/'/g,"&#039;");
+
 }
 
 
-function isPinned(name){
+/* PIN CHECK */
 
-  return PINNED_FILES
-    .some(file =>
-      file.toLowerCase() === name.toLowerCase()
+function isPinned(name) {
+
+  return PINNED_FILES.some(
+    file =>
+      file.toLowerCase() ===
+      name.toLowerCase()
+  );
+
+}
+
+
+/* PIN POSITION */
+
+function pinPosition(name) {
+
+  const index =
+    PINNED_FILES.findIndex(
+      file =>
+        file.toLowerCase() ===
+        name.toLowerCase()
     );
-}
 
-
-function sortFiles(files){
-
-  return [...files].sort((a,b)=>{
-
-    const ap = isPinned(a.name);
-    const bp = isPinned(b.name);
-
-    if(ap && !bp) return -1;
-    if(!ap && bp) return 1;
-
-    return new Date(b.updated_at) -
-           new Date(a.updated_at);
-
-  });
+  return index === -1
+    ? 999999
+    : index;
 
 }
 
 
-function renderFiles(files){
+/* BRANDED DOWNLOAD LINK */
 
-  const box =
+function publicURL(name) {
+
+  return PUBLIC_DOMAIN +
+    encodeURIComponent(name);
+
+}
+
+
+/* SORT FILES */
+
+function sortFiles(files) {
+
+  return [...files].sort(
+    (a,b) => {
+
+      const aPinned =
+        isPinned(a.name);
+
+      const bPinned =
+        isPinned(b.name);
+
+
+      /* Both pinned:
+         pinned.json ka order follow hoga
+      */
+
+      if (aPinned && bPinned) {
+
+        return (
+          pinPosition(a.name) -
+          pinPosition(b.name)
+        );
+
+      }
+
+
+      /* Pinned हमेशा ऊपर */
+
+      if (aPinned && !bPinned) {
+        return -1;
+      }
+
+      if (!aPinned && bPinned) {
+        return 1;
+      }
+
+
+      /* बाकी newest first */
+
+      return (
+        new Date(b.updated_at) -
+        new Date(a.updated_at)
+      );
+
+    }
+  );
+
+}
+
+
+/* RENDER FILE CARDS */
+
+function renderFiles(files) {
+
+  const container =
     document.getElementById("files");
 
-  if(!files.length){
+  const count =
+    document.getElementById("fileCount");
 
-    box.innerHTML =
+
+  count.textContent =
+    files.length +
+    " file" +
+    (files.length === 1 ? "" : "s") +
+    " available";
+
+
+  if (!files.length) {
+
+    container.innerHTML =
       '<div class="loading">No files found.</div>';
 
     return;
+
   }
 
-  const ordered = sortFiles(files);
 
-  const newestNonPinned =
-    ordered.find(file => !isPinned(file.name));
+  const sorted =
+    sortFiles(files);
 
-  box.innerHTML =
-    ordered.map(file => {
+
+  /* सबसे नई actual file */
+
+  const newest =
+    [...ALL_FILES]
+      .sort(
+        (a,b) =>
+          new Date(b.updated_at) -
+          new Date(a.updated_at)
+      )[0];
+
+
+  container.innerHTML =
+    sorted.map(file => {
 
       const pinned =
         isPinned(file.name);
 
       const latest =
-        newestNonPinned &&
-        file.name === newestNonPinned.name;
+        newest &&
+        newest.name === file.name;
 
       const url =
-        brandedURL(file.name);
+        publicURL(file.name);
+
 
       const date =
-        new Date(file.updated_at)
-        .toLocaleDateString(
-          "en-IN",
-          {
-            day:"2-digit",
-            month:"short",
-            year:"numeric"
-          }
-        );
+        file.updated_at
+          ? new Date(
+              file.updated_at
+            ).toLocaleDateString(
+              "en-IN",
+              {
+                day:"2-digit",
+                month:"short",
+                year:"numeric"
+              }
+            )
+          : "";
+
+
+      const downloads =
+        typeof file.download_count === "number"
+          ? file.download_count
+          : null;
+
 
       return `
-        <div class="file ${pinned ? "pinned" : ""}">
+
+        <article class="file ${pinned ? "pinned" : ""}">
 
           <div class="file-top">
 
             <div class="filename">
+
               ${escapeHTML(file.name)}
+
             </div>
+
 
             <div class="badges">
 
-              ${pinned
-                ? '<span class="badge pin">📌 PINNED</span>'
-                : ''
+              ${
+                pinned
+                  ? '<span class="badge pin-badge">📌 PINNED</span>'
+                  : ''
               }
 
-              ${latest
-                ? '<span class="badge new">NEW</span>'
-                : ''
+              ${
+                latest
+                  ? '<span class="badge new-badge">NEW</span>'
+                  : ''
               }
 
             </div>
 
           </div>
 
+
           <div class="meta">
+
             ${formatSize(file.size)}
-            &nbsp;•&nbsp;
-            ${date}
+
+            ${
+              date
+                ? ` &nbsp;•&nbsp; ${date}`
+                : ""
+            }
+
+            ${
+              downloads !== null
+                ? ` &nbsp;•&nbsp; ${downloads} downloads`
+                : ""
+            }
+
           </div>
+
 
           <div class="actions">
 
             <a
-              class="btn download"
+              class="btn download-btn"
               href="${url}">
               Download
             </a>
 
+
             <button
-              class="btn copy"
-              onclick='copyLink(${JSON.stringify(url)},this)'>
+              class="btn copy-btn"
+              type="button"
+              onclick='copyLink(
+                ${JSON.stringify(url)},
+                this
+              )'>
               Copy Link
             </button>
 
           </div>
 
-        </div>
+        </article>
+
       `;
 
     }).join("");
@@ -674,26 +1047,35 @@ function renderFiles(files){
 }
 
 
-async function copyLink(url,button){
+/* COPY LINK */
 
-  try{
+async function copyLink(url,button) {
 
-    await navigator.clipboard.writeText(url);
+  try {
 
-    const old =
+    await navigator.clipboard
+      .writeText(url);
+
+    const oldText =
       button.textContent;
 
     button.textContent =
       "✓ Copied";
 
-    setTimeout(()=>{
-      button.textContent = old;
-    },1400);
+    setTimeout(
+      () => {
 
-  }catch(e){
+        button.textContent =
+          oldText;
+
+      },
+      1300
+    );
+
+  } catch(error) {
 
     prompt(
-      "Copy this link:",
+      "Copy this download link:",
       url
     );
 
@@ -702,132 +1084,162 @@ async function copyLink(url,button){
 }
 
 
-async function loadFiles(){
+/* LOAD PINNED FILES */
 
-  const cached =
-    localStorage.getItem(CACHE_KEY);
+async function loadPinnedFiles() {
 
-  if(cached){
-
-    try{
-
-      const data =
-        JSON.parse(cached);
-
-      if(
-        Date.now() - data.time <
-        CACHE_TIME
-      ){
-
-        allFiles = data.assets;
-
-        renderFiles(allFiles);
-
-        return;
-      }
-
-    }catch(e){}
-  }
-
-
-  try{
+  try {
 
     const response =
-      await fetch(API,{
-        headers:{
-          "Accept":"application/vnd.github+json"
+      await fetch(
+        "pinned.json",
+        {
+          cache:"default"
         }
-      });
+      );
 
 
-    if(!response.ok)
-      throw new Error("Unable to load files");
+    if (!response.ok) {
 
-
-    const release =
-      await response.json();
-
-
-    allFiles =
-      Array.isArray(release.assets)
-        ? release.assets
-        : [];
-
-
-    localStorage.setItem(
-      CACHE_KEY,
-      JSON.stringify({
-        time:Date.now(),
-        assets:allFiles
-      })
-    );
-
-
-    renderFiles(allFiles);
-
-
-  }catch(error){
-
-    if(cached){
-
-      try{
-
-        const data =
-          JSON.parse(cached);
-
-        allFiles = data.assets || [];
-
-        renderFiles(allFiles);
-
-        return;
-
-      }catch(e){}
+      PINNED_FILES = [];
+      return;
 
     }
 
 
-    document.getElementById("files")
-      .innerHTML =
-      '<div class="loading">Files temporarily unavailable. Please refresh.</div>';
+    const data =
+      await response.json();
+
+
+    PINNED_FILES =
+      Array.isArray(data.files)
+        ? data.files
+        : [];
+
+  } catch(error) {
+
+    PINNED_FILES = [];
 
   }
 
 }
 
 
-/* Search */
+/* LOAD DOWNLOAD FILES */
 
-document.getElementById("search")
-.addEventListener("input",function(){
+async function loadDownloadFiles() {
 
-  const query =
-    this.value
-      .trim()
-      .toLowerCase();
+  try {
 
-
-  if(!query){
-
-    renderFiles(allFiles);
-
-    return;
-  }
+    const response =
+      await fetch(
+        "files.json",
+        {
+          cache:"default"
+        }
+      );
 
 
-  const filtered =
-    allFiles.filter(file =>
-      file.name
-        .toLowerCase()
-        .includes(query)
+    if (!response.ok) {
+
+      throw new Error(
+        "Unable to load files"
+      );
+
+    }
+
+
+    const data =
+      await response.json();
+
+
+    ALL_FILES =
+      Array.isArray(data.files)
+        ? data.files
+        : [];
+
+
+    renderFiles(
+      ALL_FILES
     );
 
+  } catch(error) {
 
-  renderFiles(filtered);
+    document
+      .getElementById("files")
+      .innerHTML =
+      '<div class="loading">Files temporarily unavailable.</div>';
 
-});
+
+    document
+      .getElementById("fileCount")
+      .textContent =
+      "Unable to load files";
+
+  }
+
+}
 
 
-loadFiles();
+/* START SYSTEM */
+
+async function init() {
+
+  /*
+    पहले pinned list,
+    फिर file list load होगी.
+  */
+
+  await loadPinnedFiles();
+
+  await loadDownloadFiles();
+
+}
+
+
+init();
+
+
+/* SEARCH */
+
+document
+  .getElementById("search")
+  .addEventListener(
+    "input",
+    function() {
+
+      const query =
+        this.value
+          .trim()
+          .toLowerCase();
+
+
+      if (!query) {
+
+        renderFiles(
+          ALL_FILES
+        );
+
+        return;
+
+      }
+
+
+      const filtered =
+        ALL_FILES.filter(
+          file =>
+            file.name
+              .toLowerCase()
+              .includes(query)
+        );
+
+
+      renderFiles(
+        filtered
+      );
+
+    }
+  );
 
 </script>
 
