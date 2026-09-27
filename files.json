@@ -1,7 +1,13 @@
 {
-  "synced_at": "2026-09-27T11:22:10.566512+00:00",
-  "count": 8,
+  "synced_at": "2026-09-27T11:52:02.021510+00:00",
+  "count": 9,
   "files": [
+    {
+      "name": "RMX-OTP-V6.zip",
+      "size": 18787132,
+      "updated_at": "2026-09-27T11:50:09Z",
+      "download_count": 0
+    },
     {
       "name": "RMX-CARE-V4.zip",
       "size": 18120161,
