@@ -1,43 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="robots" content="noindex, nofollow, noarchive">
-  <meta name="googlebot" content="noindex, nofollow, noarchive">
 
-  <title>GSMXR Download</title>
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width,initial-scale=1">
+
+<meta name="robots"
+content="noindex,nofollow,noarchive">
+
+<meta name="googlebot"
+content="noindex,nofollow,noarchive">
+
+<!-- Zero-width title: tab में कोई visible text नहीं -->
+<title>&#8203;</title>
+
+<!-- SAME LOGO ICON -->
+<link
+rel="icon"
+type="image/svg+xml"
+href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%232563eb'/%3E%3Cstop offset='1' stop-color='%237c3aed'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='2' y='2' width='60' height='60' rx='16' fill='url(%23g)'/%3E%3Cpath d='M32 13v25m0 0-10-10m10 10 10-10M18 48h28' fill='none' stroke='white' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+
+<style>
+
+*{
+box-sizing:border-box;
+}
+
+html,
+body{
+margin:0;
+width:100%;
+height:100%;
+background:#ffffff;
+overflow:hidden;
+}
+
+/*
+कुछ visible नहीं दिखाना.
+Tab में सिर्फ favicon.
+*/
+
+body{
+font-size:0;
+}
+
+</style>
+
 </head>
+
 
 <body>
 
+
+<iframe
+id="downloadFrame"
+style="display:none"
+aria-hidden="true">
+</iframe>
+
+
 <script>
-(function () {
 
-  // URL से exact file name निकालना
-  let file = decodeURIComponent(
-    window.location.pathname.replace(/^\/+|\/+$/g, "")
-  );
+(function(){
 
-  // खाली URL या 404.html हो तो homepage पर भेजना
-  if (!file || file.toLowerCase() === "404.html") {
-    window.location.replace("https://download.gsmxr.com/");
-    return;
-  }
+/*
+Example:
+tool.gsmxr.com/RMX-OTP-V5.zip
+*/
 
-  // GitHub Release का actual download URL
-  const githubBase =
-    "https://github.com/gsmxr/gsmxr-downloads/releases/download/downloads/";
+const path =
+decodeURIComponent(
+window.location.pathname
+);
 
-  const downloadURL =
-    githubBase + encodeURIComponent(file);
 
-  // Actual file GitHub से download होगी
-  window.location.replace(downloadURL);
+const fileName =
+path.replace(
+/^\/+|\/+$/g,
+""
+);
+
+
+/*
+Invalid path
+*/
+
+if(
+!fileName ||
+fileName.toLowerCase()==="404.html"
+){
+
+return;
+
+}
+
+
+/*
+Actual GitHub Release
+*/
+
+const githubBase =
+"https://github.com/gsmxr/gsmxr-downloads/releases/download/downloads/";
+
+
+const githubURL =
+githubBase +
+encodeURIComponent(fileName);
+
+
+/*
+Download invisibly.
+Current tab stays on tool.gsmxr.com/FileName
+but tab shows only favicon.
+*/
+
+const frame =
+document.getElementById(
+"downloadFrame"
+);
+
+
+setTimeout(
+function(){
+
+frame.src =
+githubURL;
+
+},
+80
+);
 
 })();
 </script>
 
-<p>Starting download...</p>
 
 </body>
 </html>
