@@ -2,759 +2,1140 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
 <title>GSMXR Tools – Software & Utility Downloads</title>
 
-<meta name="description" content="GSMXR Tools Download Center for GSMXR software, service utilities, drivers and ZIP, RAR and EXE tool packages.">
+<meta name="description"
+content="GSMXR Tools Download Center for GSMXR software, service utilities, drivers and ZIP, RAR and EXE tool packages.">
 
-<meta name="robots" content="index,follow,max-image-preview:large">
-<meta name="googlebot" content="index,follow,max-image-preview:large">
+<meta name="robots"
+content="index,follow,max-image-preview:large">
 
-<link rel="canonical" href="https://tool.gsmxr.com/">
+<meta name="googlebot"
+content="index,follow,max-image-preview:large">
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="GSMXR Tools – Software & Utility Downloads">
-<meta property="og:description" content="Find GSMXR tools, service utilities, drivers and updated software packages in one place.">
-<meta property="og:url" content="https://tool.gsmxr.com/">
+<link rel="canonical"
+href="https://tool.gsmxr.com/">
 
-<meta name="theme-color" content="#2563eb">
+<meta property="og:type"
+content="website">
+
+<meta property="og:title"
+content="GSMXR Tools – Software & Utility Downloads">
+
+<meta property="og:description"
+content="Find GSMXR tools, service utilities, drivers and updated software packages in one place.">
+
+<meta property="og:url"
+content="https://tool.gsmxr.com/">
+
+<meta name="theme-color"
+content="#2563eb">
+
+
+<!-- NEW GSMXR DOWNLOAD ICON -->
+
+<link
+rel="icon"
+type="image/svg+xml"
+href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%232563eb'/%3E%3Cstop offset='1' stop-color='%237c3aed'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='2' y='2' width='60' height='60' rx='16' fill='url(%23g)'/%3E%3Cpath d='M32 13v25m0 0-10-10m10 10 10-10M18 48h28' fill='none' stroke='white' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebSite",
+  "name":"GSMXR Tools",
+  "url":"https://tool.gsmxr.com/",
+  "description":"GSMXR software, service utilities, drivers and tool downloads."
+}
+</script>
+
 
 <style>
 
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
 :root{
---bg:#f5f7fb;
---text:#172033;
---muted:#667085;
---border:#e5eaf2;
---blue:#2563eb;
---blue2:#1d4ed8;
---purple:#7c3aed;
---green:#16a34a;
+  --bg:#f5f7fb;
+  --white:#ffffff;
+  --text:#172033;
+  --muted:#667085;
+  --border:#e5eaf2;
+  --blue:#2563eb;
+  --blue-dark:#1d4ed8;
+  --purple:#7c3aed;
+  --green:#16a34a;
 }
 
 html{
-scroll-behavior:smooth;
+  scroll-behavior:smooth;
 }
 
 body{
-font-family:"Segoe UI",Arial,sans-serif;
-background:
-radial-gradient(circle at 8% 5%,rgba(37,99,235,.07),transparent 25%),
-radial-gradient(circle at 92% 10%,rgba(124,58,237,.06),transparent 25%),
-var(--bg);
-color:var(--text);
-min-height:100vh;
--webkit-font-smoothing:antialiased;
+  font-family:"Segoe UI",Arial,sans-serif;
+
+  background:
+    radial-gradient(
+      circle at 8% 5%,
+      rgba(37,99,235,.07),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 92% 10%,
+      rgba(124,58,237,.06),
+      transparent 25%
+    ),
+    var(--bg);
+
+  color:var(--text);
+  min-height:100vh;
+  -webkit-font-smoothing:antialiased;
 }
 
 a{
-text-decoration:none;
+  text-decoration:none;
 }
 
 button,
 input{
-font:inherit;
+  font:inherit;
 }
 
 .wrap{
-width:min(1120px,calc(100% - 24px));
-margin:auto;
+  width:min(1120px,calc(100% - 24px));
+  margin:auto;
 }
 
-/* HEADER */
+
+/* =========================
+   HEADER
+========================= */
 
 header{
-padding:14px 0;
+  padding:14px 0;
 }
 
 .nav{
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:12px;
-background:#fff;
-border:1px solid var(--border);
-border-radius:16px;
-padding:12px 15px;
-box-shadow:0 4px 18px rgba(15,23,42,.04);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+
+  background:var(--white);
+
+  border:1px solid var(--border);
+
+  border-radius:17px;
+
+  padding:11px 15px;
+
+  box-shadow:
+    0 4px 18px
+    rgba(15,23,42,.04);
 }
 
 .brand{
-display:flex;
-align-items:center;
-gap:10px;
-color:var(--text);
+  display:flex;
+  align-items:center;
+  gap:11px;
+  color:var(--text);
 }
 
+
+/* NEW HEADER ICON */
+
 .logo{
-width:44px;
-height:44px;
-min-width:44px;
-border-radius:13px;
-display:flex;
-align-items:center;
-justify-content:center;
-color:#fff;
-font-weight:900;
-background:linear-gradient(135deg,var(--blue),var(--purple));
-box-shadow:0 7px 18px rgba(37,99,235,.18);
+  width:46px;
+  height:46px;
+  min-width:46px;
+
+  border-radius:14px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb,
+      #7c3aed
+    );
+
+  box-shadow:
+    0 7px 18px
+    rgba(37,99,235,.20);
+}
+
+.logo svg{
+  width:28px;
+  height:28px;
+  display:block;
 }
 
 .brand-title{
-font-size:17px;
-font-weight:800;
+  font-size:17px;
+  font-weight:800;
 }
 
 .brand-sub{
-font-size:11px;
-color:#768196;
-margin-top:2px;
+  margin-top:2px;
+  font-size:11px;
+  color:#768196;
 }
 
 .online{
-white-space:nowrap;
-color:#15803d;
-background:#ecfdf3;
-border:1px solid #bbf7d0;
-border-radius:50px;
-padding:7px 10px;
-font-size:10px;
-font-weight:800;
+  white-space:nowrap;
+
+  color:#15803d;
+
+  background:#ecfdf3;
+
+  border:1px solid #bbf7d0;
+
+  border-radius:50px;
+
+  padding:7px 10px;
+
+  font-size:10px;
+  font-weight:800;
 }
 
-/* HERO */
+
+/* =========================
+   HERO
+========================= */
 
 .hero{
-position:relative;
-overflow:hidden;
-color:#fff;
-padding:34px 28px;
-border-radius:22px;
-background:linear-gradient(135deg,#172554,#1d4ed8 55%,#6d28d9);
-box-shadow:0 12px 35px rgba(37,99,235,.14);
+  position:relative;
+  overflow:hidden;
+
+  color:#fff;
+
+  padding:35px 28px;
+
+  border-radius:22px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #172554,
+      #1d4ed8 55%,
+      #6d28d9
+    );
+
+  box-shadow:
+    0 12px 35px
+    rgba(37,99,235,.14);
 }
 
 .hero:after{
-content:"";
-position:absolute;
-width:260px;
-height:260px;
-border-radius:50%;
-right:-110px;
-top:-140px;
-background:rgba(255,255,255,.08);
+  content:"";
+
+  position:absolute;
+
+  width:270px;
+  height:270px;
+
+  border-radius:50%;
+
+  right:-120px;
+  top:-150px;
+
+  background:
+    rgba(255,255,255,.08);
 }
 
 .hero-inner{
-position:relative;
-z-index:2;
+  position:relative;
+  z-index:2;
 }
 
 .hero-badge{
-display:inline-flex;
-align-items:center;
-gap:7px;
-padding:7px 11px;
-border:1px solid rgba(255,255,255,.19);
-border-radius:50px;
-background:rgba(255,255,255,.10);
-font-size:11px;
-font-weight:700;
-margin-bottom:13px;
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+
+  padding:7px 11px;
+
+  border:
+    1px solid
+    rgba(255,255,255,.19);
+
+  border-radius:50px;
+
+  background:
+    rgba(255,255,255,.10);
+
+  font-size:11px;
+  font-weight:700;
+
+  margin-bottom:13px;
 }
 
 .dot{
-width:7px;
-height:7px;
-border-radius:50%;
-background:#4ade80;
+  width:7px;
+  height:7px;
+
+  border-radius:50%;
+
+  background:#4ade80;
 }
 
 .hero h1{
-font-size:34px;
-margin-bottom:9px;
+  font-size:34px;
+  line-height:1.15;
+  margin-bottom:10px;
 }
 
 .hero p{
-max-width:700px;
-color:#dbeafe;
-font-size:14px;
-line-height:1.65;
+  max-width:720px;
+
+  color:#dbeafe;
+
+  font-size:14px;
+
+  line-height:1.65;
 }
 
-/* SECTIONS */
+
+/* =========================
+   SECTIONS
+========================= */
 
 .section{
-margin-top:14px;
-padding:22px;
-background:#fff;
-border:1px solid var(--border);
-border-radius:19px;
-box-shadow:0 4px 18px rgba(15,23,42,.025);
+  margin-top:14px;
+
+  padding:22px;
+
+  background:#fff;
+
+  border:
+    1px solid
+    var(--border);
+
+  border-radius:19px;
+
+  box-shadow:
+    0 4px 18px
+    rgba(15,23,42,.025);
 }
 
 .section-head{
-display:flex;
-justify-content:space-between;
-align-items:center;
-gap:12px;
-flex-wrap:wrap;
-margin-bottom:14px;
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+  gap:12px;
+
+  flex-wrap:wrap;
+
+  margin-bottom:14px;
 }
 
 .section h2{
-font-size:20px;
+  font-size:20px;
 }
 
 .section-sub{
-color:var(--muted);
-font-size:12px;
-margin-top:4px;
-line-height:1.6;
+  color:var(--muted);
+
+  font-size:12px;
+
+  margin-top:4px;
+
+  line-height:1.6;
 }
 
-/* SEARCH */
+
+/* =========================
+   SEARCH
+========================= */
 
 .search{
-width:min(320px,100%);
-padding:11px 13px;
-border:1px solid #dfe5ee;
-border-radius:11px;
-background:#f8fafc;
-outline:none;
-font-size:13px;
+  width:min(320px,100%);
+
+  padding:11px 13px;
+
+  border:
+    1px solid
+    #dfe5ee;
+
+  border-radius:11px;
+
+  background:#f8fafc;
+
+  outline:none;
+
+  font-size:13px;
 }
 
 .search:focus{
-border-color:#9db9ff;
-background:#fff;
+  border-color:#9db9ff;
+
+  background:#fff;
 }
 
-/* CATEGORY */
+
+/* =========================
+   CATEGORIES
+========================= */
 
 .category-wrap{
-display:flex;
-gap:7px;
-overflow-x:auto;
-padding:2px 0 13px;
-scrollbar-width:none;
+  display:flex;
+
+  gap:7px;
+
+  overflow-x:auto;
+
+  padding:2px 0 13px;
+
+  scrollbar-width:none;
 }
 
 .category-wrap::-webkit-scrollbar{
-display:none;
+  display:none;
 }
 
 .category-btn{
-flex:0 0 auto;
-border:1px solid #dfe5ee;
-background:#f8fafc;
-color:#475569;
-padding:9px 13px;
-border-radius:50px;
-font-size:11px;
-font-weight:700;
-cursor:pointer;
-white-space:nowrap;
+  flex:0 0 auto;
+
+  border:
+    1px solid
+    #dfe5ee;
+
+  background:#f8fafc;
+
+  color:#475569;
+
+  padding:9px 13px;
+
+  border-radius:50px;
+
+  font-size:11px;
+
+  font-weight:700;
+
+  cursor:pointer;
+
+  white-space:nowrap;
+
+  transition:.15s ease;
+}
+
+.category-btn:hover{
+  border-color:#aac0ef;
 }
 
 .category-btn.active{
-color:#fff;
-background:var(--blue);
-border-color:var(--blue);
-box-shadow:0 4px 12px rgba(37,99,235,.18);
+  color:#fff;
+
+  background:
+    var(--blue);
+
+  border-color:
+    var(--blue);
+
+  box-shadow:
+    0 4px 12px
+    rgba(37,99,235,.18);
 }
 
 .cat-count{
-opacity:.78;
-margin-left:3px;
-font-size:9px;
+  opacity:.78;
+
+  margin-left:3px;
+
+  font-size:9px;
 }
 
-/* FILE GRID */
+
+/* =========================
+   FILE CARDS
+========================= */
 
 .files{
-display:grid;
-grid-template-columns:repeat(6,minmax(0,1fr));
-gap:10px;
-align-items:stretch;
+  display:grid;
+
+  grid-template-columns:
+    repeat(
+      6,
+      minmax(0,1fr)
+    );
+
+  gap:10px;
+
+  align-items:stretch;
 }
 
 .file{
-grid-column:span 2;
-min-width:0;
-padding:14px;
-border:1px solid #e6eaf1;
-border-radius:14px;
-background:#fff;
-display:flex;
-flex-direction:column;
-height:100%;
-transition:.15s ease;
+  grid-column:span 2;
+
+  min-width:0;
+
+  padding:14px;
+
+  border:
+    1px solid
+    #e6eaf1;
+
+  border-radius:14px;
+
+  background:#fff;
+
+  display:flex;
+
+  flex-direction:column;
+
+  height:100%;
+
+  transition:
+    transform .15s ease,
+    border-color .15s ease,
+    box-shadow .15s ease;
 }
 
 .file:nth-last-child(1):nth-child(3n + 1){
-grid-column:1/-1;
+  grid-column:1/-1;
 }
 
 .file:nth-last-child(2):nth-child(3n + 1),
 .file:nth-last-child(1):nth-child(3n + 2){
-grid-column:span 3;
+  grid-column:span 3;
 }
 
 .file:hover{
-border-color:#cfd7e4;
-box-shadow:0 5px 18px rgba(15,23,42,.05);
-transform:translateY(-1px);
+  border-color:#cfd7e4;
+
+  box-shadow:
+    0 5px 18px
+    rgba(15,23,42,.05);
+
+  transform:
+    translateY(-1px);
 }
 
 .file.pinned{
-border-color:#efc96b;
-background:linear-gradient(135deg,#fffdf5,#fff);
+  border-color:#efc96b;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fffdf5,
+      #fff
+    );
 }
 
 .file-top{
-display:flex;
-justify-content:space-between;
-align-items:flex-start;
-gap:7px;
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:flex-start;
+
+  gap:7px;
 }
 
 .filename{
-min-width:0;
-font-size:12px;
-font-weight:750;
-line-height:1.45;
-overflow-wrap:anywhere;
+  min-width:0;
+
+  font-size:12px;
+
+  font-weight:750;
+
+  line-height:1.45;
+
+  overflow-wrap:anywhere;
 }
 
 .badges{
-display:flex;
-gap:4px;
-flex-shrink:0;
-flex-wrap:wrap;
+  display:flex;
+
+  gap:4px;
+
+  flex-shrink:0;
+
+  flex-wrap:wrap;
 }
 
 .badge{
-padding:4px 6px;
-border-radius:50px;
-font-size:8px;
-font-weight:800;
-white-space:nowrap;
+  padding:4px 6px;
+
+  border-radius:50px;
+
+  font-size:8px;
+
+  font-weight:800;
+
+  white-space:nowrap;
 }
 
 .pin-badge{
-color:#92400e;
-background:#fff0ba;
+  color:#92400e;
+  background:#fff0ba;
 }
 
 .new-badge{
-color:#166534;
-background:#dcfce7;
+  color:#166534;
+  background:#dcfce7;
 }
 
 .category-badge{
-display:inline-block;
-width:max-content;
-max-width:100%;
-margin-top:8px;
-color:#1d4ed8;
-background:#eff6ff;
-padding:4px 7px;
-border-radius:50px;
-font-size:9px;
-font-weight:700;
+  display:inline-block;
+
+  width:max-content;
+
+  max-width:100%;
+
+  margin-top:8px;
+
+  color:#1d4ed8;
+
+  background:#eff6ff;
+
+  padding:4px 7px;
+
+  border-radius:50px;
+
+  font-size:9px;
+
+  font-weight:700;
 }
 
 .meta{
-margin-top:7px;
-color:#7b8497;
-font-size:10px;
-line-height:1.55;
+  margin-top:7px;
+
+  color:#7b8497;
+
+  font-size:10px;
+
+  line-height:1.55;
 }
 
+
+/* =========================
+   BUTTONS
+========================= */
+
 .actions{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:7px;
-margin-top:auto;
-padding-top:11px;
+  display:grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap:7px;
+
+  margin-top:auto;
+
+  padding-top:11px;
 }
 
 .btn{
-border:0;
-cursor:pointer;
-text-align:center;
-padding:9px 7px;
-border-radius:9px;
-font-size:10px;
-font-weight:750;
-transition:.18s ease;
+  border:0;
+
+  cursor:pointer;
+
+  text-align:center;
+
+  padding:10px 7px;
+
+  border-radius:9px;
+
+  font-size:10px;
+
+  font-weight:750;
+
+  transition:.18s ease;
 }
 
 .download-btn{
-color:#fff;
-background:var(--blue);
-box-shadow:0 3px 8px rgba(37,99,235,.13);
+  color:#fff;
+
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb,
+      #4f46e5
+    );
+
+  box-shadow:
+    0 3px 8px
+    rgba(37,99,235,.16);
 }
 
 .download-btn:hover{
-background:var(--blue2);
+  background:
+    linear-gradient(
+      135deg,
+      #1d4ed8,
+      #4338ca
+    );
+
+  transform:
+    translateY(-1px);
 }
 
 .download-btn:active{
-transform:scale(.95);
+  transform:
+    scale(.96);
 }
 
 .copy-btn{
-color:#334155;
-background:#f1f5f9;
-border:1px solid #e2e8f0;
+  color:#334155;
+
+  background:#f1f5f9;
+
+  border:
+    1px solid
+    #e2e8f0;
+}
+
+.copy-btn:hover{
+  background:#e9eef5;
 }
 
 .copy-btn.copied{
-color:#fff;
-background:var(--green);
-border-color:var(--green);
+  color:#fff;
+
+  background:var(--green);
+
+  border-color:var(--green);
 }
 
 .loading{
-grid-column:1/-1;
-text-align:center;
-color:#667085;
-padding:28px;
-font-size:13px;
+  grid-column:1/-1;
+
+  text-align:center;
+
+  color:#667085;
+
+  padding:28px;
+
+  font-size:13px;
 }
 
-/* DOWNLOAD MESSAGE */
 
-.download-toast{
-position:fixed;
-left:50%;
-bottom:20px;
-transform:translate(-50%,30px);
-background:#172033;
-color:#fff;
-padding:10px 16px;
-border-radius:50px;
-font-size:12px;
-font-weight:700;
-opacity:0;
-visibility:hidden;
-z-index:9999;
-transition:.25s ease;
-box-shadow:0 8px 25px rgba(0,0,0,.16);
-}
-
-.download-toast.show{
-opacity:1;
-visibility:visible;
-transform:translate(-50%,0);
-}
-
-/* COMMUNITY */
+/* =========================
+   COMMUNITY
+========================= */
 
 .community-grid{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:9px;
+  display:grid;
+
+  grid-template-columns:
+    repeat(4,1fr);
+
+  gap:9px;
 }
 
 .community-btn{
-color:#fff;
-text-align:center;
-border-radius:11px;
-padding:13px 8px;
-font-size:12px;
-font-weight:700;
+  color:#fff;
+
+  text-align:center;
+
+  border-radius:11px;
+
+  padding:13px 8px;
+
+  font-size:12px;
+
+  font-weight:700;
+
+  transition:.15s ease;
+}
+
+.community-btn:hover{
+  transform:
+    translateY(-2px);
 }
 
 .wa{
-background:#16a34a;
+  background:#16a34a;
 }
 
 .wa2{
-background:#059669;
+  background:#059669;
 }
 
 .telegram{
-background:#0284c7;
+  background:#0284c7;
 }
 
 .youtube{
-background:#dc2626;
+  background:#dc2626;
 }
 
-/* WEBSITES */
+
+/* =========================
+   WEBSITES
+========================= */
 
 .websites{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:10px;
+  display:grid;
+
+  grid-template-columns:
+    repeat(4,1fr);
+
+  gap:10px;
 }
 
 .website-card{
-color:#172033;
-border:1px solid #e4e9f2;
-background:#fff;
-border-radius:15px;
-padding:17px;
-transition:.18s ease;
+  color:#172033;
+
+  border:
+    1px solid
+    #e4e9f2;
+
+  background:#fff;
+
+  border-radius:15px;
+
+  padding:17px;
+
+  transition:.18s ease;
 }
 
 .website-card:hover{
-transform:translateY(-2px);
-border-color:#cdd6e5;
-box-shadow:0 7px 22px rgba(15,23,42,.07);
+  transform:
+    translateY(-2px);
+
+  border-color:#cdd6e5;
+
+  box-shadow:
+    0 7px 22px
+    rgba(15,23,42,.07);
 }
 
 .site-icon{
-width:40px;
-height:40px;
-display:flex;
-align-items:center;
-justify-content:center;
-border-radius:11px;
-color:#fff;
-font-weight:900;
-margin-bottom:10px;
+  width:40px;
+  height:40px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  border-radius:11px;
+
+  color:#fff;
+
+  font-weight:900;
+
+  margin-bottom:10px;
 }
 
 .site-title{
-font-size:14px;
-font-weight:800;
+  font-size:14px;
+
+  font-weight:800;
 }
 
 .site-desc{
-margin-top:5px;
-font-size:11px;
-color:#667085;
-line-height:1.5;
+  margin-top:5px;
+
+  font-size:11px;
+
+  color:#667085;
+
+  line-height:1.5;
 }
 
 .site-link{
-margin-top:10px;
-color:var(--blue);
-font-size:10px;
-font-weight:700;
+  margin-top:10px;
+
+  color:var(--blue);
+
+  font-size:10px;
+
+  font-weight:700;
 }
 
 .site-gsmxr{
-background:#111827;
+  background:#111827;
 }
 
 .site-tools{
-background:#7c3aed;
+  background:#7c3aed;
 }
 
 .site-xiaomi{
-background:#ea580c;
+  background:#ea580c;
 }
 
 .site-soft{
-background:#0369a1;
+  background:#0369a1;
 }
 
-/* ABOUT */
+
+/* =========================
+   ABOUT
+========================= */
 
 .info-grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:10px;
+  display:grid;
+
+  grid-template-columns:
+    repeat(3,1fr);
+
+  gap:10px;
 }
 
 .info-card{
-border:1px solid #e4e9f2;
-background:#fff;
-border-radius:15px;
-padding:17px;
+  border:
+    1px solid
+    #e4e9f2;
+
+  background:#fff;
+
+  border-radius:15px;
+
+  padding:17px;
 }
 
 .info-card h3{
-font-size:14px;
-margin-bottom:7px;
+  font-size:14px;
+
+  margin-bottom:7px;
 }
 
 .info-card p{
-font-size:11px;
-color:var(--muted);
-line-height:1.65;
+  font-size:11px;
+
+  color:var(--muted);
+
+  line-height:1.65;
 }
 
 .info-card a{
-color:var(--blue);
-font-weight:750;
+  color:var(--blue);
+
+  font-weight:750;
 }
 
-/* FOOTER */
+
+/* =========================
+   FOOTER
+========================= */
 
 footer{
-text-align:center;
-padding:22px 10px 28px;
-color:#7b8497;
-font-size:11px;
-line-height:1.8;
+  text-align:center;
+
+  padding:22px 10px 28px;
+
+  color:#7b8497;
+
+  font-size:11px;
+
+  line-height:1.8;
 }
 
 footer strong{
-color:#344054;
+  color:#344054;
 }
 
 .footer-links{
-margin-bottom:7px;
+  margin-bottom:7px;
 }
 
 .footer-links a{
-color:#526075;
-margin:0 6px;
-font-weight:700;
+  color:#526075;
+
+  margin:0 6px;
+
+  font-weight:700;
 }
 
-/* TABLET */
+.footer-links a:hover{
+  color:var(--blue);
+}
+
+
+/* =========================
+   TABLET
+========================= */
 
 @media(max-width:900px){
 
-.files{
-grid-template-columns:repeat(2,minmax(0,1fr));
+  .files{
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0,1fr)
+      );
+  }
+
+  .file,
+  .file:nth-last-child(1):nth-child(3n + 1),
+  .file:nth-last-child(2):nth-child(3n + 1),
+  .file:nth-last-child(1):nth-child(3n + 2){
+    grid-column:auto;
+  }
+
+  .file:last-child:nth-child(odd){
+    grid-column:1/-1;
+  }
+
+  .websites,
+  .community-grid{
+    grid-template-columns:
+      1fr 1fr;
+  }
+
+  .info-grid{
+    grid-template-columns:1fr;
+  }
+
 }
 
-.file,
-.file:nth-last-child(1):nth-child(3n + 1),
-.file:nth-last-child(2):nth-child(3n + 1),
-.file:nth-last-child(1):nth-child(3n + 2){
-grid-column:auto;
-}
 
-.file:last-child:nth-child(odd){
-grid-column:1/-1;
-}
-
-.websites,
-.community-grid{
-grid-template-columns:1fr 1fr;
-}
-
-.info-grid{
-grid-template-columns:1fr;
-}
-
-}
-
-/* MOBILE */
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:600px){
 
-.wrap{
-width:calc(100% - 16px);
-}
+  .wrap{
+    width:
+      calc(100% - 16px);
+  }
 
-.files{
-grid-template-columns:1fr;
-}
+  header{
+    padding:9px 0;
+  }
 
-.file,
-.file:last-child:nth-child(odd){
-grid-column:auto;
-}
+  .nav{
+    padding:9px 11px;
+  }
 
-header{
-padding:9px 0;
-}
+  .logo{
+    width:42px;
+    height:42px;
+    min-width:42px;
 
-.nav{
-padding:10px 11px;
-}
+    border-radius:12px;
+  }
 
-.brand-sub{
-display:none;
-}
+  .logo svg{
+    width:25px;
+    height:25px;
+  }
 
-.hero{
-padding:26px 18px;
-border-radius:18px;
-}
+  .brand-sub{
+    display:none;
+  }
 
-.hero h1{
-font-size:27px;
-}
+  .hero{
+    padding:25px 18px;
 
-.hero p{
-font-size:13px;
-}
+    border-radius:18px;
+  }
 
-.section{
-padding:15px;
-}
+  .hero h1{
+    font-size:27px;
+  }
 
-.search{
-width:100%;
-}
+  .hero p{
+    font-size:13px;
+  }
 
-.file-top{
-display:block;
-}
+  .section{
+    padding:15px;
+  }
 
-.badges{
-margin-top:6px;
-}
+  .search{
+    width:100%;
+  }
 
-.filename{
-font-size:13px;
-}
+  .files{
+    grid-template-columns:1fr;
+  }
 
-.meta{
-font-size:11px;
-}
+  .file,
+  .file:last-child:nth-child(odd){
+    grid-column:auto;
+  }
 
-.btn{
-font-size:11px;
-min-height:40px;
-}
+  .file-top{
+    display:block;
+  }
 
-.websites{
-grid-template-columns:1fr;
-}
+  .badges{
+    margin-top:6px;
+  }
 
-.website-card{
-display:grid;
-grid-template-columns:42px 1fr;
-column-gap:11px;
-align-items:center;
-}
+  .filename{
+    font-size:13px;
+  }
 
-.site-icon{
-grid-row:1/4;
-margin:0;
-}
+  .meta{
+    font-size:11px;
+  }
 
-.site-link{
-margin-top:3px;
-}
+  .btn{
+    min-height:40px;
+
+    font-size:11px;
+  }
+
+  .websites{
+    grid-template-columns:1fr;
+  }
+
+  .website-card{
+    display:grid;
+
+    grid-template-columns:
+      42px 1fr;
+
+    column-gap:11px;
+
+    align-items:center;
+  }
+
+  .site-icon{
+    grid-row:1/4;
+
+    margin:0;
+  }
+
+  .site-link{
+    margin-top:3px;
+  }
 
 }
 
 @media(max-width:360px){
 
-.community-grid{
-grid-template-columns:1fr;
-}
+  .community-grid{
+    grid-template-columns:1fr;
+  }
 
-.actions{
-grid-template-columns:1fr;
-}
+  .actions{
+    grid-template-columns:1fr;
+  }
 
 }
 
 </style>
+
 </head>
 
+
 <body>
+
+
+<!-- =========================
+HEADER
+========================= -->
 
 <header>
 
@@ -762,11 +1143,47 @@ grid-template-columns:1fr;
 
 <div class="nav">
 
-<a class="brand" href="/">
+
+<a
+class="brand"
+href="/">
+
 
 <div class="logo">
-GX
+
+<svg
+viewBox="0 0 64 64"
+aria-hidden="true">
+
+<path
+d="M32 10V38"
+fill="none"
+stroke="white"
+stroke-width="6"
+stroke-linecap="round">
+</path>
+
+<path
+d="M21 28L32 39L43 28"
+fill="none"
+stroke="white"
+stroke-width="6"
+stroke-linecap="round"
+stroke-linejoin="round">
+</path>
+
+<path
+d="M17 49H47"
+fill="none"
+stroke="white"
+stroke-width="6"
+stroke-linecap="round">
+</path>
+
+</svg>
+
 </div>
+
 
 <div>
 
@@ -780,11 +1197,14 @@ Software & Utility Download Center
 
 </div>
 
+
 </a>
+
 
 <div class="online">
 ● ONLINE
 </div>
+
 
 </div>
 
@@ -793,8 +1213,13 @@ Software & Utility Download Center
 </header>
 
 
+
 <main class="wrap">
 
+
+<!-- =========================
+HERO
+========================= -->
 
 <section class="hero">
 
@@ -808,26 +1233,36 @@ Official GSMXR Tools Center
 
 </div>
 
+
 <h1>
 GSMXR Tools Download Center
 </h1>
 
+
 <p>
-Find GSMXR software, service utilities, drivers and updated tool
-packages in one place. Search by file name or category and download
-the required ZIP, RAR, EXE or other available package.
+Find GSMXR software, service utilities, drivers and updated
+tool packages in one place. Search by file name or category
+and download the required ZIP, RAR, EXE or other available package.
 </p>
+
 
 </div>
 
 </section>
 
 
-<!-- DOWNLOADS -->
 
-<section class="section" id="downloads">
+<!-- =========================
+DOWNLOADS
+========================= -->
+
+<section
+class="section"
+id="downloads">
+
 
 <div class="section-head">
+
 
 <div>
 
@@ -835,11 +1270,16 @@ the required ZIP, RAR, EXE or other available package.
 Available Downloads
 </h2>
 
-<div id="fileCount" class="section-sub">
+<div
+id="fileCount"
+class="section-sub">
+
 Loading files...
+
 </div>
 
 </div>
+
 
 <input
 id="search"
@@ -847,16 +1287,17 @@ class="search"
 type="search"
 placeholder="Search tool or file..."
 autocomplete="off"
-aria-label="Search tools"
->
+aria-label="Search tools">
 
 </div>
+
 
 
 <div
 id="categories"
 class="category-wrap">
 </div>
+
 
 
 <div
@@ -869,10 +1310,14 @@ Loading files...
 
 </div>
 
+
 </section>
 
 
-<!-- SUPPORT -->
+
+<!-- =========================
+SUPPORT
+========================= -->
 
 <section class="section">
 
@@ -895,12 +1340,15 @@ GSMXR updates and community.
 
 <div class="community-grid">
 
+
 <a
 class="community-btn wa"
 href="http://tiny.cc/FollowForDelyUpdate"
 target="_blank"
 rel="noopener noreferrer">
+
 WhatsApp Channel
+
 </a>
 
 
@@ -909,7 +1357,9 @@ class="community-btn wa2"
 href="http://tiny.cc/GsmXRNewsUpdate"
 target="_blank"
 rel="noopener noreferrer">
+
 WhatsApp Community
+
 </a>
 
 
@@ -918,7 +1368,9 @@ class="community-btn telegram"
 href="https://t.me/gsmXrNews"
 target="_blank"
 rel="noopener noreferrer">
+
 Telegram Channel
+
 </a>
 
 
@@ -927,15 +1379,21 @@ class="community-btn youtube"
 href="https://youtube.com/@gsmxr"
 target="_blank"
 rel="noopener noreferrer">
+
 YouTube
+
 </a>
+
 
 </div>
 
 </section>
 
 
-<!-- WEBSITES -->
+
+<!-- =========================
+OUR WEBSITES
+========================= -->
 
 <section class="section">
 
@@ -965,6 +1423,7 @@ href="https://gsmxr.com"
 target="_blank"
 rel="noopener noreferrer">
 
+
 <div class="site-icon site-gsmxr">
 GX
 </div>
@@ -984,11 +1443,13 @@ Visit Website →
 </a>
 
 
+
 <a
 class="website-card"
 href="https://gsmxr.in"
 target="_blank"
 rel="noopener noreferrer">
+
 
 <div class="site-icon site-tools">
 ₹
@@ -1009,11 +1470,13 @@ Visit GSMXR.in →
 </a>
 
 
+
 <a
 class="website-card"
 href="https://xiaomi.gsmxr.com"
 target="_blank"
 rel="noopener noreferrer">
+
 
 <div class="site-icon site-xiaomi">
 Mi
@@ -1034,11 +1497,13 @@ Browse Firmware →
 </a>
 
 
+
 <a
 class="website-card"
 href="https://softichnic.com"
 target="_blank"
 rel="noopener noreferrer">
+
 
 <div class="site-icon site-soft">
 S
@@ -1064,11 +1529,15 @@ Visit Softichnic →
 </section>
 
 
-<!-- ABOUT AT BOTTOM -->
+
+<!-- =========================
+ABOUT AT BOTTOM
+========================= -->
 
 <section
 class="section"
 id="about">
+
 
 <div class="section-head">
 
@@ -1106,6 +1575,7 @@ the correct package before downloading.
 </div>
 
 
+
 <div
 class="info-card"
 id="contact">
@@ -1115,19 +1585,24 @@ Contact & Support
 </h3>
 
 <p>
+
 For tools, services and support, visit
 
 <a
 href="https://gsmxr.in/"
 target="_blank"
 rel="noopener noreferrer">
+
 GSMXR.in
+
 </a>.
 
 For updates, use the official GSMXR community links above.
+
 </p>
 
 </div>
+
 
 
 <div
@@ -1146,6 +1621,7 @@ use. Product and company names belong to their respective owners.
 
 </div>
 
+
 </div>
 
 </section>
@@ -1154,7 +1630,13 @@ use. Product and company names belong to their respective owners.
 </main>
 
 
+
+<!-- =========================
+FOOTER
+========================= -->
+
 <footer>
+
 
 <div class="footer-links">
 
@@ -1172,6 +1654,7 @@ Disclaimer
 
 </div>
 
+
 <strong>
 GSMXR Tools
 </strong>
@@ -1184,31 +1667,17 @@ Software & Utility Download Center · tool.gsmxr.com
 
 © <span id="year"></span> GSMXR
 
+
 </footer>
 
 
-<!--
-IMPORTANT:
-DOWNLOAD इसी hidden frame में होगा.
-Homepage कहीं नहीं जाएगा.
--->
-
-<iframe
-id="downloadFrame"
-name="downloadFrame"
-style="display:none"
-aria-hidden="true">
-</iframe>
-
-
-<div
-id="downloadToast"
-class="download-toast">
-Starting download...
-</div>
-
 
 <script>
+
+
+/* =========================
+SETTINGS
+========================= */
 
 const PUBLIC_DOMAIN =
 "https://tool.gsmxr.com/";
@@ -1243,6 +1712,11 @@ document
 new Date().getFullYear();
 
 
+
+/* =========================
+ESCAPE HTML
+========================= */
+
 function escapeHTML(value){
 
 return String(value)
@@ -1260,6 +1734,11 @@ return String(value)
 }
 
 
+
+/* =========================
+FILE SIZE
+========================= */
+
 function formatSize(bytes){
 
 if(!bytes){
@@ -1268,8 +1747,15 @@ return "0 KB";
 
 }
 
+
 const units =
-["B","KB","MB","GB"];
+[
+"B",
+"KB",
+"MB",
+"GB"
+];
+
 
 const i =
 Math.min(
@@ -1286,6 +1772,7 @@ units.length - 1
 
 );
 
+
 return (
 
 bytes /
@@ -1294,7 +1781,9 @@ Math.pow(1024,i)
 
 ).toFixed(
 
-i === 0 ? 0 : 1
+i === 0
+? 0
+: 1
 
 )
 
@@ -1309,6 +1798,11 @@ units[i];
 }
 
 
+
+/* =========================
+PUBLIC DOWNLOAD URL
+========================= */
+
 function publicURL(name){
 
 return (
@@ -1322,76 +1816,10 @@ encodeURIComponent(name)
 }
 
 
-/* ===========================
-   DOWNLOAD FIX
-   =========================== */
 
-function startDownload(url){
-
-const frame =
-document.getElementById(
-"downloadFrame"
-);
-
-const toast =
-document.getElementById(
-"downloadToast"
-);
-
-
-/*
-पहले iframe reset करेंगे,
-फिर download URL iframe में खोलेंगे.
-Main homepage बिल्कुल नहीं बदलेगा.
-*/
-
-frame.src =
-"about:blank";
-
-
-setTimeout(
-
-function(){
-
-frame.src =
-url;
-
-},
-
-30
-
-);
-
-
-/*
-Small confirmation
-*/
-
-toast.classList.add(
-"show"
-);
-
-
-setTimeout(
-
-function(){
-
-toast.classList.remove(
-"show"
-);
-
-},
-
-1600
-
-);
-
-}
-
-
-/* ===========================
-   PINNED
-   =========================== */
+/* =========================
+PINNED FILES
+========================= */
 
 function isPinned(name){
 
@@ -1399,7 +1827,9 @@ return PINNED_FILES.some(
 
 item =>
 
-item.toLowerCase() ===
+item.toLowerCase()
+
+===
 
 name.toLowerCase()
 
@@ -1415,11 +1845,14 @@ PINNED_FILES.findIndex(
 
 item =>
 
-item.toLowerCase() ===
+item.toLowerCase()
+
+===
 
 name.toLowerCase()
 
 );
+
 
 return i === -1
 ? 999999
@@ -1428,9 +1861,10 @@ return i === -1
 }
 
 
-/* ===========================
-   CATEGORY
-   =========================== */
+
+/* =========================
+AUTO CATEGORY
+========================= */
 
 function autoDetectCategory(filename){
 
@@ -1440,7 +1874,9 @@ filename.toLowerCase();
 
 if(
 
-name.includes("realme") ||
+name.includes("realme")
+
+||
 
 name.includes("rmx")
 
@@ -1453,13 +1889,21 @@ return "Realme Tools";
 
 if(
 
-name.includes("xiaomi") ||
+name.includes("xiaomi")
 
-name.includes("redmi") ||
+||
 
-name.includes("poco") ||
+name.includes("redmi")
 
-name.includes("miui") ||
+||
+
+name.includes("poco")
+
+||
+
+name.includes("miui")
+
+||
 
 name.includes("hyperos")
 
@@ -1472,11 +1916,17 @@ return "Xiaomi Tools";
 
 if(
 
-name.includes("usb") ||
+name.includes("usb")
 
-name.includes("usb197") ||
+||
 
-name.includes("usb-197") ||
+name.includes("usb197")
+
+||
+
+name.includes("usb-197")
+
+||
 
 name.includes("usb_197")
 
@@ -1489,29 +1939,53 @@ return "USB Tools";
 
 if(
 
-name.includes("driver") ||
+name.includes("driver")
 
-name.includes("drivers") ||
+||
 
-name.includes("mtk") ||
+name.includes("drivers")
 
-name.includes("mediatek") ||
+||
 
-name.includes("qcom") ||
+name.includes("mtk")
 
-name.includes("qualcomm") ||
+||
 
-name.includes("adb") ||
+name.includes("mediatek")
 
-name.includes("winusb") ||
+||
 
-name.includes("vcom") ||
+name.includes("qcom")
 
-name.includes("cdc") ||
+||
 
-name.includes("vc_redist") ||
+name.includes("qualcomm")
 
-name.includes("vc-redist") ||
+||
+
+name.includes("adb")
+
+||
+
+name.includes("winusb")
+
+||
+
+name.includes("vcom")
+
+||
+
+name.includes("cdc")
+
+||
+
+name.includes("vc_redist")
+
+||
+
+name.includes("vc-redist")
+
+||
 
 name.includes("redist")
 
@@ -1526,6 +2000,11 @@ return "Other";
 
 }
 
+
+
+/* =========================
+MANUAL CATEGORY
+========================= */
 
 function getManualCategory(filename){
 
@@ -1553,7 +2032,9 @@ files.some(
 
 file =>
 
-file.toLowerCase() ===
+file.toLowerCase()
+
+===
 
 target
 
@@ -1573,6 +2054,7 @@ return null;
 }
 
 
+
 function getFileCategory(filename){
 
 return (
@@ -1588,9 +2070,10 @@ autoDetectCategory(filename)
 }
 
 
-/* ===========================
-   SORT FILES
-   =========================== */
+
+/* =========================
+SORT
+========================= */
 
 function sortFiles(files){
 
@@ -1598,8 +2081,10 @@ return [...files].sort(
 
 (a,b)=>{
 
+
 const ap =
 isPinned(a.name);
+
 
 const bp =
 isPinned(b.name);
@@ -1636,13 +2121,18 @@ return 1;
 
 return (
 
-new Date(b.updated_at)
+new Date(
+b.updated_at
+)
 
 -
 
-new Date(a.updated_at)
+new Date(
+a.updated_at
+)
 
 );
+
 
 }
 
@@ -1651,9 +2141,10 @@ new Date(a.updated_at)
 }
 
 
-/* ===========================
-   CATEGORY BUTTONS
-   =========================== */
+
+/* =========================
+CATEGORY BUTTONS
+========================= */
 
 function buildCategoryButtons(){
 
@@ -1703,6 +2194,7 @@ categoryNames.forEach(
 
 category=>{
 
+
 const count =
 ALL_FILES.filter(
 
@@ -1728,7 +2220,9 @@ data-category="${escapeHTML(category)}">
 ${escapeHTML(category)}
 
 <span class="cat-count">
+
 ${count}
+
 </span>
 
 </button>
@@ -1738,6 +2232,7 @@ ${count}
 }
 
 );
+
 
 
 const otherCount =
@@ -1765,7 +2260,9 @@ data-category="Other">
 Other
 
 <span class="cat-count">
+
 ${otherCount}
+
 </span>
 
 </button>
@@ -1777,6 +2274,7 @@ holder.innerHTML =
 html;
 
 
+
 holder
 .querySelectorAll(
 ".category-btn"
@@ -1785,11 +2283,13 @@ holder
 
 button=>{
 
+
 button.addEventListener(
 
 "click",
 
 function(){
+
 
 holder
 .querySelectorAll(
@@ -1819,20 +2319,23 @@ this.dataset.category;
 
 applyFilters();
 
+
+}
+
+);
+
+
 }
 
 );
 
 }
 
-);
-
-}
 
 
-/* ===========================
-   SEARCH / FILTER
-   =========================== */
+/* =========================
+SEARCH
+========================= */
 
 function applyFilters(){
 
@@ -1850,10 +2353,12 @@ document
 .toLowerCase();
 
 
+
 const filtered =
 ALL_FILES.filter(
 
 file=>{
+
 
 const searchMatch =
 
@@ -1866,23 +2371,24 @@ file.name
 .includes(query);
 
 
+
 const category =
 getFileCategory(
 file.name
 );
 
 
+
 const categoryMatch =
 
 ACTIVE_CATEGORY ===
-
 "All Files"
 
 ||
 
 category ===
-
 ACTIVE_CATEGORY;
+
 
 
 return (
@@ -1895,9 +2401,11 @@ categoryMatch
 
 );
 
+
 }
 
 );
+
 
 
 renderFiles(
@@ -1907,9 +2415,10 @@ filtered
 }
 
 
-/* ===========================
-   SHOW FILES
-   =========================== */
+
+/* =========================
+RENDER FILES
+========================= */
 
 function renderFiles(files){
 
@@ -1948,6 +2457,7 @@ files.length === 1
 " available";
 
 
+
 if(!files.length){
 
 box.innerHTML =
@@ -1959,10 +2469,12 @@ return;
 }
 
 
+
 const sorted =
 sortFiles(
 files
 );
+
 
 
 const newest =
@@ -1984,10 +2496,12 @@ a.updated_at
 )[0];
 
 
+
 box.innerHTML =
 sorted.map(
 
 file=>{
+
 
 const pinned =
 isPinned(
@@ -2002,8 +2516,8 @@ newest
 &&
 
 newest.name ===
-
 file.name;
+
 
 
 const category =
@@ -2012,10 +2526,12 @@ file.name
 );
 
 
+
 const url =
 publicURL(
 file.name
 );
+
 
 
 const date =
@@ -2046,6 +2562,7 @@ year:"numeric"
 :
 
 "";
+
 
 
 return `
@@ -2099,11 +2616,13 @@ latest
 </div>
 
 
+
 <div class="category-badge">
 
 ${escapeHTML(category)}
 
 </div>
+
 
 
 <div class="meta">
@@ -2112,13 +2631,9 @@ ${formatSize(file.size)}
 
 ${
 date
-
 ?
-
 ` • ${date}`
-
 :
-
 ""
 }
 
@@ -2138,14 +2653,15 @@ typeof file.download_count
 </div>
 
 
+
 <div class="actions">
 
 
 <a
 class="btn download-btn"
-href="${escapeHTML(url)}"
-data-download-url="${escapeHTML(url)}"
-rel="nofollow">
+href="${url}"
+target="_blank"
+rel="nofollow noopener noreferrer">
 
 Download
 
@@ -2155,7 +2671,7 @@ Download
 <button
 class="btn copy-btn"
 type="button"
-data-copy-url="${escapeHTML(url)}">
+data-copy-url="${url}">
 
 Copy Link
 
@@ -2175,44 +2691,8 @@ Copy Link
 .join("");
 
 
-/*
-DOWNLOAD BUTTON EVENTS
-*/
 
-box
-.querySelectorAll(
-".download-btn"
-)
-.forEach(
-
-button=>{
-
-button.addEventListener(
-
-"click",
-
-function(event){
-
-event.preventDefault();
-
-startDownload(
-
-this.dataset.downloadUrl
-
-);
-
-}
-
-);
-
-}
-
-);
-
-
-/*
-COPY BUTTON EVENTS
-*/
+/* COPY BUTTON EVENTS */
 
 box
 .querySelectorAll(
@@ -2221,6 +2701,7 @@ box
 .forEach(
 
 button=>{
+
 
 button.addEventListener(
 
@@ -2240,6 +2721,7 @@ this
 
 );
 
+
 }
 
 );
@@ -2247,9 +2729,10 @@ this
 }
 
 
-/* ===========================
-   COPY LINK
-   =========================== */
+
+/* =========================
+COPY LINK
+========================= */
 
 async function copyLink(
 url,
@@ -2257,6 +2740,7 @@ button
 ){
 
 try{
+
 
 await navigator
 .clipboard
@@ -2271,12 +2755,13 @@ button
 
 
 button.innerHTML =
-"✓ Link Copied";
+"✓ Copied";
 
 
 setTimeout(
 
 ()=>{
+
 
 button
 .classList
@@ -2288,15 +2773,18 @@ button
 button.innerHTML =
 "Copy Link";
 
+
 },
 
-1600
+1500
 
 );
+
 
 }
 
 catch(error){
+
 
 prompt(
 
@@ -2306,18 +2794,21 @@ url
 
 );
 
-}
 
 }
 
+}
 
-/* ===========================
-   LOAD PINNED
-   =========================== */
+
+
+/* =========================
+LOAD PINNED
+========================= */
 
 async function loadPinned(){
 
 try{
+
 
 const response =
 await fetch(
@@ -2359,6 +2850,7 @@ data.files
 
 [];
 
+
 }
 
 catch(error){
@@ -2370,13 +2862,15 @@ PINNED_FILES = [];
 }
 
 
-/* ===========================
-   LOAD CATEGORIES
-   =========================== */
+
+/* =========================
+LOAD CATEGORIES
+========================= */
 
 async function loadCategories(){
 
 try{
+
 
 const response =
 await fetch(
@@ -2421,6 +2915,7 @@ data
 
 {};
 
+
 }
 
 catch(error){
@@ -2432,13 +2927,15 @@ CATEGORY_DATA = {};
 }
 
 
-/* ===========================
-   LOAD FILES
-   =========================== */
+
+/* =========================
+LOAD FILES
+========================= */
 
 async function loadFiles(){
 
 try{
+
 
 const response =
 await fetch(
@@ -2483,11 +2980,14 @@ data.files
 
 buildCategoryButtons();
 
+
 applyFilters();
+
 
 }
 
 catch(error){
+
 
 document
 .getElementById(
@@ -2506,14 +3006,16 @@ document
 
 "Unable to load files";
 
-}
 
 }
 
+}
 
-/* ===========================
-   START
-   =========================== */
+
+
+/* =========================
+START
+========================= */
 
 async function init(){
 
@@ -2531,6 +3033,7 @@ await loadFiles();
 }
 
 
+
 document
 .getElementById(
 "search"
@@ -2546,7 +3049,9 @@ applyFilters
 
 init();
 
+
 </script>
+
 
 </body>
 </html>
