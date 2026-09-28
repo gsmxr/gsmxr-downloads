@@ -4,27 +4,49 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
-  <meta name="googlebot" content="noindex,nofollow,noarchive,nosnippet">
+  <title>GSMXR Tools – Software & Utility Downloads</title>
+  <meta name="description" content="GSMXR Tools Download Center for GSMXR software, service utilities, drivers and ZIP, RAR and EXE tool packages.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="googlebot" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://tool.gsmxr.com/">
 
-  <title>GSMXR Downloads</title>
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="GSMXR Tools – Software & Utility Downloads">
+  <meta property="og:description" content="Find GSMXR tools, service utilities, drivers and updated software packages in one place.">
+  <meta property="og:url" content="https://tool.gsmxr.com/">
+  <meta name="theme-color" content="#2563eb">
 
-  <link rel="icon"
-        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%232563eb'/%3E%3Cstop offset='1' stop-color='%237c3aed'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='24' fill='url(%23g)'/%3E%3Ctext x='50' y='63' font-size='42' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'%3EGX%3C/text%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%232563eb'/%3E%3Cstop offset='1' stop-color='%237c3aed'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='24' fill='url(%23g)'/%3E%3Ctext x='50' y='63' font-size='42' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'%3EGX%3C/text%3E%3C/svg%3E">
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "name":"GSMXR Tools",
+    "url":"https://tool.gsmxr.com/",
+    "description":"GSMXR software, service utilities, drivers and tool downloads."
+  }
+  </script>
 
   <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
+    *{margin:0;padding:0;box-sizing:border-box}
 
     :root{
       --bg:#f5f7fb;
+      --card:#fff;
       --text:#172033;
       --muted:#667085;
       --border:#e5eaf2;
       --blue:#2563eb;
+      --blue2:#1d4ed8;
+      --purple:#7c3aed;
+      --green:#16a34a;
+      --red:#dc2626;
+      --orange:#ea580c;
+    }
+
+    html{
+      scroll-behavior:smooth;
     }
 
     body{
@@ -35,6 +57,16 @@
         var(--bg);
       color:var(--text);
       min-height:100vh;
+      -webkit-font-smoothing:antialiased;
+    }
+
+    a{
+      text-decoration:none;
+    }
+
+    button,
+    input{
+      font:inherit;
     }
 
     .wrap{
@@ -64,6 +96,7 @@
       display:flex;
       align-items:center;
       gap:10px;
+      color:var(--text);
     }
 
     .logo{
@@ -76,7 +109,7 @@
       justify-content:center;
       color:#fff;
       font-weight:900;
-      background:linear-gradient(135deg,#2563eb,#7c3aed);
+      background:linear-gradient(135deg,var(--blue),var(--purple));
       box-shadow:0 7px 18px rgba(37,99,235,.18);
     }
 
@@ -110,7 +143,12 @@
       color:#fff;
       padding:34px 28px;
       border-radius:22px;
-      background:linear-gradient(135deg,#172554,#1d4ed8 55%,#6d28d9);
+      background:linear-gradient(
+        135deg,
+        #172554,
+        #1d4ed8 55%,
+        #6d28d9
+      );
       box-shadow:0 12px 35px rgba(37,99,235,.14);
     }
 
@@ -156,13 +194,13 @@
     }
 
     .hero p{
-      max-width:650px;
+      max-width:700px;
       color:#dbeafe;
       font-size:14px;
       line-height:1.65;
     }
 
-    /* SECTION */
+    /* SECTIONS */
 
     .section{
       margin-top:14px;
@@ -190,6 +228,7 @@
       color:var(--muted);
       font-size:12px;
       margin-top:4px;
+      line-height:1.6;
     }
 
     /* SEARCH */
@@ -244,28 +283,18 @@
 
     .category-btn.active{
       color:#fff;
-      background:#2563eb;
-      border-color:#2563eb;
+      background:var(--blue);
+      border-color:var(--blue);
       box-shadow:0 4px 12px rgba(37,99,235,.18);
     }
 
     .cat-count{
-      opacity:.75;
+      opacity:.78;
       margin-left:3px;
       font-size:9px;
     }
 
-    /* ==================================================
-       FILE GRID
-
-       6-column internal grid:
-       Normal card = 2 columns = 3 cards per row.
-
-       Last row:
-       1 card  -> 6 columns = full width
-       2 cards -> 3 + 3 = equal half width
-       3 cards -> 2 + 2 + 2
-       ================================================== */
+    /* FILE GRID */
 
     .files{
       display:grid;
@@ -281,24 +310,18 @@
       border:1px solid #e6eaf1;
       border-radius:14px;
       background:#fff;
-
       display:flex;
       flex-direction:column;
       height:100%;
-
       transition:
         transform .15s ease,
         border-color .15s ease,
         box-shadow .15s ease;
     }
 
-    /* LAST ROW = ONLY 1 CARD */
-
     .file:nth-last-child(1):nth-child(3n + 1){
-      grid-column:1 / -1;
+      grid-column:1/-1;
     }
-
-    /* LAST ROW = 2 CARDS */
 
     .file:nth-last-child(2):nth-child(3n + 1),
     .file:nth-last-child(1):nth-child(3n + 2){
@@ -376,11 +399,6 @@
       line-height:1.55;
     }
 
-    /*
-      Buttons हमेशा card के bottom पर रहें।
-      इससे same row के cards बराबर दिखेंगे।
-    */
-
     .actions{
       display:grid;
       grid-template-columns:1fr 1fr;
@@ -398,31 +416,23 @@
       border-radius:9px;
       font-size:10px;
       font-weight:750;
-
-      transition:
-        transform .18s ease,
-        background .18s ease,
-        color .18s ease,
-        border-color .18s ease,
-        box-shadow .18s ease;
+      transition:.18s ease;
     }
 
     .download-btn{
       color:#fff;
-      background:#2563eb;
+      background:var(--blue);
       box-shadow:0 3px 8px rgba(37,99,235,.13);
     }
 
     .download-btn:hover{
-      background:#1d4ed8;
+      background:var(--blue2);
       transform:translateY(-1px);
     }
 
     .download-btn:active{
       transform:scale(.95);
     }
-
-    /* COPY BUTTON */
 
     .copy-btn{
       color:#334155;
@@ -441,30 +451,11 @@
 
     .copy-btn.copied{
       color:#fff;
-      background:#16a34a;
-      border-color:#16a34a;
-
+      background:var(--green);
+      border-color:var(--green);
       box-shadow:
         0 0 0 4px rgba(22,163,74,.12),
         0 6px 16px rgba(22,163,74,.20);
-
-      animation:copyPop .35s ease;
-    }
-
-    @keyframes copyPop{
-
-      0%{
-        transform:scale(.94);
-      }
-
-      55%{
-        transform:scale(1.07);
-      }
-
-      100%{
-        transform:scale(1);
-      }
-
     }
 
     .loading{
@@ -473,6 +464,37 @@
       color:#667085;
       padding:28px;
       font-size:13px;
+    }
+
+    /* INFO / LEGAL */
+
+    .info-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:10px;
+    }
+
+    .info-card{
+      border:1px solid #e4e9f2;
+      background:#fff;
+      border-radius:15px;
+      padding:17px;
+    }
+
+    .info-card h3{
+      font-size:14px;
+      margin-bottom:7px;
+    }
+
+    .info-card p{
+      font-size:11px;
+      color:var(--muted);
+      line-height:1.65;
+    }
+
+    .info-card a{
+      color:var(--blue);
+      font-weight:750;
     }
 
     /* COMMUNITY */
@@ -485,7 +507,6 @@
 
     .community-btn{
       color:#fff;
-      text-decoration:none;
       text-align:center;
       border-radius:11px;
       padding:13px 8px;
@@ -524,7 +545,6 @@
     }
 
     .website-card{
-      text-decoration:none;
       color:#172033;
       border:1px solid #e4e9f2;
       background:#fff;
@@ -565,7 +585,7 @@
 
     .site-link{
       margin-top:10px;
-      color:#2563eb;
+      color:var(--blue);
       font-size:10px;
       font-weight:700;
     }
@@ -593,18 +613,26 @@
       padding:22px 10px 28px;
       color:#7b8497;
       font-size:11px;
-      line-height:1.7;
+      line-height:1.8;
     }
 
     footer strong{
       color:#344054;
     }
 
-    /* ==================================================
-       TABLET
-       2 cards per row.
-       Last single card fills whole row.
-       ================================================== */
+    .footer-links{
+      margin-bottom:7px;
+    }
+
+    .footer-links a{
+      color:#526075;
+      margin:0 6px;
+      font-weight:700;
+    }
+
+    .footer-links a:hover{
+      color:var(--blue);
+    }
 
     @media(max-width:900px){
 
@@ -619,28 +647,19 @@
         grid-column:auto;
       }
 
-      /*
-        अगर tablet में आखिरी सिर्फ 1 card बचा है
-        तो पूरी row भर देगा।
-      */
-
       .file:last-child:nth-child(odd){
-        grid-column:1 / -1;
+        grid-column:1/-1;
       }
 
-      .websites{
-        grid-template-columns:1fr 1fr;
-      }
-
+      .websites,
       .community-grid{
         grid-template-columns:1fr 1fr;
       }
-    }
 
-    /* ==================================================
-       MOBILE
-       हमेशा 1 card per row
-       ================================================== */
+      .info-grid{
+        grid-template-columns:1fr;
+      }
+    }
 
     @media(max-width:600px){
 
@@ -709,6 +728,7 @@
 
       .btn{
         font-size:11px;
+        min-height:40px;
       }
 
       .websites{
@@ -741,7 +761,6 @@
       .actions{
         grid-template-columns:1fr;
       }
-
     }
   </style>
 </head>
@@ -753,16 +772,25 @@
 
     <div class="nav">
 
-      <div class="brand">
+      <a class="brand" href="/">
 
-        <div class="logo">GX</div>
-
-        <div>
-          <div class="brand-title">GSMXR Downloads</div>
-          <div class="brand-sub">Official GSMXR Download Server</div>
+        <div class="logo">
+          GX
         </div>
 
-      </div>
+        <div>
+
+          <div class="brand-title">
+            GSMXR Tools
+          </div>
+
+          <div class="brand-sub">
+            Software & Utility Download Center
+          </div>
+
+        </div>
+
+      </a>
 
       <div class="online">
         ● ONLINE
@@ -776,22 +804,26 @@
 
 <main class="wrap">
 
-  <!-- HERO -->
-
   <section class="hero">
 
     <div class="hero-inner">
 
       <div class="hero-badge">
+
         <span class="dot"></span>
-        Official Download Server
+
+        Official GSMXR Tools Center
+
       </div>
 
-      <h1>GSMXR Downloads</h1>
+      <h1>
+        GSMXR Tools Download Center
+      </h1>
 
       <p>
-        Tools, software and utility files with simple GSMXR branded
-        download links.
+        Find GSMXR software, service utilities, drivers and updated tool packages
+        in one place. Search by file name or category and download the required
+        ZIP, RAR, EXE or other available package.
       </p>
 
     </div>
@@ -799,15 +831,15 @@
   </section>
 
 
-  <!-- DOWNLOADS -->
-
-  <section class="section">
+  <section class="section" id="downloads">
 
     <div class="section-head">
 
       <div>
 
-        <h2>Available Downloads</h2>
+        <h2>
+          Available Downloads
+        </h2>
 
         <div
           id="fileCount"
@@ -817,12 +849,14 @@
 
       </div>
 
+
       <input
         id="search"
         class="search"
         type="search"
         placeholder="Search tool or file..."
         autocomplete="off"
+        aria-label="Search tools"
       >
 
     </div>
@@ -847,7 +881,89 @@
   </section>
 
 
-  <!-- SUPPORT -->
+  <section
+    class="section"
+    id="about">
+
+    <div class="section-head">
+
+      <div>
+
+        <h2>
+          About GSMXR Tools
+        </h2>
+
+        <div class="section-sub">
+          A lightweight download center for GSMXR software and service utilities.
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="info-grid">
+
+      <div class="info-card">
+
+        <h3>
+          About
+        </h3>
+
+        <p>
+          GSMXR Tools provides a central place to find GSMXR software,
+          service utilities, drivers and related tool packages.
+          File names and versions remain visible so users can identify
+          the correct package before downloading.
+        </p>
+
+      </div>
+
+
+      <div
+        class="info-card"
+        id="contact">
+
+        <h3>
+          Contact & Support
+        </h3>
+
+        <p>
+          For tools, services and support, visit
+
+          <a
+            href="https://gsmxr.in/"
+            target="_blank"
+            rel="noopener noreferrer">
+            GSMXR.in
+          </a>.
+
+          For updates, use the official GSMXR community links shown below.
+        </p>
+
+      </div>
+
+
+      <div
+        class="info-card"
+        id="disclaimer">
+
+        <h3>
+          Disclaimer
+        </h3>
+
+        <p>
+          Use service software only on devices you own or are authorized
+          to service. Always verify compatibility and tool version before use.
+          Product and company names belong to their respective owners.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
 
   <section class="section">
 
@@ -855,7 +971,9 @@
 
       <div>
 
-        <h2>Support & Community</h2>
+        <h2>
+          Support & Community
+        </h2>
 
         <div class="section-sub">
           GSMXR updates and community.
@@ -908,15 +1026,15 @@
   </section>
 
 
-  <!-- WEBSITES -->
-
   <section class="section">
 
     <div class="section-head">
 
       <div>
 
-        <h2>Our Websites</h2>
+        <h2>
+          Our Websites
+        </h2>
 
         <div class="section-sub">
           Tools, services, firmware and resources.
@@ -1037,9 +1155,32 @@
 
 <footer>
 
-  <strong>GSMXR Downloads</strong><br>
+  <div class="footer-links">
 
-  Official Download Server · d.gsmxr.com<br>
+    <a href="#about">
+      About
+    </a>
+
+    <a href="#contact">
+      Contact
+    </a>
+
+    <a href="#disclaimer">
+      Disclaimer
+    </a>
+
+  </div>
+
+
+  <strong>
+    GSMXR Tools
+  </strong>
+
+  <br>
+
+  Software & Utility Download Center · tool.gsmxr.com
+
+  <br>
 
   © <span id="year"></span> GSMXR
 
@@ -1048,846 +1189,579 @@
 
 <script>
 
-const PUBLIC_DOMAIN =
-  "https://tool.gsmxr.com/";
-
-const DEFAULT_CATEGORIES = [
-  "Realme Tools",
-  "Xiaomi Tools",
-  "USB Tools",
-  "Drivers & Utilities"
-];
-
-let ALL_FILES = [];
-let PINNED_FILES = [];
-let CATEGORY_DATA = {};
-let ACTIVE_CATEGORY = "All Files";
+  const PUBLIC_DOMAIN =
+    "https://tool.gsmxr.com/";
 
 
-document
-  .getElementById("year")
-  .textContent =
-  new Date().getFullYear();
+  const DEFAULT_CATEGORIES = [
+
+    "Realme Tools",
+
+    "Xiaomi Tools",
+
+    "USB Tools",
+
+    "Drivers & Utilities"
+
+  ];
 
 
-function escapeHTML(value){
+  let ALL_FILES = [];
 
-  return String(value)
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
+  let PINNED_FILES = [];
 
-}
+  let CATEGORY_DATA = {};
+
+  let ACTIVE_CATEGORY =
+    "All Files";
 
 
-function formatSize(bytes){
+  document
+    .getElementById("year")
+    .textContent =
+      new Date().getFullYear();
 
-  if(!bytes){
-    return "0 KB";
+
+  function escapeHTML(value){
+
+    return String(value)
+
+      .replace(/&/g,"&amp;")
+
+      .replace(/</g,"&lt;")
+
+      .replace(/>/g,"&gt;")
+
+      .replace(/"/g,"&quot;")
+
+      .replace(/'/g,"&#039;");
+
   }
 
-  const units =
-    ["B","KB","MB","GB"];
 
-  const i =
-    Math.min(
+  function formatSize(bytes){
+
+    if(!bytes){
+      return "0 KB";
+    }
+
+
+    const units = [
+      "B",
+      "KB",
+      "MB",
+      "GB"
+    ];
+
+
+    const i = Math.min(
+
       Math.floor(
         Math.log(bytes) /
         Math.log(1024)
       ),
+
       units.length - 1
+
     );
 
-  return (
-    bytes /
-    Math.pow(1024,i)
-  ).toFixed(
-    i === 0 ? 0 : 1
-  ) + " " + units[i];
 
-}
+    return (
 
+      bytes /
+      Math.pow(1024,i)
 
-function publicURL(name){
+    ).toFixed(
 
-  return PUBLIC_DOMAIN +
-    encodeURIComponent(name);
+      i === 0 ? 0 : 1
 
-}
+    ) +
 
+    " " +
 
-function isPinned(name){
+    units[i];
 
-  return PINNED_FILES.some(
-    item =>
-      item.toLowerCase() ===
-      name.toLowerCase()
-  );
-
-}
+  }
 
 
-function pinPosition(name){
+  function publicURL(name){
 
-  const i =
-    PINNED_FILES.findIndex(
+    return (
+
+      PUBLIC_DOMAIN +
+
+      encodeURIComponent(name)
+
+    );
+
+  }
+
+
+  function isPinned(name){
+
+    return PINNED_FILES.some(
+
       item =>
         item.toLowerCase() ===
         name.toLowerCase()
+
     );
 
-  return i === -1
-    ? 999999
-    : i;
-
-}
-
-
-/* AUTO CATEGORY */
-
-function autoDetectCategory(filename){
-
-  const name =
-    filename.toLowerCase();
-
-
-  /* REALME */
-
-  if(
-    name.includes("realme") ||
-    name.includes("rmx")
-  ){
-    return "Realme Tools";
   }
 
 
-  /* XIAOMI */
+  function pinPosition(name){
 
-  if(
-    name.includes("xiaomi") ||
-    name.includes("redmi") ||
-    name.includes("poco") ||
-    name.includes("miui") ||
-    name.includes("hyperos")
-  ){
-    return "Xiaomi Tools";
+    const i =
+      PINNED_FILES.findIndex(
+
+        item =>
+          item.toLowerCase() ===
+          name.toLowerCase()
+
+      );
+
+
+    return i === -1
+      ? 999999
+      : i;
+
   }
 
 
-  /* USB */
+  function autoDetectCategory(filename){
 
-  if(
-    name.includes("usb") ||
-    name.includes("usb197") ||
-    name.includes("usb-197") ||
-    name.includes("usb_197")
-  ){
-    return "USB Tools";
-  }
+    const name =
+      filename.toLowerCase();
 
-
-  /* DRIVERS */
-
-  if(
-    name.includes("driver") ||
-    name.includes("drivers") ||
-    name.includes("mtk") ||
-    name.includes("mediatek") ||
-    name.includes("qcom") ||
-    name.includes("qualcomm") ||
-    name.includes("adb") ||
-    name.includes("winusb") ||
-    name.includes("vcom") ||
-    name.includes("cdc") ||
-    name.includes("vc_redist") ||
-    name.includes("vc-redist") ||
-    name.includes("redist")
-  ){
-    return "Drivers & Utilities";
-  }
-
-
-  return "Other";
-
-}
-
-
-/* MANUAL CATEGORY */
-
-function getManualCategory(filename){
-
-  const target =
-    filename.toLowerCase();
-
-
-  for(
-    const [category,files]
-    of Object.entries(
-      CATEGORY_DATA
-    )
-  ){
 
     if(
-      Array.isArray(files) &&
-      files.some(
-        file =>
-          file.toLowerCase() ===
-          target
-      )
+
+      name.includes("realme") ||
+
+      name.includes("rmx")
+
     ){
 
-      return category;
+      return "Realme Tools";
 
     }
 
+
+    if(
+
+      name.includes("xiaomi") ||
+
+      name.includes("redmi") ||
+
+      name.includes("poco") ||
+
+      name.includes("miui") ||
+
+      name.includes("hyperos")
+
+    ){
+
+      return "Xiaomi Tools";
+
+    }
+
+
+    if(
+
+      name.includes("usb") ||
+
+      name.includes("usb197") ||
+
+      name.includes("usb-197") ||
+
+      name.includes("usb_197")
+
+    ){
+
+      return "USB Tools";
+
+    }
+
+
+    if(
+
+      name.includes("driver") ||
+
+      name.includes("drivers") ||
+
+      name.includes("mtk") ||
+
+      name.includes("mediatek") ||
+
+      name.includes("qcom") ||
+
+      name.includes("qualcomm") ||
+
+      name.includes("adb") ||
+
+      name.includes("winusb") ||
+
+      name.includes("vcom") ||
+
+      name.includes("cdc") ||
+
+      name.includes("vc_redist") ||
+
+      name.includes("vc-redist") ||
+
+      name.includes("redist")
+
+    ){
+
+      return "Drivers & Utilities";
+
+    }
+
+
+    return "Other";
+
   }
 
 
-  return null;
+  function getManualCategory(filename){
 
-}
+    const target =
+      filename.toLowerCase();
 
 
-function getFileCategory(filename){
+    for(
 
-  const manual =
-    getManualCategory(
-      filename
+      const [category,files]
+      of Object.entries(CATEGORY_DATA)
+
+    ){
+
+      if(
+
+        Array.isArray(files) &&
+
+        files.some(
+
+          file =>
+            file.toLowerCase() ===
+            target
+
+        )
+
+      ){
+
+        return category;
+
+      }
+
+    }
+
+
+    return null;
+
+  }
+
+
+  function getFileCategory(filename){
+
+    return (
+
+      getManualCategory(filename) ||
+
+      autoDetectCategory(filename)
+
     );
 
-
-  if(manual){
-    return manual;
   }
 
 
-  return autoDetectCategory(
-    filename
-  );
+  function sortFiles(files){
 
-}
+    return [...files].sort(
 
+      (a,b)=>{
 
-/* SORT */
+        const ap =
+          isPinned(a.name);
 
-function sortFiles(files){
-
-  return [...files].sort(
-    (a,b)=>{
-
-      const ap =
-        isPinned(a.name);
-
-      const bp =
-        isPinned(b.name);
+        const bp =
+          isPinned(b.name);
 
 
-      if(ap && bp){
+        if(ap && bp){
+
+          return (
+
+            pinPosition(a.name) -
+
+            pinPosition(b.name)
+
+          );
+
+        }
+
+
+        if(ap && !bp){
+          return -1;
+        }
+
+
+        if(!ap && bp){
+          return 1;
+        }
+
 
         return (
-          pinPosition(a.name) -
-          pinPosition(b.name)
+
+          new Date(b.updated_at) -
+
+          new Date(a.updated_at)
+
         );
 
       }
 
+    );
 
-      if(ap && !bp){
-        return -1;
-      }
-
-
-      if(!ap && bp){
-        return 1;
-      }
+  }
 
 
-      return (
-        new Date(b.updated_at) -
-        new Date(a.updated_at)
-      );
+  function buildCategoryButtons(){
 
-    }
-  );
-
-}
-
-
-/* CATEGORY BUTTONS */
-
-function buildCategoryButtons(){
-
-  const holder =
-    document
-      .getElementById(
+    const holder =
+      document.getElementById(
         "categories"
       );
 
 
-  const manualCategories =
-    Object.keys(
-      CATEGORY_DATA
-    );
+    const manualCategories =
+      Object.keys(
+        CATEGORY_DATA
+      );
 
 
-  const categoryNames =
-    [
+    const categoryNames = [
+
       ...new Set([
+
         ...DEFAULT_CATEGORIES,
+
         ...manualCategories
+
       ])
+
     ];
 
 
-  let html = `
+    let html = `
 
-    <button
-      class="category-btn active"
-      data-category="All Files">
+      <button
+        class="category-btn active"
+        data-category="All Files">
 
-      All Files
+        All Files
 
-      <span class="cat-count">
-        ${ALL_FILES.length}
-      </span>
+        <span class="cat-count">
 
-    </button>
+          ${ALL_FILES.length}
 
-  `;
+        </span>
+
+      </button>
+
+    `;
 
 
-  categoryNames
-    .forEach(category=>{
+    categoryNames.forEach(
 
-      const count =
-        ALL_FILES.filter(
-          file =>
+      category=>{
+
+        const count =
+          ALL_FILES.filter(
+
+            file =>
+              getFileCategory(
+                file.name
+              ) === category
+
+          ).length;
+
+
+        html += `
+
+          <button
+            class="category-btn"
+            data-category="${escapeHTML(category)}">
+
+            ${escapeHTML(category)}
+
+            <span class="cat-count">
+
+              ${count}
+
+            </span>
+
+          </button>
+
+        `;
+
+      }
+
+    );
+
+
+    const otherCount =
+      ALL_FILES.filter(
+
+        file =>
+          getFileCategory(
+            file.name
+          ) === "Other"
+
+      ).length;
+
+
+    html += `
+
+      <button
+        class="category-btn"
+        data-category="Other">
+
+        Other
+
+        <span class="cat-count">
+
+          ${otherCount}
+
+        </span>
+
+      </button>
+
+    `;
+
+
+    holder.innerHTML =
+      html;
+
+
+    holder
+      .querySelectorAll(
+        ".category-btn"
+      )
+      .forEach(
+
+        button=>{
+
+          button.addEventListener(
+
+            "click",
+
+            function(){
+
+              holder
+                .querySelectorAll(
+                  ".category-btn"
+                )
+                .forEach(
+
+                  btn =>
+                    btn.classList.remove(
+                      "active"
+                    )
+
+                );
+
+
+              this
+                .classList
+                .add("active");
+
+
+              ACTIVE_CATEGORY =
+                this.dataset.category;
+
+
+              applyFilters();
+
+            }
+
+          );
+
+        }
+
+      );
+
+  }
+
+
+  function applyFilters(){
+
+    const query =
+      document
+
+        .getElementById("search")
+
+        .value
+
+        .trim()
+
+        .toLowerCase();
+
+
+    const filtered =
+      ALL_FILES.filter(
+
+        file=>{
+
+          const searchMatch =
+
+            !query ||
+
+            file.name
+              .toLowerCase()
+              .includes(query);
+
+
+          const category =
             getFileCategory(
               file.name
-            ) === category
-        ).length;
-
-
-      html += `
-
-        <button
-          class="category-btn"
-          data-category="${escapeHTML(category)}">
-
-          ${escapeHTML(category)}
-
-          <span class="cat-count">
-            ${count}
-          </span>
-
-        </button>
-
-      `;
-
-    });
-
-
-  const otherCount =
-    ALL_FILES.filter(
-      file =>
-        getFileCategory(
-          file.name
-        ) === "Other"
-    ).length;
-
-
-  html += `
-
-    <button
-      class="category-btn"
-      data-category="Other">
-
-      Other
-
-      <span class="cat-count">
-        ${otherCount}
-      </span>
-
-    </button>
-
-  `;
-
-
-  holder.innerHTML =
-    html;
-
-
-  holder
-    .querySelectorAll(
-      ".category-btn"
-    )
-    .forEach(button=>{
-
-      button.addEventListener(
-        "click",
-        function(){
-
-          holder
-            .querySelectorAll(
-              ".category-btn"
-            )
-            .forEach(btn=>
-              btn.classList.remove(
-                "active"
-              )
             );
 
 
-          this.classList.add(
-            "active"
+          const categoryMatch =
+
+            ACTIVE_CATEGORY ===
+              "All Files" ||
+
+            category ===
+              ACTIVE_CATEGORY;
+
+
+          return (
+
+            searchMatch &&
+
+            categoryMatch
+
           );
 
-
-          ACTIVE_CATEGORY =
-            this.dataset.category;
-
-
-          applyFilters();
-
         }
+
       );
 
-    });
 
-}
+    renderFiles(filtered);
 
-
-/* FILTER */
-
-function applyFilters(){
-
-  const query =
-    document
-      .getElementById(
-        "search"
-      )
-      .value
-      .trim()
-      .toLowerCase();
+  }
 
 
-  const filtered =
-    ALL_FILES.filter(file=>{
+  function renderFiles(files){
 
-      const searchMatch =
-        !query ||
-        file.name
-          .toLowerCase()
-          .includes(query);
-
-
-      const category =
-        getFileCategory(
-          file.name
-        );
-
-
-      const categoryMatch =
-        ACTIVE_CATEGORY ===
-          "All Files" ||
-        category ===
-          ACTIVE_CATEGORY;
-
-
-      return (
-        searchMatch &&
-        categoryMatch
-      );
-
-    });
-
-
-  renderFiles(
-    filtered
-  );
-
-}
-
-
-/* RENDER */
-
-function renderFiles(files){
-
-  const box =
-    document
-      .getElementById(
+    const box =
+      document.getElementById(
         "files"
       );
-
-
-  document
-    .getElementById(
-      "fileCount"
-    )
-    .textContent =
-    files.length +
-    " file" +
-    (
-      files.length === 1
-        ? ""
-        : "s"
-    ) +
-    " available";
-
-
-  if(!files.length){
-
-    box.innerHTML =
-      '<div class="loading">No files found.</div>';
-
-    return;
-
-  }
-
-
-  const sorted =
-    sortFiles(
-      files
-    );
-
-
-  const newest =
-    [...ALL_FILES]
-      .sort(
-        (a,b)=>
-          new Date(b.updated_at) -
-          new Date(a.updated_at)
-      )[0];
-
-
-  box.innerHTML =
-    sorted.map(file=>{
-
-      const pinned =
-        isPinned(
-          file.name
-        );
-
-
-      const latest =
-        newest &&
-        newest.name ===
-        file.name;
-
-
-      const category =
-        getFileCategory(
-          file.name
-        );
-
-
-      const url =
-        publicURL(
-          file.name
-        );
-
-
-      const date =
-        file.updated_at
-          ? new Date(
-              file.updated_at
-            ).toLocaleDateString(
-              "en-IN",
-              {
-                day:"2-digit",
-                month:"short",
-                year:"numeric"
-              }
-            )
-          : "";
-
-
-      return `
-
-        <article
-          class="file ${pinned ? "pinned" : ""}">
-
-          <div class="file-top">
-
-            <div class="filename">
-              ${escapeHTML(file.name)}
-            </div>
-
-
-            <div class="badges">
-
-              ${
-                pinned
-                  ? '<span class="badge pin-badge">📌 PINNED</span>'
-                  : ''
-              }
-
-              ${
-                latest
-                  ? '<span class="badge new-badge">NEW</span>'
-                  : ''
-              }
-
-            </div>
-
-          </div>
-
-
-          <div class="category-badge">
-            ${escapeHTML(category)}
-          </div>
-
-
-          <div class="meta">
-
-            ${formatSize(file.size)}
-
-            ${
-              date
-                ? ` • ${date}`
-                : ""
-            }
-
-            ${
-              typeof file.download_count
-              === "number"
-                ? ` • ${file.download_count} downloads`
-                : ""
-            }
-
-          </div>
-
-
-          <div class="actions">
-
-            <a
-              class="btn download-btn"
-              href="${url}">
-              Download
-            </a>
-
-
-            <button
-              class="btn copy-btn"
-              type="button"
-              onclick='copyLink(
-                ${JSON.stringify(url)},
-                this
-              )'>
-              Copy Link
-            </button>
-
-          </div>
-
-        </article>
-
-      `;
-
-    }).join("");
-
-}
-
-
-/* COPY LINK */
-
-async function copyLink(
-  url,
-  button
-){
-
-  try{
-
-    await navigator
-      .clipboard
-      .writeText(
-        url
-      );
-
-
-    button.classList.remove(
-      "copied"
-    );
-
-
-    void button.offsetWidth;
-
-
-    button.classList.add(
-      "copied"
-    );
-
-
-    button.innerHTML =
-      "✓ Link Copied";
-
-
-    setTimeout(
-      ()=>{
-
-        button.classList.remove(
-          "copied"
-        );
-
-
-        button.innerHTML =
-          "Copy Link";
-
-      },
-      1600
-    );
-
-  }catch(error){
-
-    prompt(
-      "Copy this link:",
-      url
-    );
-
-  }
-
-}
-
-
-/* LOAD PINNED */
-
-async function loadPinned(){
-
-  try{
-
-    const response =
-      await fetch(
-        "pinned.json?v=" +
-        Date.now(),
-        {
-          cache:"no-store"
-        }
-      );
-
-
-    if(!response.ok){
-
-      PINNED_FILES = [];
-
-      return;
-
-    }
-
-
-    const data =
-      await response.json();
-
-
-    PINNED_FILES =
-      Array.isArray(
-        data.files
-      )
-        ? data.files
-        : [];
-
-  }catch(error){
-
-    PINNED_FILES = [];
-
-  }
-
-}
-
-
-/* LOAD CATEGORIES */
-
-async function loadCategories(){
-
-  try{
-
-    const response =
-      await fetch(
-        "categories.json?v=" +
-        Date.now(),
-        {
-          cache:"no-store"
-        }
-      );
-
-
-    if(!response.ok){
-
-      CATEGORY_DATA = {};
-
-      return;
-
-    }
-
-
-    const data =
-      await response.json();
-
-
-    CATEGORY_DATA =
-      data &&
-      typeof data === "object"
-        ? data
-        : {};
-
-  }catch(error){
-
-    CATEGORY_DATA = {};
-
-  }
-
-}
-
-
-/* LOAD FILES */
-
-async function loadFiles(){
-
-  try{
-
-    const response =
-      await fetch(
-        "files.json?v=" +
-        Date.now(),
-        {
-          cache:"no-store"
-        }
-      );
-
-
-    if(!response.ok){
-
-      throw new Error(
-        "Unable to load files"
-      );
-
-    }
-
-
-    const data =
-      await response.json();
-
-
-    ALL_FILES =
-      Array.isArray(
-        data.files
-      )
-        ? data.files
-        : [];
-
-
-    buildCategoryButtons();
-
-    applyFilters();
-
-  }catch(error){
-
-    document
-      .getElementById(
-        "files"
-      )
-      .innerHTML =
-      '<div class="loading">Files temporarily unavailable.</div>';
 
 
     document
@@ -1895,41 +1769,504 @@ async function loadFiles(){
         "fileCount"
       )
       .textContent =
-      "Unable to load files";
+
+        files.length +
+
+        " file" +
+
+        (
+          files.length === 1
+            ? ""
+            : "s"
+        ) +
+
+        " available";
+
+
+    if(!files.length){
+
+      box.innerHTML =
+
+        '<div class="loading">No files found.</div>';
+
+      return;
+
+    }
+
+
+    const sorted =
+      sortFiles(files);
+
+
+    const newest =
+      [...ALL_FILES]
+        .sort(
+
+          (a,b)=>
+
+            new Date(
+              b.updated_at
+            ) -
+
+            new Date(
+              a.updated_at
+            )
+
+        )[0];
+
+
+    box.innerHTML =
+      sorted.map(
+
+        file=>{
+
+          const pinned =
+            isPinned(
+              file.name
+            );
+
+
+          const latest =
+
+            newest &&
+
+            newest.name ===
+              file.name;
+
+
+          const category =
+            getFileCategory(
+              file.name
+            );
+
+
+          const url =
+            publicURL(
+              file.name
+            );
+
+
+          const date =
+
+            file.updated_at
+
+              ?
+
+              new Date(
+                file.updated_at
+              )
+              .toLocaleDateString(
+
+                "en-IN",
+
+                {
+
+                  day:"2-digit",
+
+                  month:"short",
+
+                  year:"numeric"
+
+                }
+
+              )
+
+              : "";
+
+
+          return `
+
+            <article
+              class="file ${pinned ? "pinned" : ""}">
+
+
+              <div class="file-top">
+
+
+                <div class="filename">
+
+                  ${escapeHTML(file.name)}
+
+                </div>
+
+
+                <div class="badges">
+
+
+                  ${
+                    pinned
+
+                      ?
+
+                      '<span class="badge pin-badge">📌 PINNED</span>'
+
+                      : ''
+                  }
+
+
+                  ${
+                    latest
+
+                      ?
+
+                      '<span class="badge new-badge">NEW</span>'
+
+                      : ''
+                  }
+
+
+                </div>
+
+
+              </div>
+
+
+              <div class="category-badge">
+
+                ${escapeHTML(category)}
+
+              </div>
+
+
+              <div class="meta">
+
+                ${formatSize(file.size)}
+
+                ${
+                  date
+                    ?
+                    ` • ${date}`
+                    :
+                    ""
+                }
+
+                ${
+                  typeof file.download_count
+                  === "number"
+
+                    ?
+
+                    ` • ${file.download_count} downloads`
+
+                    :
+
+                    ""
+                }
+
+              </div>
+
+
+              <div class="actions">
+
+
+                <a
+                  class="btn download-btn"
+                  href="${url}"
+                  target="_blank"
+                  rel="nofollow noopener noreferrer">
+
+                  Download
+
+                </a>
+
+
+                <button
+                  class="btn copy-btn"
+                  type="button"
+                  onclick='copyLink(${JSON.stringify(url)},this)'>
+
+                  Copy Link
+
+                </button>
+
+
+              </div>
+
+
+            </article>
+
+          `;
+
+        }
+
+      )
+      .join("");
 
   }
 
-}
+
+  async function copyLink(
+    url,
+    button
+  ){
+
+    try{
+
+      await navigator
+        .clipboard
+        .writeText(url);
 
 
-/* START */
-
-async function init(){
-
-  await Promise.all([
-    loadPinned(),
-    loadCategories()
-  ]);
+      button
+        .classList
+        .add("copied");
 
 
-  await loadFiles();
-
-}
-
-
-init();
+      button.innerHTML =
+        "✓ Link Copied";
 
 
-/* SEARCH */
+      setTimeout(
 
-document
-  .getElementById(
-    "search"
-  )
-  .addEventListener(
-    "input",
-    applyFilters
-  );
+        ()=>{
+
+          button
+            .classList
+            .remove("copied");
+
+
+          button.innerHTML =
+            "Copy Link";
+
+        },
+
+        1600
+
+      );
+
+    }
+
+    catch(error){
+
+      prompt(
+
+        "Copy this link:",
+
+        url
+
+      );
+
+    }
+
+  }
+
+
+  async function loadPinned(){
+
+    try{
+
+      const response =
+        await fetch(
+
+          "pinned.json?v=" +
+          Date.now(),
+
+          {
+            cache:"no-store"
+          }
+
+        );
+
+
+      if(!response.ok){
+
+        PINNED_FILES = [];
+
+        return;
+
+      }
+
+
+      const data =
+        await response.json();
+
+
+      PINNED_FILES =
+
+        Array.isArray(
+          data.files
+        )
+
+          ?
+
+          data.files
+
+          :
+
+          [];
+
+    }
+
+    catch(error){
+
+      PINNED_FILES = [];
+
+    }
+
+  }
+
+
+  async function loadCategories(){
+
+    try{
+
+      const response =
+        await fetch(
+
+          "categories.json?v=" +
+          Date.now(),
+
+          {
+            cache:"no-store"
+          }
+
+        );
+
+
+      if(!response.ok){
+
+        CATEGORY_DATA = {};
+
+        return;
+
+      }
+
+
+      const data =
+        await response.json();
+
+
+      CATEGORY_DATA =
+
+        data &&
+
+        typeof data ===
+          "object"
+
+          ?
+
+          data
+
+          :
+
+          {};
+
+    }
+
+    catch(error){
+
+      CATEGORY_DATA = {};
+
+    }
+
+  }
+
+
+  async function loadFiles(){
+
+    try{
+
+      const response =
+        await fetch(
+
+          "files.json?v=" +
+          Date.now(),
+
+          {
+            cache:"no-store"
+          }
+
+        );
+
+
+      if(!response.ok){
+
+        throw new Error(
+          "Unable to load files"
+        );
+
+      }
+
+
+      const data =
+        await response.json();
+
+
+      ALL_FILES =
+
+        Array.isArray(
+          data.files
+        )
+
+          ?
+
+          data.files
+
+          :
+
+          [];
+
+
+      buildCategoryButtons();
+
+      applyFilters();
+
+    }
+
+    catch(error){
+
+      document
+        .getElementById(
+          "files"
+        )
+        .innerHTML =
+
+          '<div class="loading">Files temporarily unavailable.</div>';
+
+
+      document
+        .getElementById(
+          "fileCount"
+        )
+        .textContent =
+
+          "Unable to load files";
+
+    }
+
+  }
+
+
+  async function init(){
+
+    await Promise.all([
+
+      loadPinned(),
+
+      loadCategories()
+
+    ]);
+
+
+    await loadFiles();
+
+  }
+
+
+  document
+
+    .getElementById("search")
+
+    .addEventListener(
+
+      "input",
+
+      applyFilters
+
+    );
+
+
+  init();
 
 </script>
 
