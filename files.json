@@ -1,5 +1,5 @@
 {
-  "synced_at": "2026-10-20T16:23:34.478811+00:00",
+  "synced_at": "2026-10-21T03:26:05.833239+00:00",
   "count": 21,
   "files": [
     {
@@ -12,7 +12,7 @@
       "name": "RMX_OTP_1_Click_MTK_QC_Tool.zip",
       "size": 18862234,
       "updated_at": "2026-10-20T07:19:01Z",
-      "download_count": 20
+      "download_count": 22
     },
     {
       "name": "RMX-OTP-V3.zip",
@@ -60,7 +60,7 @@
       "name": "X-PRO-Universal-Service-Tool-V1.03.exe",
       "size": 1801121,
       "updated_at": "2026-09-30T02:40:39Z",
-      "download_count": 27
+      "download_count": 43
     },
     {
       "name": "Xiaomi-Auth-Key-Lite.zip",
@@ -126,7 +126,7 @@
       "name": "RMX-OTP-V5.zip",
       "size": 17279990,
       "updated_at": "2026-09-26T04:09:54Z",
-      "download_count": 421
+      "download_count": 424
     }
   ]
 }
