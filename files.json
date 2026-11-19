@@ -1,12 +1,24 @@
 {
-  "synced_at": "2026-11-19T06:00:16.417583+00:00",
-  "count": 33,
+  "synced_at": "2026-11-19T19:58:19.672267+00:00",
+  "count": 35,
   "files": [
+    {
+      "name": "XPRO_Fastboot_Universal_V1.4.zip",
+      "size": 1238477,
+      "updated_at": "2026-11-19T17:25:02Z",
+      "download_count": 1
+    },
+    {
+      "name": "Easy-Work-Tool-2.3.0.zip",
+      "size": 2391639,
+      "updated_at": "2026-11-19T17:24:51Z",
+      "download_count": 0
+    },
     {
       "name": "XPRO_REALME_TOOL_V2.zip",
       "size": 55340113,
       "updated_at": "2026-11-17T17:49:05Z",
-      "download_count": 3
+      "download_count": 4
     },
     {
       "name": "XPRO_MTK_TOOL_V3_PRO.zip",
@@ -30,7 +42,7 @@
       "name": "XPRO_MTK_MULTI_TOOL_V3_OTP.zip",
       "size": 28263654,
       "updated_at": "2026-11-13T10:05:56Z",
-      "download_count": 32
+      "download_count": 48
     },
     {
       "name": "XPRO_MTK_MULTI_TOOL_V1_OTP.zip",
@@ -42,13 +54,13 @@
       "name": "OPPO.ONEPLUS.REALME.MTK.ONLY.2.0.zip",
       "size": 1844309,
       "updated_at": "2026-11-06T11:05:58Z",
-      "download_count": 110
+      "download_count": 112
     },
     {
       "name": "RMXOTP.1.CLICK.2.0.zip",
       "size": 22991052,
       "updated_at": "2026-11-06T08:46:02Z",
-      "download_count": 157
+      "download_count": 159
     },
     {
       "name": "RMX_OTP_TOOL_1_CLICK_FIX.zip",
@@ -66,7 +78,7 @@
       "name": "RMXOTP.TOOL.V7.zip",
       "size": 28615579,
       "updated_at": "2026-10-26T15:59:17Z",
-      "download_count": 184
+      "download_count": 185
     },
     {
       "name": "Realme_service_Tools.zip",
@@ -96,7 +108,7 @@
       "name": "RMX-OTP-V6.zip",
       "size": 17495117,
       "updated_at": "2026-10-10T06:44:28Z",
-      "download_count": 52
+      "download_count": 67
     },
     {
       "name": "RMX-OTP-V6.2.1.zip",
@@ -138,7 +150,7 @@
       "name": "Xiaomi-Auth-Key-Lite.zip",
       "size": 113229334,
       "updated_at": "2026-09-29T15:10:18Z",
-      "download_count": 56
+      "download_count": 57
     },
     {
       "name": "RMX-Shrigsm-2.1.exe",
@@ -150,7 +162,7 @@
       "name": "USB-197.exe",
       "size": 2638168,
       "updated_at": "2026-09-28T17:13:05Z",
-      "download_count": 315
+      "download_count": 319
     },
     {
       "name": "AJ-CARE.-.realme.zip",
@@ -168,7 +180,7 @@
       "name": "GRT_REALME_v2.1_FIXED.zip",
       "size": 63642806,
       "updated_at": "2026-09-28T12:17:25Z",
-      "download_count": 242
+      "download_count": 243
     },
     {
       "name": "UnlockRealme.rar",
@@ -180,7 +192,7 @@
       "name": "Vc_Redist_Aio.zip",
       "size": 48040207,
       "updated_at": "2026-09-26T09:44:52Z",
-      "download_count": 66
+      "download_count": 67
     },
     {
       "name": "USB-197-paas123.rar",
@@ -198,7 +210,7 @@
       "name": "RMX-OTP-V5.zip",
       "size": 17279990,
       "updated_at": "2026-09-26T04:09:54Z",
-      "download_count": 954
+      "download_count": 980
     }
   ]
 }
